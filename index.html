@@ -12,1219 +12,235 @@
 <meta property="og:url" content="https://silversignal.ai/" />
 <link rel="canonical" href="https://silversignal.ai/" />
 
-<!-- Fonts: Plus Jakarta Sans (display + body), Geist Mono (mono) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- =========================================================
-     Analytics placeholders. Uncomment & paste IDs when ready.
-     ========================================================= -->
-<!-- Google Analytics 4
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
-</script>
--->
-
-<!-- Microsoft Clarity
-<script type="text/javascript">
-  (function(c,l,a,r,i,t,y){
-    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window, document, "clarity", "script", "XXXXXXXXXX");
-</script>
--->
-
-<!-- LinkedIn Insight Tag
-<script type="text/javascript">
-  _linkedin_partner_id = "XXXXXXX";
-  window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
-  window._linkedin_data_partner_ids.push(_linkedin_partner_id);
-</script>
-<script type="text/javascript">
-  (function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};
-  window.lintrk.q=[]} var s=document.getElementsByTagName("script")[0];
-  var b=document.createElement("script"); b.type="text/javascript";b.async=true;
-  b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";
-  s.parentNode.insertBefore(b,s);})(window.lintrk);
-</script>
--->
-
 <style>
-/* =========================================================
-   Tokens
-   ========================================================= */
 :root{
-  --bg:#FAFAF7;
-  --bg-2:#F4F2EA;
-  --bg-3:#EDEAE0;
-  --ink:#171716;
-  --ink-2:#2C2C2A;
-  --muted:#6E6E68;
-  --muted-2:#92928D;
-  --line:#E2E0D8;
-  --line-2:#C9C7BD;
-  --accent:#1D2A38;
-  --accent-2:#2D3F52;
-  --loss:#8C2D2D;
-  --gain:#2D5C3F;
-  --serif:"Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
-  --sans:"Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
-  --mono:"Geist Mono", ui-monospace, "JetBrains Mono", "SF Mono", Menlo, monospace;
-  --container:1520px;
-  --gutter:clamp(20px,4vw,72px);
+  --bg:#FAFAF7;--bg-2:#F4F2EA;--bg-3:#EDEAE0;
+  --ink:#171716;--ink-2:#2C2C2A;
+  --muted:#6E6E68;--muted-2:#92928D;
+  --line:#E2E0D8;--line-2:#C9C7BD;
+  --accent:#1D2A38;--accent-2:#2D3F52;
+  --loss:#8C2D2D;--gain:#2D5C3F;
+  --serif:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Inter","Helvetica Neue",Arial,sans-serif;
+  --sans:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Inter","Helvetica Neue",Arial,sans-serif;
+  --mono:"Geist Mono",ui-monospace,"JetBrains Mono","SF Mono",Menlo,monospace;
+  --container:1520px;--gutter:clamp(20px,4vw,72px);
 }
-
-/* =========================================================
-   Base
-   ========================================================= */
 *,*::before,*::after{box-sizing:border-box}
 html,body{margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{
-  background:var(--bg);
-  color:var(--ink);
-  font-family:var(--sans);
-  font-weight:400;
-  font-size:16px;
-  line-height:1.55;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  text-rendering:optimizeLegibility;
-  overflow-x:hidden;
-}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;overflow-x:hidden}
 img,svg{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 input,select{font:inherit;color:inherit}
 ::selection{background:var(--accent);color:var(--bg)}
 
-/* =========================================================
-   Layout primitives
-   ========================================================= */
-.wrap{
-  max-width:var(--container);
-  margin:0 auto;
-  padding:0 var(--gutter);
-}
-.rule{
-  height:1px;
-  background:var(--line);
-  width:100%;
-}
-.rule--strong{ background:var(--line-2) }
+.wrap{max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}
+.eyebrow{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.eyebrow .num{color:var(--accent)}
+.eyebrow .bar{flex:0 0 28px;height:1px;background:var(--line-2)}
 
-/* Numbered section markers */
-.eyebrow{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  font-family:var(--mono);
-  font-size:11px;
-  font-weight:500;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
-.eyebrow .num{ color:var(--accent) }
-.eyebrow .bar{
-  flex:0 0 28px;
-  height:1px;
-  background:var(--line-2);
-}
+.h-display{font-family:var(--serif);font-weight:600;letter-spacing:-0.025em;line-height:1.05;font-size:clamp(40px,5.4vw,76px);color:var(--ink)}
+.h-display em{font-style:italic;color:inherit}
+.h-section{font-family:var(--serif);font-weight:600;letter-spacing:-0.02em;line-height:1.08;font-size:clamp(34px,4.6vw,60px);color:var(--ink);margin:0}
+.h-section em{font-style:italic;color:inherit}
+.calc__title,.case__title,.case__metric .to,.phase__title,.work__promise .pledge,.work__promise .seal strong,.work__pillar h3,.cta__title,.cta__path-title,.deliv__title,.calc__row .v,.hero__meta .val{font-weight:600;letter-spacing:-0.015em}
+.lede{font-size:clamp(16px,1.25vw,19px);line-height:1.55;color:var(--ink-2);max-width:62ch}
 
-/* Generic type */
-.h-display{
-  font-family:var(--serif);
-  font-weight:600;
-  letter-spacing:-0.025em;
-  line-height:1.05;
-  font-size:clamp(40px, 5.4vw, 76px);
-  color:var(--ink);
-}
-.h-display em{ font-style:italic; color:inherit }
-.h-section{
-  font-family:var(--serif);
-  font-weight:600;
-  letter-spacing:-0.02em;
-  line-height:1.08;
-  font-size:clamp(34px, 4.6vw, 60px);
-  color:var(--ink);
-  margin:0;
-}
-.h-section em{ font-style:italic; color:inherit }
+.btn{display:inline-flex;align-items:center;gap:12px;padding:18px 26px;border:1px solid var(--accent);background:var(--accent);color:var(--bg);font-family:var(--sans);font-weight:500;font-size:14px;letter-spacing:.02em;transition:transform .15s ease,background .15s ease,border-color .15s ease,color .15s ease;cursor:pointer}
+.btn:hover{background:var(--accent-2);border-color:var(--accent-2)}
+.btn:active{transform:translateY(1px)}
+.btn .arrow{font-family:var(--mono);font-size:14px;line-height:1}
 
-/* Display-weight headlines (sans needs more weight than serif) */
-.calc__title, .case__title, .case__metric .to,
-.phase__title, .work__promise .pledge, .work__promise .seal strong,
-.work__pillar h3, .cta__title, .cta__path-title,
-.deliv__title, .calc__row .v, .hero__meta .val{
-  font-weight:600;
-  letter-spacing:-0.015em;
-}
-.lede{
-  font-size:clamp(16px, 1.25vw, 19px);
-  line-height:1.55;
-  color:var(--ink-2);
-  max-width:62ch;
-}
-.mono{
-  font-family:var(--mono);
-  font-size:11px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
+section{position:relative}
+.section-pad{padding:clamp(72px,10vw,140px) 0}
 
-/* Buttons */
-.btn{
-  display:inline-flex;
-  align-items:center;
-  gap:12px;
-  padding:18px 26px;
-  border:1px solid var(--accent);
-  background:var(--accent);
-  color:var(--bg);
-  font-family:var(--sans);
-  font-weight:500;
-  font-size:14px;
-  letter-spacing:.02em;
-  transition:transform .15s ease, background .15s ease, border-color .15s ease, color .15s ease;
-  cursor:pointer;
-}
-.btn:hover{ background:var(--accent-2); border-color:var(--accent-2) }
-.btn:active{ transform:translateY(1px) }
-.btn .arrow{
-  font-family:var(--mono);
-  font-size:14px;
-  line-height:1;
-}
-.btn--ghost{
-  background:transparent;
-  color:var(--ink);
-  border-color:var(--line-2);
-}
-.btn--ghost:hover{ border-color:var(--accent); color:var(--accent); background:transparent }
+.topbar{position:sticky;top:0;z-index:50;background:rgba(250,250,247,.85);backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
+.topbar__inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:22px;letter-spacing:-0.01em;color:var(--ink)}
+.brand .mark{width:10px;height:10px;border:1px solid var(--accent);transform:rotate(45deg);display:inline-block}
+.brand em{font-style:italic;color:inherit}
+.topnav{display:flex;align-items:center;gap:28px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.topnav a:hover{color:var(--ink)}
+.topnav .cta{color:var(--ink);border:1px solid var(--line-2);padding:10px 14px;transition:border-color .15s ease,color .15s ease}
+.topnav .cta:hover{border-color:var(--accent);color:var(--accent)}
+@media (max-width:780px){.topnav .link{display:none}}
 
-/* Section frame */
-section{ position:relative }
-.section-pad{ padding:clamp(72px,10vw,140px) 0 }
+.hero{position:relative;border-bottom:1px solid var(--line);padding:clamp(48px,7vw,96px) 0 clamp(56px,8vw,120px)}
+.hero__grid{display:grid;grid-template-columns:1.45fr 1fr;gap:clamp(32px,5vw,72px);align-items:start}
+.hero__left .eyebrow{margin-bottom:36px}
+.hero__headline{margin:0 0 28px}
+.hero__headline .line{display:block}
+.hero__sub{font-size:clamp(16px,1.25vw,19px);line-height:1.55;color:var(--ink-2);max-width:54ch;margin:0 0 36px}
+.hero__cta-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+.hero__reassure{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.hero__reassure span{margin:0 10px;color:var(--line-2)}
+.hero__meta{margin-top:clamp(40px,5vw,72px);padding-top:24px;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.hero__meta .label{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-2);margin-bottom:8px}
+.hero__meta .val{font-family:var(--serif);font-size:clamp(20px,1.6vw,26px);color:var(--ink);line-height:1.1}
 
-/* =========================================================
-   Top bar
-   ========================================================= */
-.topbar{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(250,250,247,.85);
-  backdrop-filter:saturate(140%) blur(10px);
-  -webkit-backdrop-filter:saturate(140%) blur(10px);
-  border-bottom:1px solid var(--line);
-}
-.topbar__inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  height:64px;
-}
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-family:var(--serif);
-  font-size:22px;
-  letter-spacing:-0.01em;
-  color:var(--ink);
-}
-.brand .mark{
-  width:10px;height:10px;
-  border:1px solid var(--accent);
-  transform:rotate(45deg);
-  display:inline-block;
-}
-.brand em{ font-style:italic; color:inherit }
-.topnav{
-  display:flex;
-  align-items:center;
-  gap:28px;
-  font-family:var(--mono);
-  font-size:11px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
-.topnav a:hover{ color:var(--ink) }
-.topnav .cta{
-  color:var(--ink);
-  border:1px solid var(--line-2);
-  padding:10px 14px;
-  transition:border-color .15s ease, color .15s ease;
-}
-.topnav .cta:hover{ border-color:var(--accent); color:var(--accent) }
-@media (max-width:780px){
-  .topnav .link{ display:none }
-}
+.calc{position:relative;background:#FFFFFF;border:1px solid var(--line-2);padding:clamp(24px,2.4vw,32px)}
+.calc::before{content:"";position:absolute;top:-1px;left:-1px;right:-1px;height:2px;background:var(--accent)}
+.calc__head{position:relative;margin-bottom:24px;padding-bottom:18px;padding-right:54px;border-bottom:1px solid var(--line)}
+.calc__title{font-family:var(--serif);font-size:22px;line-height:1.15;color:var(--ink);margin:0;max-width:90%}
+.calc__title em{font-style:italic;color:inherit}
+.calc__tag{position:absolute;top:0;right:0;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line-2);padding:5px 8px}
+.calc__field{margin-bottom:18px}
+.calc__field label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.calc__select,.calc__input{width:100%;background:var(--bg);border:1px solid var(--line-2);color:var(--ink);padding:14px;font-family:var(--sans);font-size:15px;outline:none;transition:border-color .15s ease;border-radius:0;-webkit-appearance:none;appearance:none}
+.calc__select{background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 18px) 55%,calc(100% - 13px) 55%;background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:36px}
+.calc__input:focus,.calc__select:focus{border-color:var(--accent)}
+.calc__results{margin-top:8px;padding-top:20px;border-top:1px solid var(--line);display:grid;gap:14px}
+.calc__row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:6px 0}
+.calc__row .k{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.calc__row .v{font-family:var(--serif);font-size:clamp(22px,2vw,28px);color:var(--ink);line-height:1;letter-spacing:-0.01em}
+.calc__row.is-loss .v{color:var(--loss)}
+.calc__row.is-gain .v{color:var(--gain)}
+.calc__email{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+.calc__email .lab{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.calc__email-row{display:flex;border:1px solid var(--line-2)}
+.calc__email-row input{flex:1;border:0;background:transparent;padding:14px;font-size:14px;outline:none}
+.calc__email-row button{background:var(--accent);color:var(--bg);padding:0 18px;font-weight:500;font-size:13px;font-family:var(--sans)}
+.calc__email-row button:hover{background:var(--accent-2)}
+.calc__success{display:none;margin-top:14px;padding:14px;border:1px solid var(--accent);background:rgba(29,42,56,.04)}
+.calc__success.is-on{display:block}
+.calc__success p{margin:0 0 10px;color:var(--ink);font-size:14px}
+.calc__success .book{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:2px}
 
-/* =========================================================
-   Hero
-   ========================================================= */
-.hero{
-  position:relative;
-  border-bottom:1px solid var(--line);
-  padding:clamp(48px,7vw,96px) 0 clamp(56px,8vw,120px);
-}
-.hero__grid{
-  display:grid;
-  grid-template-columns:1.45fr 1fr;
-  gap:clamp(32px,5vw,72px);
-  align-items:start;
-}
-.hero__left .eyebrow{ margin-bottom:36px }
-.hero__headline{ margin:0 0 28px }
-.hero__headline .line{ display:block }
-.hero__sub{
-  font-size:clamp(16px,1.25vw,19px);
-  line-height:1.55;
-  color:var(--ink-2);
-  max-width:54ch;
-  margin:0 0 36px;
-}
-.hero__cta-row{
-  display:flex;
-  align-items:center;
-  gap:20px;
-  flex-wrap:wrap;
-  margin-bottom:28px;
-}
-.hero__reassure{
-  font-family:var(--mono);
-  font-size:11px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
-.hero__reassure span{ margin:0 10px; color:var(--line-2) }
+@media (max-width:960px){.hero__grid{grid-template-columns:1fr;gap:48px}.hero__meta{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.hero__meta{grid-template-columns:1fr}.hero__cta-row .btn{width:100%;justify-content:space-between}}
 
-.hero__meta{
-  margin-top:clamp(40px,5vw,72px);
-  padding-top:24px;
-  border-top:1px solid var(--line);
-  display:grid;
-  grid-template-columns:repeat(3, 1fr);
-  gap:24px;
-}
-.hero__meta .label{
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:var(--muted-2);
-  margin-bottom:8px;
-}
-.hero__meta .val{
-  font-family:var(--serif);
-  font-size:clamp(20px,1.6vw,26px);
-  color:var(--ink);
-  line-height:1.1;
-}
+.problem{border-bottom:1px solid var(--line);background:var(--bg-2)}
+.problem__head{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(24px,4vw,72px);margin-bottom:clamp(48px,6vw,80px);align-items:end}
+.problem__head .h-section{max-width:18ch}
+.problem__head .lede{margin:0}
+.problem__stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line-2);border-left:1px solid var(--line-2)}
+.problem__stat{border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2);padding:clamp(28px,3vw,40px);background:#FFFFFF}
+.problem__stat .tag{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:24px;display:flex;justify-content:space-between;align-items:center}
+.problem__stat .tag .num{color:var(--accent)}
+.problem__stat .figure{font-family:var(--serif);font-size:clamp(56px,7vw,96px);line-height:.95;letter-spacing:-0.025em;color:var(--ink);margin:0 0 8px}
+.problem__stat .figure em{font-style:italic;color:var(--accent)}
+.problem__stat .unit{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
+.problem__stat p{color:var(--ink-2);font-size:15px;line-height:1.55;margin:0;max-width:34ch}
+@media (max-width:960px){.problem__head{grid-template-columns:1fr;gap:24px}.problem__stats{grid-template-columns:1fr}}
 
-/* ROI Calculator card */
-.calc{
-  position:relative;
-  background:#FFFFFF;
-  border:1px solid var(--line-2);
-  padding:clamp(24px,2.4vw,32px);
-}
-.calc::before{
-  content:"";
-  position:absolute; top:-1px; left:-1px; right:-1px; height:2px;
-  background:var(--accent);
-}
-.calc__head{
-  position:relative;
-  margin-bottom:24px;
-  padding-bottom:18px;
-  padding-right:54px;
-  border-bottom:1px solid var(--line);
-}
-.calc__title{
-  font-family:var(--serif);
-  font-size:22px;
-  line-height:1.15;
-  color:var(--ink);
-  margin:0;
-  max-width:90%;
-}
-.calc__title em{ font-style:italic; color:inherit }
-.calc__tag{
-  position:absolute;
-  top:0;
-  right:0;
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--muted);
-  border:1px solid var(--line-2);
-  padding:5px 8px;
-}
-.calc__field{ margin-bottom:18px }
-.calc__field label{
-  display:block;
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--muted);
-  margin-bottom:8px;
-}
-.calc__select, .calc__input{
-  width:100%;
-  background:var(--bg);
-  border:1px solid var(--line-2);
-  color:var(--ink);
-  padding:14px 14px;
-  font-family:var(--sans);
-  font-size:15px;
-  letter-spacing:.005em;
-  outline:none;
-  transition:border-color .15s ease;
-  border-radius:0;
-  -webkit-appearance:none;
-  appearance:none;
-}
-.calc__select{
-  background-image:linear-gradient(45deg, transparent 50%, var(--muted) 50%),
-                   linear-gradient(135deg, var(--muted) 50%, transparent 50%);
-  background-position:calc(100% - 18px) 55%, calc(100% - 13px) 55%;
-  background-size:5px 5px, 5px 5px;
-  background-repeat:no-repeat;
-  padding-right:36px;
-}
-.calc__input:focus, .calc__select:focus{ border-color:var(--accent) }
+.how{border-bottom:1px solid var(--line)}
+.how__head{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(24px,4vw,72px);align-items:end;margin-bottom:clamp(48px,6vw,80px)}
+.how__head .lede{margin:0}
+.how__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.4vw,32px)}
+.phase{border:1px solid var(--line-2);background:#FFFFFF;padding:clamp(24px,2.4vw,32px);display:flex;flex-direction:column;min-height:340px}
+.phase__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:36px}
+.phase__num{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.phase__dur{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);border:1px solid var(--line-2);padding:6px 8px}
+.phase__title{font-family:var(--serif);font-size:32px;line-height:1.05;letter-spacing:-0.01em;margin:0 0 16px;color:var(--ink)}
+.phase__title em{font-style:italic;color:inherit}
+.phase__body{color:var(--ink-2);font-size:15px;line-height:1.55;margin:0 0 24px}
+.phase__list{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);list-style:none;padding-left:0}
+.phase__list li{display:flex;gap:14px;align-items:baseline;font-size:13px;color:var(--ink-2);padding:6px 0}
+.phase__list li::before{content:"›";color:var(--accent);font-family:var(--mono);flex:0 0 auto}
+@media (max-width:960px){.how__head{grid-template-columns:1fr;gap:24px}.how__grid{grid-template-columns:1fr}.phase{min-height:auto}}
 
-.calc__results{
-  margin-top:8px;
-  padding-top:20px;
-  border-top:1px solid var(--line);
-  display:grid;
-  gap:14px;
-}
-.calc__row{
-  display:flex;
-  justify-content:space-between;
-  align-items:baseline;
-  gap:16px;
-  padding:6px 0;
-}
-.calc__row .k{
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
-.calc__row .v{
-  font-family:var(--serif);
-  font-size:clamp(22px,2vw,28px);
-  color:var(--ink);
-  line-height:1;
-  letter-spacing:-0.01em;
-}
-.calc__row.is-loss .v{ color:var(--loss) }
-.calc__row.is-gain .v{ color:var(--gain) }
+.case{background:var(--bg-2);border-bottom:1px solid var(--line)}
+.case__grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(40px,6vw,96px);align-items:start}
+.case__meta .eyebrow{margin-bottom:36px}
+.case__title{font-family:var(--serif);font-size:clamp(34px,4vw,52px);line-height:1.05;letter-spacing:-0.01em;color:var(--ink);margin:0 0 32px}
+.case__title em{font-style:italic;color:inherit}
+.case__body{color:var(--ink-2);font-size:16px;line-height:1.65;margin:0 0 20px}
+.case__body.is-lead::first-letter{font-family:var(--serif);font-size:64px;line-height:.85;float:left;padding:6px 14px 0 0;color:var(--ink)}
+.case__metrics{border-top:1px solid var(--line-2);border-left:1px solid var(--line-2)}
+.case__metric{border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2);padding:clamp(24px,2.6vw,32px);display:grid;grid-template-columns:1fr auto;align-items:end;gap:24px}
+.case__metric .lab{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.case__metric .from{color:var(--muted-2);font-family:var(--mono);font-size:12px}
+.case__metric .to{font-family:var(--serif);font-size:clamp(36px,4vw,52px);line-height:1;letter-spacing:-0.02em;color:var(--ink)}
+.case__metric .to em{font-style:italic;color:var(--accent)}
+@media (max-width:960px){.case__grid{grid-template-columns:1fr;gap:48px}}
 
-.calc__email{
-  margin-top:18px;
-  padding-top:18px;
-  border-top:1px solid var(--line);
-}
-.calc__email .lab{
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--muted);
-  margin-bottom:10px;
-}
-.calc__email-row{
-  display:flex;
-  gap:0;
-  border:1px solid var(--line-2);
-}
-.calc__email-row input{
-  flex:1;
-  border:0;
-  background:transparent;
-  padding:14px 14px;
-  font-size:14px;
-  outline:none;
-}
-.calc__email-row button{
-  background:var(--accent);
-  color:var(--bg);
-  padding:0 18px;
-  font-weight:500;
-  font-size:13px;
-  letter-spacing:.02em;
-  font-family:var(--sans);
-}
-.calc__email-row button:hover{ background:var(--accent-2) }
-.calc__success{
-  display:none;
-  margin-top:14px;
-  padding:14px;
-  border:1px solid var(--accent);
-  background:rgba(29,42,56,.04);
-}
-.calc__success.is-on{ display:block }
-.calc__success p{ margin:0 0 10px; color:var(--ink); font-size:14px }
-.calc__success .book{
-  display:inline-flex; align-items:center; gap:10px;
-  font-family:var(--mono);
-  font-size:11px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--accent);
-  border-bottom:1px solid var(--accent);
-  padding-bottom:2px;
-}
+.work{border-bottom:1px solid var(--line);background:var(--bg)}
+.work__head{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(24px,4vw,72px);align-items:end;margin-bottom:clamp(48px,6vw,80px)}
+.work__head .lede{margin:0}
+.work__promise{border:1px solid var(--accent);background:#FFFFFF;padding:clamp(32px,4vw,56px);display:grid;grid-template-columns:1fr auto;gap:clamp(24px,4vw,56px);align-items:center;margin-bottom:clamp(28px,3vw,40px);position:relative}
+.work__promise::before{content:"";position:absolute;top:-1px;left:-1px;right:-1px;height:3px;background:var(--accent)}
+.work__promise .lab{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.work__promise .pledge{font-family:var(--serif);font-size:clamp(28px,2.8vw,40px);line-height:1.1;letter-spacing:-0.01em;color:var(--ink);margin:0;max-width:22ch}
+.work__promise .pledge em{font-style:italic;color:inherit}
+.work__promise .seal{text-align:right;border-left:1px solid var(--line-2);padding-left:clamp(20px,2.5vw,40px);font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);line-height:1.6}
+.work__promise .seal strong{display:block;font-family:var(--serif);font-size:clamp(22px,1.8vw,28px);font-weight:600;letter-spacing:-0.01em;color:var(--ink);text-transform:none;margin-top:6px}
+.work__pillars{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line-2);border-left:1px solid var(--line-2)}
+.work__pillar{border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2);padding:clamp(24px,2.4vw,32px);background:#FFFFFF}
+.work__pillar .num{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+.work__pillar h3{font-family:var(--serif);font-size:24px;line-height:1.15;margin:0 0 10px;color:var(--ink)}
+.work__pillar p{margin:0;font-size:14px;color:var(--ink-2);line-height:1.6}
+@media (max-width:780px){.work__head{grid-template-columns:1fr;gap:24px}.work__promise{grid-template-columns:1fr;gap:20px}.work__promise .seal{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:20px;text-align:left}.work__pillars{grid-template-columns:1fr}}
 
-@media (max-width:960px){
-  .hero__grid{ grid-template-columns:1fr; gap:48px }
-  .hero__meta{ grid-template-columns:1fr 1fr }
-}
-@media (max-width:560px){
-  .hero__meta{ grid-template-columns:1fr }
-  .hero__cta-row{ gap:14px }
-  .hero__cta-row .btn{ width:100% ; justify-content:space-between }
-}
+.deliv{border-bottom:1px solid var(--line)}
+.deliv__head{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(24px,4vw,72px);align-items:end;margin-bottom:clamp(48px,6vw,80px)}
+.deliv__head .lede{margin:0}
+.deliv__list{border-top:1px solid var(--line-2)}
+.deliv__row{display:grid;grid-template-columns:80px 1fr 1.6fr;gap:clamp(20px,3vw,48px);padding:clamp(24px,3vw,32px) 0;border-bottom:1px solid var(--line-2);align-items:start;transition:background .2s ease}
+.deliv__row:hover{background:rgba(29,42,56,.025)}
+.deliv__num{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--accent);padding-top:6px}
+.deliv__title{font-family:var(--serif);font-size:clamp(22px,2vw,28px);line-height:1.15;color:var(--ink);margin:0}
+.deliv__body{color:var(--ink-2);font-size:15px;line-height:1.6;margin:0;max-width:62ch}
+@media (max-width:780px){.deliv__head{grid-template-columns:1fr;gap:24px}.deliv__row{grid-template-columns:1fr;gap:10px}.deliv__num{padding-top:0}}
 
-/* =========================================================
-   The Problem (3-stat data block)
-   ========================================================= */
-.problem{
-  border-bottom:1px solid var(--line);
-  background:var(--bg-2);
-}
-.problem__head{
-  display:grid;
-  grid-template-columns:1fr 1.4fr;
-  gap:clamp(24px,4vw,72px);
-  margin-bottom:clamp(48px,6vw,80px);
-  align-items:end;
-}
-.problem__head .h-section{ max-width:18ch }
-.problem__head .lede{ margin:0 }
+.cta{background:var(--bg-2);border-bottom:1px solid var(--line)}
+.cta__inner{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(32px,5vw,72px);align-items:center}
+.cta__title{font-family:var(--serif);font-size:clamp(40px,5vw,72px);line-height:1.05;letter-spacing:-0.015em;color:var(--ink);margin:0 0 24px}
+.cta__title em{font-style:italic;color:inherit}
+.cta__sub{color:var(--ink-2);font-size:17px;line-height:1.55;margin:0;max-width:50ch}
+.cta__panel{border:1px solid var(--line-2);background:#FFFFFF;padding:clamp(28px,3vw,40px)}
+.cta__panel .btn{width:100%;justify-content:space-between}
+.cta__path + .cta__divider{margin:clamp(20px,2.4vw,28px) 0}
+.cta__path-tag{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.cta__path-title{font-family:var(--serif);font-size:clamp(22px,1.9vw,26px);line-height:1.15;color:var(--ink);margin:0 0 8px}
+.cta__path-body{font-size:14px;line-height:1.55;color:var(--ink-2);margin:0 0 18px}
+.cta__divider{position:relative;text-align:center;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-2)}
+.cta__divider::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--line)}
+.cta__divider span{position:relative;background:#FFFFFF;padding:0 14px}
+.lead-form{display:grid;gap:12px}
+.lead-form__field label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.lead-form__field input,.lead-form__field textarea{width:100%;background:var(--bg);border:1px solid var(--line-2);color:var(--ink);padding:11px 12px;font-family:var(--sans);font-size:14px;outline:none;transition:border-color .15s ease;border-radius:0;-webkit-appearance:none;appearance:none;resize:vertical}
+.lead-form__field input:focus,.lead-form__field textarea:focus{border-color:var(--accent)}
+.lead-form__field input.is-invalid,.lead-form__field textarea.is-invalid{border-color:var(--loss)}
+.lead-form__submit{width:100%;justify-content:space-between;margin-top:4px}
+.lead-form__success{display:none;margin-top:12px;padding:12px 14px;border:1px solid var(--gain);background:rgba(45,92,63,.06);color:var(--ink);font-size:13px;line-height:1.5}
+.lead-form__success.is-on{display:block}
+@media (max-width:960px){.cta__inner{grid-template-columns:1fr;gap:40px}}
 
-.problem__stats{
-  display:grid;
-  grid-template-columns:repeat(3, 1fr);
-  border-top:1px solid var(--line-2);
-  border-left:1px solid var(--line-2);
-}
-.problem__stat{
-  border-right:1px solid var(--line-2);
-  border-bottom:1px solid var(--line-2);
-  padding:clamp(28px,3vw,40px);
-  background:#FFFFFF;
-  position:relative;
-}
-.problem__stat .tag{
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--muted);
-  margin-bottom:24px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.problem__stat .tag .num{ color:var(--accent) }
-.problem__stat .figure{
-  font-family:var(--serif);
-  font-size:clamp(56px, 7vw, 96px);
-  line-height:.95;
-  letter-spacing:-0.025em;
-  color:var(--ink);
-  margin:0 0 8px;
-}
-.problem__stat .figure em{ font-style:italic; color:var(--accent) }
-.problem__stat .unit{
-  font-family:var(--mono);
-  font-size:11px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--muted);
-  margin-bottom:24px;
-}
-.problem__stat p{
-  color:var(--ink-2);
-  font-size:15px;
-  line-height:1.55;
-  margin:0;
-  max-width:34ch;
-}
-.problem__stat cite{
-  display:block;
-  margin-top:18px;
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--muted-2);
-  font-style:normal;
-}
-@media (max-width:960px){
-  .problem__head{ grid-template-columns:1fr; gap:24px }
-  .problem__stats{ grid-template-columns:1fr }
-}
+.foot{padding:48px 0 32px;background:var(--bg)}
+.foot__top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px;padding-bottom:32px;border-bottom:1px solid var(--line)}
+.foot__brand{font-family:var(--serif);font-size:24px;color:var(--ink);margin-bottom:14px}
+.foot__brand em{font-style:italic;color:inherit}
+.foot__tag{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.foot__addr{font-size:13px;color:var(--muted);line-height:1.6;margin:0}
+.foot__col h4{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-2);margin:0 0 14px;font-weight:500}
+.foot__col ul{list-style:none;padding:0;margin:0}
+.foot__col li{padding:5px 0}
+.foot__col a{color:var(--ink-2);font-size:13px}
+.foot__col a:hover{color:var(--accent)}
+.foot__bottom{padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2)}
+@media (max-width:780px){.foot__top{grid-template-columns:1fr 1fr;gap:32px}}
+@media (max-width:480px){.foot__top{grid-template-columns:1fr}}
 
-/* =========================================================
-   How It Works (3 phases)
-   ========================================================= */
-.how{
-  border-bottom:1px solid var(--line);
-}
-.how__head{
-  display:grid;
-  grid-template-columns:1fr 1.4fr;
-  gap:clamp(24px,4vw,72px);
-  align-items:end;
-  margin-bottom:clamp(48px,6vw,80px);
-}
-.how__head .lede{ margin:0 }
+.cookie{position:fixed;bottom:20px;left:20px;right:20px;max-width:520px;margin:0 auto;z-index:60;background:#FFFFFF;border:1px solid var(--line-2);padding:18px 20px;display:none;box-shadow:0 20px 60px rgba(23,23,22,.12)}
+.cookie.is-on{display:block}
+.cookie p{margin:0 0 14px;font-size:13px;color:var(--ink-2);line-height:1.5}
+.cookie p a{color:var(--accent);border-bottom:1px solid var(--accent)}
+.cookie__row{display:flex;gap:10px;flex-wrap:wrap}
+.cookie__row button{flex:1;padding:11px 14px;font-family:var(--sans);font-size:12px;border:1px solid var(--line-2);color:var(--ink);background:transparent;transition:border-color .15s ease,color .15s ease}
+.cookie__row button:hover{border-color:var(--accent);color:var(--accent)}
+.cookie__row .accept{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+.cookie__row .accept:hover{background:var(--accent-2);color:var(--bg);border-color:var(--accent-2)}
 
-.how__grid{
-  display:grid;
-  grid-template-columns:repeat(3, 1fr);
-  gap:clamp(20px,2.4vw,32px);
-}
-.phase{
-  border:1px solid var(--line-2);
-  background:#FFFFFF;
-  padding:clamp(24px,2.4vw,32px);
-  display:flex;
-  flex-direction:column;
-  position:relative;
-  min-height:340px;
-}
-.phase__head{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  margin-bottom:36px;
-}
-.phase__num{
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:var(--accent);
-}
-.phase__dur{
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--muted-2);
-  border:1px solid var(--line-2);
-  padding:6px 8px;
-}
-.phase__title{
-  font-family:var(--serif);
-  font-size:32px;
-  line-height:1.05;
-  letter-spacing:-0.01em;
-  margin:0 0 16px;
-  color:var(--ink);
-}
-.phase__title em{ font-style:italic; color:inherit }
-.phase__body{
-  color:var(--ink-2);
-  font-size:15px;
-  line-height:1.55;
-  margin:0 0 24px;
-}
-.phase__list{
-  margin-top:auto;
-  padding-top:18px;
-  border-top:1px solid var(--line);
-  list-style:none;
-  padding-left:0;
-}
-.phase__list li{
-  display:flex;
-  gap:14px;
-  align-items:baseline;
-  font-size:13px;
-  color:var(--ink-2);
-  padding:6px 0;
-}
-.phase__list li::before{
-  content:"›";
-  color:var(--accent);
-  font-family:var(--mono);
-  flex:0 0 auto;
-}
-@media (max-width:960px){
-  .how__head{ grid-template-columns:1fr; gap:24px }
-  .how__grid{ grid-template-columns:1fr }
-  .phase{ min-height:auto }
-}
-
-/* =========================================================
-   Case Study
-   ========================================================= */
-.case{
-  background:var(--bg-2);
-  border-bottom:1px solid var(--line);
-}
-.case__grid{
-  display:grid;
-  grid-template-columns:1.05fr 1fr;
-  gap:clamp(40px,6vw,96px);
-  align-items:start;
-}
-.case__meta .eyebrow{ margin-bottom:36px }
-.case__title{
-  font-family:var(--serif);
-  font-size:clamp(34px,4vw,52px);
-  line-height:1.05;
-  letter-spacing:-0.01em;
-  color:var(--ink);
-  margin:0 0 32px;
-}
-.case__title em{ font-style:italic; color:inherit }
-.case__body{
-  color:var(--ink-2);
-  font-size:16px;
-  line-height:1.65;
-  margin:0 0 20px;
-}
-.case__body.is-lead::first-letter{
-  font-family:var(--serif);
-  font-size:64px;
-  line-height:.85;
-  float:left;
-  padding:6px 14px 0 0;
-  color:var(--ink);
-}
-.case__quote{
-  margin:32px 0 0;
-  padding:24px 0 0;
-  border-top:1px solid var(--line-2);
-}
-.case__quote q{
-  display:block;
-  font-family:var(--serif);
-  font-style:italic;
-  font-size:clamp(20px,1.6vw,24px);
-  line-height:1.35;
-  color:var(--ink);
-  quotes:"\201C" "\201D";
-}
-.case__quote cite{
-  display:block;
-  margin-top:16px;
-  font-family:var(--mono);
-  font-size:11px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--muted);
-  font-style:normal;
-}
-
-.case__metrics{
-  border-top:1px solid var(--line-2);
-  border-left:1px solid var(--line-2);
-}
-.case__metric{
-  border-right:1px solid var(--line-2);
-  border-bottom:1px solid var(--line-2);
-  padding:clamp(24px,2.6vw,32px);
-  display:grid;
-  grid-template-columns:1fr auto;
-  align-items:end;
-  gap:24px;
-}
-.case__metric .lab{
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--muted);
-  margin-bottom:6px;
-}
-.case__metric .from{
-  color:var(--muted-2);
-  font-family:var(--mono);
-  font-size:12px;
-  letter-spacing:.04em;
-}
-.case__metric .to{
-  font-family:var(--serif);
-  font-size:clamp(36px,4vw,52px);
-  line-height:1;
-  letter-spacing:-0.02em;
-  color:var(--ink);
-}
-.case__metric .to em{ font-style:italic; color:var(--accent) }
-.case__metric .arrow{
-  font-family:var(--mono);
-  color:var(--accent);
-  font-size:12px;
-  letter-spacing:.1em;
-  align-self:end;
-}
-
-@media (max-width:960px){
-  .case__grid{ grid-template-columns:1fr; gap:48px }
-}
-
-/* =========================================================
-   How We Work (no-obligation framing)
-   ========================================================= */
-.work{
-  border-bottom:1px solid var(--line);
-  background:var(--bg);
-}
-.work__head{
-  display:grid;
-  grid-template-columns:1fr 1.4fr;
-  gap:clamp(24px,4vw,72px);
-  align-items:end;
-  margin-bottom:clamp(48px,6vw,80px);
-}
-.work__head .lede{ margin:0 }
-
-.work__promise{
-  border:1px solid var(--accent);
-  background:#FFFFFF;
-  padding:clamp(32px,4vw,56px);
-  display:grid;
-  grid-template-columns:1fr auto;
-  gap:clamp(24px,4vw,56px);
-  align-items:center;
-  margin-bottom:clamp(28px,3vw,40px);
-  position:relative;
-}
-.work__promise::before{
-  content:"";
-  position:absolute; top:-1px; left:-1px; right:-1px; height:3px;
-  background:var(--accent);
-}
-.work__promise .lab{
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:var(--accent);
-  margin-bottom:14px;
-}
-.work__promise .pledge{
-  font-family:var(--serif);
-  font-size:clamp(28px,2.8vw,40px);
-  line-height:1.1;
-  letter-spacing:-0.01em;
-  color:var(--ink);
-  margin:0;
-  max-width:22ch;
-}
-.work__promise .pledge em{ font-style:italic; color:inherit }
-.work__promise .seal{
-  text-align:right;
-  border-left:1px solid var(--line-2);
-  padding-left:clamp(20px,2.5vw,40px);
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:var(--muted);
-  line-height:1.6;
-}
-.work__promise .seal strong{
-  display:block;
-  font-family:var(--serif);
-  font-size:clamp(22px,1.8vw,28px);
-  font-weight:400;
-  letter-spacing:-0.01em;
-  color:var(--ink);
-  text-transform:none;
-  margin-top:6px;
-}
-
-.work__pillars{
-  display:grid;
-  grid-template-columns:repeat(3, 1fr);
-  border-top:1px solid var(--line-2);
-  border-left:1px solid var(--line-2);
-}
-.work__pillar{
-  border-right:1px solid var(--line-2);
-  border-bottom:1px solid var(--line-2);
-  padding:clamp(24px,2.4vw,32px);
-  background:#FFFFFF;
-}
-.work__pillar .num{
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:var(--accent);
-  margin-bottom:18px;
-}
-.work__pillar h3{
-  font-family:var(--serif);
-  font-size:24px;
-  line-height:1.15;
-  letter-spacing:-0.005em;
-  margin:0 0 10px;
-  color:var(--ink);
-}
-.work__pillar p{
-  margin:0;
-  font-size:14px;
-  color:var(--ink-2);
-  line-height:1.6;
-}
-
-@media (max-width:780px){
-  .work__head{ grid-template-columns:1fr; gap:24px }
-  .work__promise{ grid-template-columns:1fr; gap:20px }
-  .work__promise .seal{ border-left:0; border-top:1px solid var(--line); padding-left:0; padding-top:20px; text-align:left }
-  .work__pillars{ grid-template-columns:1fr }
-}
-
-/* =========================================================
-   What You Get (audit deliverables)
-   ========================================================= */
-.deliv{ border-bottom:1px solid var(--line) }
-.deliv__head{
-  display:grid;
-  grid-template-columns:1fr 1.4fr;
-  gap:clamp(24px,4vw,72px);
-  align-items:end;
-  margin-bottom:clamp(48px,6vw,80px);
-}
-.deliv__head .lede{ margin:0 }
-
-.deliv__list{
-  border-top:1px solid var(--line-2);
-}
-.deliv__row{
-  display:grid;
-  grid-template-columns:80px 1fr 1.6fr;
-  gap:clamp(20px,3vw,48px);
-  padding:clamp(24px,3vw,32px) 0;
-  border-bottom:1px solid var(--line-2);
-  align-items:start;
-  transition:background .2s ease;
-}
-.deliv__row:hover{ background:rgba(29,42,56,.025) }
-.deliv__num{
-  font-family:var(--mono);
-  font-size:11px;
-  letter-spacing:.18em;
-  color:var(--accent);
-  padding-top:6px;
-}
-.deliv__title{
-  font-family:var(--serif);
-  font-size:clamp(22px,2vw,28px);
-  line-height:1.15;
-  letter-spacing:-0.01em;
-  color:var(--ink);
-  margin:0;
-}
-.deliv__title em{ font-style:italic; color:inherit }
-.deliv__body{
-  color:var(--ink-2);
-  font-size:15px;
-  line-height:1.6;
-  margin:0;
-  max-width:62ch;
-}
-@media (max-width:780px){
-  .deliv__head{ grid-template-columns:1fr; gap:24px }
-  .deliv__row{ grid-template-columns:1fr; gap:10px }
-  .deliv__num{ padding-top:0 }
-}
-
-/* =========================================================
-   Final CTA
-   ========================================================= */
-.cta{
-  background:var(--bg-2);
-  border-bottom:1px solid var(--line);
-  position:relative;
-}
-.cta__inner{
-  display:grid;
-  grid-template-columns:1.2fr 1fr;
-  gap:clamp(32px,5vw,72px);
-  align-items:center;
-}
-.cta__title{
-  font-family:var(--serif);
-  font-size:clamp(40px,5vw,72px);
-  line-height:1.05;
-  letter-spacing:-0.015em;
-  color:var(--ink);
-  margin:0 0 24px;
-}
-.cta__title em{ font-style:italic; color:inherit }
-.cta__sub{
-  color:var(--ink-2);
-  font-size:17px;
-  line-height:1.55;
-  margin:0;
-  max-width:50ch;
-}
-.cta__panel{
-  border:1px solid var(--line-2);
-  background:#FFFFFF;
-  padding:clamp(28px,3vw,40px);
-}
-.cta__panel .btn{ width:100%; justify-content:space-between }
-
-.cta__path + .cta__divider{ margin:clamp(20px,2.4vw,28px) 0 }
-.cta__path-tag{
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:var(--accent);
-  margin-bottom:10px;
-}
-.cta__path-title{
-  font-family:var(--serif);
-  font-size:clamp(22px,1.9vw,26px);
-  line-height:1.15;
-  letter-spacing:-0.005em;
-  color:var(--ink);
-  margin:0 0 8px;
-}
-.cta__path-body{
-  font-size:14px;
-  line-height:1.55;
-  color:var(--ink-2);
-  margin:0 0 18px;
-}
-.cta__divider{
-  position:relative;
-  text-align:center;
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  color:var(--muted-2);
-}
-.cta__divider::before{
-  content:"";
-  position:absolute;
-  left:0; right:0; top:50%;
-  height:1px;
-  background:var(--line);
-}
-.cta__divider span{
-  position:relative;
-  background:#FFFFFF;
-  padding:0 14px;
-}
-
-.lead-form{ display:grid; gap:12px }
-.lead-form__field label{
-  display:block;
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--muted);
-  margin-bottom:6px;
-}
-.lead-form__field input,
-.lead-form__field textarea{
-  width:100%;
-  background:var(--bg);
-  border:1px solid var(--line-2);
-  color:var(--ink);
-  padding:11px 12px;
-  font-family:var(--sans);
-  font-size:14px;
-  outline:none;
-  transition:border-color .15s ease;
-  border-radius:0;
-  -webkit-appearance:none;
-  appearance:none;
-  resize:vertical;
-}
-.lead-form__field input:focus,
-.lead-form__field textarea:focus{ border-color:var(--accent) }
-.lead-form__field input.is-invalid,
-.lead-form__field textarea.is-invalid{ border-color:var(--loss) }
-.lead-form__submit{
-  width:100%;
-  justify-content:space-between;
-  margin-top:4px;
-}
-.lead-form__success{
-  display:none;
-  margin-top:12px;
-  padding:12px 14px;
-  border:1px solid var(--gain);
-  background:rgba(45,92,63,.06);
-  color:var(--ink);
-  font-size:13px;
-  line-height:1.5;
-}
-.lead-form__success.is-on{ display:block }
-@media (max-width:960px){
-  .cta__inner{ grid-template-columns:1fr; gap:40px }
-}
-
-/* =========================================================
-   Footer
-   ========================================================= */
-.foot{
-  padding:48px 0 32px;
-  background:var(--bg);
-}
-.foot__top{
-  display:grid;
-  grid-template-columns:1.5fr 1fr 1fr 1fr;
-  gap:32px;
-  padding-bottom:32px;
-  border-bottom:1px solid var(--line);
-}
-.foot__brand{
-  font-family:var(--serif);
-  font-size:24px;
-  color:var(--ink);
-  margin-bottom:14px;
-}
-.foot__brand em{ font-style:italic; color:inherit }
-.foot__tag{
-  font-family:var(--mono);
-  font-size:11px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--muted);
-  margin-bottom:18px;
-}
-.foot__addr{
-  font-size:13px;
-  color:var(--muted);
-  line-height:1.6;
-  margin:0;
-}
-.foot__col h4{
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:var(--muted-2);
-  margin:0 0 14px;
-  font-weight:500;
-}
-.foot__col ul{ list-style:none; padding:0; margin:0 }
-.foot__col li{ padding:5px 0 }
-.foot__col a{ color:var(--ink-2); font-size:13px }
-.foot__col a:hover{ color:var(--accent) }
-
-.foot__bottom{
-  padding-top:24px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:14px;
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--muted-2);
-}
-.foot__bottom a{ color:var(--muted-2) }
-.foot__bottom a:hover{ color:var(--ink) }
-
-@media (max-width:780px){
-  .foot__top{ grid-template-columns:1fr 1fr; gap:32px }
-}
-@media (max-width:480px){
-  .foot__top{ grid-template-columns:1fr }
-}
-
-/* =========================================================
-   Cookie banner
-   ========================================================= */
-.cookie{
-  position:fixed;
-  bottom:20px;
-  left:20px;
-  right:20px;
-  max-width:520px;
-  margin:0 auto;
-  z-index:60;
-  background:#FFFFFF;
-  border:1px solid var(--line-2);
-  padding:18px 20px;
-  display:none;
-  box-shadow:0 20px 60px rgba(23,23,22,.12);
-}
-.cookie.is-on{ display:block }
-.cookie p{
-  margin:0 0 14px;
-  font-size:13px;
-  color:var(--ink-2);
-  line-height:1.5;
-}
-.cookie p a{ color:var(--accent); border-bottom:1px solid var(--accent) }
-.cookie__row{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-.cookie__row button{
-  flex:1;
-  padding:11px 14px;
-  font-family:var(--sans);
-  font-size:12px;
-  letter-spacing:.04em;
-  border:1px solid var(--line-2);
-  color:var(--ink);
-  background:transparent;
-  transition:border-color .15s ease, color .15s ease;
-}
-.cookie__row button:hover{ border-color:var(--accent); color:var(--accent) }
-.cookie__row .accept{
-  background:var(--accent);
-  color:var(--bg);
-  border-color:var(--accent);
-}
-.cookie__row .accept:hover{ background:var(--accent-2); color:var(--bg); border-color:var(--accent-2) }
-
-/* =========================================================
-   Reduced motion
-   ========================================================= */
-@media (prefers-reduced-motion:reduce){
-  *{ transition:none !important; animation:none !important }
-  html{ scroll-behavior:auto }
-}
+@media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 
-<!-- =========================================================
-     Top bar
-     ========================================================= -->
 <header class="topbar">
   <div class="wrap topbar__inner">
     <a href="#top" class="brand" aria-label="Silver Signal home">
@@ -1242,31 +258,24 @@ section{ position:relative }
 
 <main id="top">
 
-<!-- =========================================================
-     Hero + ROI calculator
-     ========================================================= -->
 <section class="hero">
   <div class="wrap">
     <div class="hero__grid">
-
       <div class="hero__left">
         <div class="eyebrow">
           <span class="num">00</span>
           <span class="bar" aria-hidden="true"></span>
           <span>RevOps for US Personal Injury Law Firms</span>
         </div>
-
         <h1 class="h-display hero__headline">
           <span class="line">Sign more cases.</span>
           <span class="line">Catch <em>every</em> lead.</span>
         </h1>
-
         <p class="hero__sub">
           You&rsquo;re paying for the leads. We make sure you sign them.
           Salesforce intake, AI qualification, every inbound responded to inside five minutes.
           Same ad spend. More signed cases. No new hires.
         </p>
-
         <div class="hero__cta-row">
           <a class="btn" href="#audit">
             <span>Book Your Free Tech Audit</span>
@@ -1276,7 +285,6 @@ section{ position:relative }
             30 minutes <span aria-hidden="true">/</span> No pitch <span aria-hidden="true">/</span> No obligation
           </span>
         </div>
-
         <div class="hero__meta">
           <div>
             <div class="label">Specialism</div>
@@ -1296,12 +304,11 @@ section{ position:relative }
       <aside class="calc" aria-labelledby="calc-title">
         <div class="calc__head">
           <div>
-            <div class="mono" style="margin-bottom:6px">Revenue Leak Calculator</div>
+            <div style="font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Revenue Leak Calculator</div>
             <h2 class="calc__title" id="calc-title">What slow lead response is <em>really</em> costing you</h2>
           </div>
           <span class="calc__tag">USD</span>
         </div>
-
         <div class="calc__field">
           <label for="calc-leads">Monthly inbound lead volume</label>
           <select class="calc__select" id="calc-leads">
@@ -1311,7 +318,6 @@ section{ position:relative }
             <option value="700">500+ leads / month</option>
           </select>
         </div>
-
         <div class="calc__field">
           <label for="calc-time">Average lead response time</label>
           <select class="calc__select" id="calc-time">
@@ -1321,12 +327,10 @@ section{ position:relative }
             <option value="0.40">More than 24 hours</option>
           </select>
         </div>
-
         <div class="calc__field">
           <label for="calc-value">Average case value (USD)</label>
           <input class="calc__input" id="calc-value" type="number" inputmode="numeric" min="1000" step="1000" value="52000" />
         </div>
-
         <div class="calc__results" aria-live="polite">
           <div class="calc__row is-loss">
             <span class="k">Cases Lost / Month</span>
@@ -1341,36 +345,24 @@ section{ position:relative }
             <span class="v" id="out-gain">$13.7M</span>
           </div>
         </div>
-
         <form class="calc__email" id="calc-form" novalidate>
           <div class="lab">Email me this report</div>
           <div class="calc__email-row">
-            <input
-              type="email"
-              id="calc-email"
-              name="email"
-              placeholder="you@firm.com"
-              autocomplete="email"
-              required
-            />
+            <input type="email" id="calc-email" name="email" placeholder="you@firm.com" autocomplete="email" required />
             <button type="submit" id="calc-submit">Send</button>
           </div>
           <div class="calc__success" id="calc-success" role="status">
             <p>Report on its way. Want to walk through the numbers together?</p>
             <a class="book" href="https://cal.com/silver-signal-m0hq3w/30min" target="_blank" rel="noopener">
-              Book the 30-min audit <span aria-hidden="true">&rarr;</span>
+              Book the 30 min audit <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
         </form>
       </aside>
-
     </div>
   </div>
 </section>
 
-<!-- =========================================================
-     The Problem
-     ========================================================= -->
 <section class="problem section-pad" id="problem">
   <div class="wrap">
     <div class="problem__head">
@@ -1387,33 +379,21 @@ section{ position:relative }
         because nobody calls back fast enough. Three numbers explain why.
       </p>
     </div>
-
     <div class="problem__stats">
       <article class="problem__stat">
-        <div class="tag">
-          <span>Industry Average</span>
-          <span class="num">A</span>
-        </div>
+        <div class="tag"><span>Industry Average</span><span class="num">A</span></div>
         <div class="figure">3 <em>days</em></div>
         <div class="unit">Average Conversion Time</div>
         <p>How long it takes a typical PI firm to sign an inbound lead. By then, the lead&rsquo;s already signed with someone else.</p>
       </article>
-
       <article class="problem__stat">
-        <div class="tag">
-          <span>Average Case Value</span>
-          <span class="num">B</span>
-        </div>
+        <div class="tag"><span>Average Case Value</span><span class="num">B</span></div>
         <div class="figure">$52K</div>
         <div class="unit">Per Signed PI Case</div>
-        <p>Average revenue from a signed PI case in the US. Every lead you don&rsquo;t catch is a five-figure miss.</p>
+        <p>Average revenue from a signed PI case in the US. Every lead you don&rsquo;t catch is a five figure miss.</p>
       </article>
-
       <article class="problem__stat">
-        <div class="tag">
-          <span>Top Performers</span>
-          <span class="num">C</span>
-        </div>
+        <div class="tag"><span>Top Performers</span><span class="num">C</span></div>
         <div class="figure">&lt; 5 <em>min</em></div>
         <div class="unit">Lead Response Window</div>
         <p>What the top firms hit. The gap between them and you isn&rsquo;t talent or budget. It&rsquo;s infrastructure.</p>
@@ -1422,9 +402,6 @@ section{ position:relative }
   </div>
 </section>
 
-<!-- =========================================================
-     How It Works
-     ========================================================= -->
 <section class="how section-pad" id="how">
   <div class="wrap">
     <div class="how__head">
@@ -1437,48 +414,44 @@ section{ position:relative }
         <h2 class="h-section">Three phases. <em>One outcome.</em></h2>
       </div>
       <p class="lede">
-        We don&rsquo;t sell hours. We rebuild the lead-to-signed-case pathway end to end.
+        We don&rsquo;t sell hours. We rebuild the lead to signed case pathway end to end.
         Diagnose the leak. Install the system. Keep tuning until the curve bends.
       </p>
     </div>
-
     <div class="how__grid">
       <article class="phase">
         <div class="phase__head">
           <span class="phase__num">Phase 01</span>
-          <span class="phase__dur">Week 0</span>
+          <span class="phase__dur">Free</span>
         </div>
         <h3 class="phase__title">The <em>Audit</em></h3>
         <p class="phase__body">
-          30-minute working session. We pull the receipts on your intake. Benchmark
-          your speed-to-lead against the top decile. Show you exactly where revenue&rsquo;s
-          leaking.
+          30 minute working session. We pull the receipts on your intake. Benchmark
+          your speed to lead against the top decile. Show you exactly where revenue&rsquo;s leaking.
         </p>
         <ul class="phase__list">
           <li>Tech stack and intake walkthrough</li>
-          <li>Speed-to-lead benchmark vs. top firms</li>
-          <li>Revenue-leak number, written up</li>
+          <li>Speed to lead benchmark vs. top firms</li>
+          <li>Revenue leak number, written up</li>
         </ul>
       </article>
-
       <article class="phase">
         <div class="phase__head">
           <span class="phase__num">Phase 02</span>
-          <span class="phase__dur">6 to 8 Weeks</span>
+          <span class="phase__dur">Scoped</span>
         </div>
         <h3 class="phase__title">The <em>Pilot</em></h3>
         <p class="phase__body">
-          Fixed-fee build. Salesforce plus AgentForce wired into your existing
+          Fixed fee build. Salesforce plus AgentForce wired into your existing
           channels. Inbound leads get triaged, qualified, and routed inside five minutes.
           No new hires.
         </p>
         <ul class="phase__list">
           <li>Salesforce intake build &amp; lead routing</li>
           <li>AgentForce + AI qualification agent</li>
-          <li>Calendar-integrated booking, end-to-end</li>
+          <li>Calendar integrated booking, end to end</li>
         </ul>
       </article>
-
       <article class="phase">
         <div class="phase__head">
           <span class="phase__num">Phase 03</span>
@@ -1490,7 +463,7 @@ section{ position:relative }
           your leadership. Conversion rate is the only KPI we watch.
         </p>
         <ul class="phase__list">
-          <li>Conversion-rate tracking, week by week</li>
+          <li>Conversion rate tracking, week by week</li>
           <li>Agent tuning and channel expansion</li>
           <li>Quarterly RevOps review with leadership</li>
         </ul>
@@ -1499,32 +472,27 @@ section{ position:relative }
   </div>
 </section>
 
-<!-- =========================================================
-     Case Study
-     ========================================================= -->
 <section class="case section-pad" id="case">
   <div class="wrap">
     <div class="case__grid">
-
       <div class="case__meta">
         <div class="eyebrow">
           <span class="num">03</span>
           <span class="bar" aria-hidden="true"></span>
-          <span>Case Study &middot; Top-10 PI Firm</span>
+          <span>Case Study &middot; Top 10 PI Firm</span>
         </div>
         <h2 class="case__title">From <em>six hours</em> to four minutes.</h2>
         <p class="case__body is-lead">
-          A top-10 PI firm. Seven figures a year on Google Ads. High-intent leads coming
+          A top 10 PI firm. Seven figures a year on Google Ads. High intent leads coming
           in every day. Six hours to first response. Marketing knew. Operations couldn&rsquo;t
           fix it. We rebuilt their intake and conversion engine in eight weeks.
         </p>
         <p class="case__body">
-          Salesforce-native intake. AgentForce qualification. Calendar-integrated routing.
+          Salesforce native intake. AgentForce qualification. Calendar integrated routing.
           One source of truth from ad click to signed retainer. No new headcount.
           No more leads dying in someone&rsquo;s shared inbox.
         </p>
       </div>
-
       <div class="case__metrics">
         <div class="case__metric">
           <div>
@@ -1548,14 +516,10 @@ section{ position:relative }
           <div class="to">$1.2<em>M</em></div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- =========================================================
-     How We Work
-     ========================================================= -->
 <section class="work section-pad" id="work">
   <div class="wrap">
     <div class="work__head">
@@ -1570,10 +534,9 @@ section{ position:relative }
       <p class="lede">
         Start with a free audit. We do the work. You keep the report. If you want
         our help fixing what we found, ask and we&rsquo;ll show you what that looks like.
-        No follow-up emails. No salesperson. No pressure.
+        No follow up emails. No salesperson. No pressure.
       </p>
     </div>
-
     <div class="work__promise" role="region" aria-label="The audit">
       <div>
         <div class="lab">The Audit</div>
@@ -1587,12 +550,11 @@ section{ position:relative }
         <strong>The audit report</strong>
       </div>
     </div>
-
     <div class="work__pillars">
       <article class="work__pillar">
         <div class="num">A &middot; The Outcome</div>
-        <h3>Sub-5-minute response on every inbound lead</h3>
-        <p>Web forms. Missed calls. After-hours. Weekends. Every channel triaged, qualified, routed before the lead loses interest.</p>
+        <h3>Under 5 minutes on every inbound lead</h3>
+        <p>Web forms. Missed calls. After hours. Weekends. Every channel triaged, qualified, routed before the lead loses interest.</p>
       </article>
       <article class="work__pillar">
         <div class="num">B &middot; The Method</div>
@@ -1601,16 +563,13 @@ section{ position:relative }
       </article>
       <article class="work__pillar">
         <div class="num">C &middot; The Timeline</div>
-        <h3>Six to eight weeks, kickoff to live</h3>
-        <p>Audit week one. Build weeks two through seven. Live by week eight. Then we tune as your retained partner.</p>
+        <h3>Phased build, scoped to your stack</h3>
+        <p>Every engagement gets scoped to fit your environment and your team. Audit first. Build to follow. Tuning never really stops. Pace depends on what we find inside your intake.</p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- =========================================================
-     What You Get (Audit deliverables)
-     ========================================================= -->
 <section class="deliv section-pad" id="audit">
   <div class="wrap">
     <div class="deliv__head">
@@ -1628,16 +587,15 @@ section{ position:relative }
         in dollars. Yours to keep, whether we work together or not.
       </p>
     </div>
-
     <div class="deliv__list">
       <div class="deliv__row">
         <div class="deliv__num">01</div>
         <h3 class="deliv__title">Tech &amp; intake review</h3>
-        <p class="deliv__body">Full review of your current tech stack and lead handling. CRM, intake forms, channels, hand-offs. The seams between them.</p>
+        <p class="deliv__body">Full review of your current tech stack and lead handling. CRM, intake forms, channels, handoffs. The seams between them.</p>
       </div>
       <div class="deliv__row">
         <div class="deliv__num">02</div>
-        <h3 class="deliv__title">Speed-to-lead benchmark</h3>
+        <h3 class="deliv__title">Speed to lead benchmark</h3>
         <p class="deliv__body">Your live response time measured against the top decile of US PI firms. Gap quantified in minutes and dollars.</p>
       </div>
       <div class="deliv__row">
@@ -1652,7 +610,7 @@ section{ position:relative }
       </div>
       <div class="deliv__row">
         <div class="deliv__num">05</div>
-        <h3 class="deliv__title">Dollar-value impact estimate</h3>
+        <h3 class="deliv__title">Dollar value impact estimate</h3>
         <p class="deliv__body">Annual revenue impact of closing each gap. Modelled on your real lead volume and case value. Not industry averages.</p>
       </div>
       <div class="deliv__row">
@@ -1664,13 +622,9 @@ section{ position:relative }
   </div>
 </section>
 
-<!-- =========================================================
-     Final CTA
-     ========================================================= -->
 <section class="cta section-pad">
   <div class="wrap">
     <div class="cta__inner">
-
       <div>
         <h2 class="cta__title">See exactly what slow response is <em>costing you.</em></h2>
         <p class="cta__sub">
@@ -1678,21 +632,17 @@ section{ position:relative }
           a number. The dollar value of the leak. What it takes to close it.
         </p>
       </div>
-
       <aside class="cta__panel" aria-label="Two ways to start">
-
         <div class="cta__path">
           <div class="cta__path-tag">Path A &middot; Book a call</div>
-          <h3 class="cta__path-title">A 30-min working session</h3>
+          <h3 class="cta__path-title">A 30 min working session</h3>
           <p class="cta__path-body">Pick a slot. Jump on a call. Walk away with the written audit. No pitch, no obligation.</p>
           <a class="btn" href="https://cal.com/silver-signal-m0hq3w/30min" target="_blank" rel="noopener" id="cta-book">
             <span>Book Your Free Tech Audit</span>
             <span class="arrow" aria-hidden="true">&rarr;</span>
           </a>
         </div>
-
         <div class="cta__divider"><span>Or</span></div>
-
         <div class="cta__path">
           <div class="cta__path-tag">Path B &middot; Not ready yet</div>
           <h3 class="cta__path-title">Send us your situation</h3>
@@ -1719,18 +669,13 @@ section{ position:relative }
             </div>
           </form>
         </div>
-
       </aside>
-
     </div>
   </div>
 </section>
 
 </main>
 
-<!-- =========================================================
-     Footer
-     ========================================================= -->
 <footer class="foot">
   <div class="wrap">
     <div class="foot__top">
@@ -1777,9 +722,6 @@ section{ position:relative }
   </div>
 </footer>
 
-<!-- =========================================================
-     Cookie banner
-     ========================================================= -->
 <div class="cookie" id="cookie" role="dialog" aria-live="polite" aria-label="Cookies">
   <p>
     We use a small number of cookies to understand how this page performs and improve it
@@ -1792,21 +734,12 @@ section{ position:relative }
 </div>
 
 <script>
-/* =========================================================
-   Config
-   ========================================================= */
 var FORMSPREE_ENDPOINT = "https://formspree.io/f/xkoklypl";
 var CAL_LINK = "https://cal.com/silver-signal-m0hq3w/30min";
 var COOKIE_KEY = "ss_cookie_pref_v1";
 
-/* =========================================================
-   Year stamp
-   ========================================================= */
 document.getElementById("year").textContent = new Date().getFullYear();
 
-/* =========================================================
-   ROI Calculator
-   ========================================================= */
 (function(){
   var leadsEl   = document.getElementById("calc-leads");
   var timeEl    = document.getElementById("calc-time");
@@ -1818,9 +751,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
   var emailEl   = document.getElementById("calc-email");
   var submitBtn = document.getElementById("calc-submit");
   var success   = document.getElementById("calc-success");
-
   if(!leadsEl) return;
-
   function fmtCurrency(n){
     if(n >= 1e9) return "$" + (n/1e9).toFixed(1).replace(/\.0$/,"") + "B";
     if(n >= 1e6) return "$" + (n/1e6).toFixed(1).replace(/\.0$/,"") + "M";
@@ -1828,29 +759,23 @@ document.getElementById("year").textContent = new Date().getFullYear();
     return "$" + Math.round(n).toLocaleString();
   }
   function fmtNum(n){ return Math.round(n).toLocaleString(); }
-
   function recalc(){
     var leads = parseFloat(leadsEl.value) || 0;
     var loss  = parseFloat(timeEl.value)  || 0;
     var value = parseFloat(valueEl.value) || 0;
-
     var casesLost   = leads * loss;
     var annualLeak  = casesLost * value * 12;
     var recoverable = casesLost * 0.7 * value * 12;
-
     outCases.textContent = fmtNum(casesLost);
     outLeak.textContent  = fmtCurrency(annualLeak);
     outGain.textContent  = fmtCurrency(recoverable);
   }
-
   ["change","input"].forEach(function(ev){
     leadsEl.addEventListener(ev, recalc);
     timeEl.addEventListener(ev, recalc);
     valueEl.addEventListener(ev, recalc);
   });
   recalc();
-
-  /* Email capture */
   form.addEventListener("submit", function(e){
     e.preventDefault();
     var email = (emailEl.value || "").trim();
@@ -1860,14 +785,11 @@ document.getElementById("year").textContent = new Date().getFullYear();
       return;
     }
     emailEl.style.outline = "";
-
     var leads = parseFloat(leadsEl.value) || 0;
     var loss  = parseFloat(timeEl.value)  || 0;
     var value = parseFloat(valueEl.value) || 0;
-
     var leadsLabel = leadsEl.options[leadsEl.selectedIndex].text;
     var timeLabel  = timeEl.options[timeEl.selectedIndex].text;
-
     var payload = new FormData();
     payload.append("source", "calculator");
     payload.append("email", email);
@@ -1878,33 +800,22 @@ document.getElementById("year").textContent = new Date().getFullYear();
     payload.append("annual_revenue_leak_usd", String(Math.round(leads * loss * value * 12)));
     payload.append("annual_recoverable_usd", String(Math.round(leads * loss * 0.7 * value * 12)));
     payload.append("page", location.href);
-
     submitBtn.textContent = "Sending…";
     submitBtn.disabled = true;
-
-    fetch(FORMSPREE_ENDPOINT, {
-      method: "POST",
-      headers: { "Accept": "application/json" },
-      body: payload
-    }).then(function(r){
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Send";
-      if(r.ok){
-        success.classList.add("is-on");
-        emailEl.value = "";
-      } else {
+    fetch(FORMSPREE_ENDPOINT, { method: "POST", headers: { "Accept": "application/json" }, body: payload })
+      .then(function(r){
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send";
+        if(r.ok){ success.classList.add("is-on"); emailEl.value = ""; }
+        else { submitBtn.textContent = "Try again"; }
+      })
+      .catch(function(){
+        submitBtn.disabled = false;
         submitBtn.textContent = "Try again";
-      }
-    }).catch(function(){
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Try again";
-    });
+      });
   });
 })();
 
-/* =========================================================
-   Lead capture form (final CTA, Path B)
-   ========================================================= */
 (function(){
   var form = document.getElementById("lead-form");
   if(!form) return;
@@ -1915,67 +826,47 @@ document.getElementById("year").textContent = new Date().getFullYear();
   var label     = submitBtn.querySelector(".lead-form__label");
   var success   = document.getElementById("lead-success");
   var emailRx   = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
   function markValid(el){ el.classList.remove("is-invalid"); }
   function markInvalid(el){ el.classList.add("is-invalid"); }
-
   form.addEventListener("submit", function(e){
     e.preventDefault();
     var name  = (nameEl.value  || "").trim();
     var email = (emailEl.value || "").trim();
     var msg   = (msgEl.value   || "").trim();
-
     var firstBad = null;
-    if(!name)                       { markInvalid(nameEl);  firstBad = firstBad || nameEl; }  else markValid(nameEl);
+    if(!name){ markInvalid(nameEl); firstBad = firstBad || nameEl; } else markValid(nameEl);
     if(!email || !emailRx.test(email)){ markInvalid(emailEl); firstBad = firstBad || emailEl; } else markValid(emailEl);
-    if(!msg)                        { markInvalid(msgEl);   firstBad = firstBad || msgEl; }  else markValid(msgEl);
+    if(!msg){ markInvalid(msgEl); firstBad = firstBad || msgEl; } else markValid(msgEl);
     if(firstBad){ firstBad.focus(); return; }
-
     var payload = new FormData();
     payload.append("source",  "cta_form");
     payload.append("name",    name);
     payload.append("email",   email);
     payload.append("message", msg);
     payload.append("page",    location.href);
-
     submitBtn.disabled = true;
     label.textContent = "Sending…";
-
-    fetch(FORMSPREE_ENDPOINT, {
-      method:  "POST",
-      headers: { "Accept": "application/json" },
-      body:    payload
-    }).then(function(r){
-      submitBtn.disabled = false;
-      if(r.ok){
-        label.textContent = "Sent";
-        success.classList.add("is-on");
-        form.reset();
-      } else {
+    fetch(FORMSPREE_ENDPOINT, { method: "POST", headers: { "Accept": "application/json" }, body: payload })
+      .then(function(r){
+        submitBtn.disabled = false;
+        if(r.ok){ label.textContent = "Sent"; success.classList.add("is-on"); form.reset(); }
+        else { label.textContent = "Try again"; }
+      })
+      .catch(function(){
+        submitBtn.disabled = false;
         label.textContent = "Try again";
-      }
-    }).catch(function(){
-      submitBtn.disabled = false;
-      label.textContent = "Try again";
-    });
+      });
   });
 })();
 
-/* =========================================================
-   Cookie banner
-   ========================================================= */
 (function(){
   var banner  = document.getElementById("cookie");
   var accept  = document.getElementById("cookie-accept");
   var decline = document.getElementById("cookie-decline");
   if(!banner) return;
-
   var pref;
   try { pref = localStorage.getItem(COOKIE_KEY); } catch(e){ pref = null; }
-  if(!pref){
-    setTimeout(function(){ banner.classList.add("is-on"); }, 600);
-  }
-
+  if(!pref){ setTimeout(function(){ banner.classList.add("is-on"); }, 600); }
   function set(p){
     try { localStorage.setItem(COOKIE_KEY, p); } catch(e){}
     banner.classList.remove("is-on");
@@ -1987,9 +878,6 @@ document.getElementById("year").textContent = new Date().getFullYear();
   decline.addEventListener("click", function(){ set("decline"); });
 })();
 
-/* =========================================================
-   Smooth in-page anchors (respect reduced motion)
-   ========================================================= */
 (function(){
   var prefers = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if(prefers) return;
@@ -2005,8 +893,8 @@ document.getElementById("year").textContent = new Date().getFullYear();
       history.replaceState(null,"","#"+id);
     });
   });
+})();
 </script>
 
 </body>
 </html>
-```
