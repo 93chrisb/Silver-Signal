@@ -984,30 +984,99 @@ section{ position:relative }
   background:#FFFFFF;
   padding:clamp(28px,3vw,40px);
 }
-.cta__panel .row{
-  display:flex;
-  justify-content:space-between;
-  border-bottom:1px solid var(--line);
-  padding:14px 0;
+.cta__panel .btn{ width:100%; justify-content:space-between }
+
+.cta__path + .cta__divider{ margin:clamp(20px,2.4vw,28px) 0 }
+.cta__path-tag{
   font-family:var(--mono);
-  font-size:11px;
-  letter-spacing:.14em;
+  font-size:10px;
+  letter-spacing:.18em;
   text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:10px;
 }
-.cta__panel .row:first-child{ padding-top:0 }
-.cta__panel .row .k{ color:var(--muted) }
-.cta__panel .row .v{ color:var(--ink) }
-.cta__panel .row .v em{ font-style:italic; color:var(--ink); font-family:var(--serif); text-transform:none; letter-spacing:0; font-size:14px }
-.cta__panel .btn{ width:100%; justify-content:space-between; margin-top:24px }
-.cta__panel .reassure{
-  margin-top:14px;
+.cta__path-title{
+  font-family:var(--serif);
+  font-size:clamp(22px,1.9vw,26px);
+  line-height:1.15;
+  letter-spacing:-0.005em;
+  color:var(--ink);
+  margin:0 0 8px;
+}
+.cta__path-body{
+  font-size:14px;
+  line-height:1.55;
+  color:var(--ink-2);
+  margin:0 0 18px;
+}
+.cta__divider{
+  position:relative;
+  text-align:center;
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--muted-2);
+}
+.cta__divider::before{
+  content:"";
+  position:absolute;
+  left:0; right:0; top:50%;
+  height:1px;
+  background:var(--line);
+}
+.cta__divider span{
+  position:relative;
+  background:#FFFFFF;
+  padding:0 14px;
+}
+
+.lead-form{ display:grid; gap:12px }
+.lead-form__field label{
+  display:block;
   font-family:var(--mono);
   font-size:10px;
   letter-spacing:.16em;
   text-transform:uppercase;
-  color:var(--muted-2);
-  text-align:center;
+  color:var(--muted);
+  margin-bottom:6px;
 }
+.lead-form__field input,
+.lead-form__field textarea{
+  width:100%;
+  background:var(--bg);
+  border:1px solid var(--line-2);
+  color:var(--ink);
+  padding:11px 12px;
+  font-family:var(--sans);
+  font-size:14px;
+  outline:none;
+  transition:border-color .15s ease;
+  border-radius:0;
+  -webkit-appearance:none;
+  appearance:none;
+  resize:vertical;
+}
+.lead-form__field input:focus,
+.lead-form__field textarea:focus{ border-color:var(--accent) }
+.lead-form__field input.is-invalid,
+.lead-form__field textarea.is-invalid{ border-color:var(--loss) }
+.lead-form__submit{
+  width:100%;
+  justify-content:space-between;
+  margin-top:4px;
+}
+.lead-form__success{
+  display:none;
+  margin-top:12px;
+  padding:12px 14px;
+  border:1px solid var(--gain);
+  background:rgba(45,92,63,.06);
+  color:var(--ink);
+  font-size:13px;
+  line-height:1.5;
+}
+.lead-form__success.is-on{ display:block }
 @media (max-width:960px){
   .cta__inner{ grid-template-columns:1fr; gap:40px }
 }
@@ -1157,7 +1226,7 @@ section{ position:relative }
       <a class="link" href="#how">Approach</a>
       <a class="link" href="#case">Case&nbsp;Study</a>
       <a class="link" href="#audit">Audit</a>
-      <a class="cta" href="#audit">Book&nbsp;Audit</a>
+      <a class="cta" href="https://cal.com/silver-signal-m0hq3w/30min" target="_blank" rel="noopener">Book&nbsp;Audit</a>
     </nav>
   </div>
 </header>
@@ -1602,17 +1671,47 @@ section{ position:relative }
         </p>
       </div>
 
-      <aside class="cta__panel" aria-label="Audit booking">
-        <div class="row"><span class="k">Format</span><span class="v">30-min Working Session</span></div>
-        <div class="row"><span class="k">Cost</span><span class="v"><em>Complimentary</em></span></div>
-        <div class="row"><span class="k">Outcome</span><span class="v">Written Audit Report</span></div>
-        <div class="row"><span class="k">Risk Reversal</span><span class="v">No Pitch &middot; No Obligation</span></div>
+      <aside class="cta__panel" aria-label="Two ways to start">
 
-        <a class="btn" href="https://cal.com/silver-signal-m0hq3w/30min" target="_blank" rel="noopener" id="cta-book">
-          <span>Book Your Free Tech Audit</span>
-          <span class="arrow" aria-hidden="true">&rarr;</span>
-        </a>
-        <div class="reassure">Or email <a href="mailto:hello@silversignal.ai" style="color:var(--ink);text-decoration:underline;text-underline-offset:3px">hello@silversignal.ai</a></div>
+        <div class="cta__path">
+          <div class="cta__path-tag">Path A &middot; Book a call</div>
+          <h3 class="cta__path-title">A 30-min working session</h3>
+          <p class="cta__path-body">Pick a slot, jump on a call, walk away with the written audit. No pitch, no obligation.</p>
+          <a class="btn" href="https://cal.com/silver-signal-m0hq3w/30min" target="_blank" rel="noopener" id="cta-book">
+            <span>Book Your Free Tech Audit</span>
+            <span class="arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+
+        <div class="cta__divider"><span>Or</span></div>
+
+        <div class="cta__path">
+          <div class="cta__path-tag">Path B &middot; Not ready yet</div>
+          <h3 class="cta__path-title">Send us your situation</h3>
+          <p class="cta__path-body">One line on what&rsquo;s broken. We&rsquo;ll come back with first thoughts in one business day. No call required.</p>
+          <form class="lead-form" id="lead-form" novalidate>
+            <div class="lead-form__field">
+              <label for="lead-name">Name</label>
+              <input type="text" id="lead-name" name="name" placeholder="Your name" autocomplete="name" required />
+            </div>
+            <div class="lead-form__field">
+              <label for="lead-email">Work email</label>
+              <input type="email" id="lead-email" name="email" placeholder="you@firm.com" autocomplete="email" required />
+            </div>
+            <div class="lead-form__field">
+              <label for="lead-msg">In one line, what&rsquo;s broken?</label>
+              <textarea id="lead-msg" name="message" rows="2" placeholder="e.g. We spend $20k/mo on Google Ads and sign 4 cases out of 200 leads." required></textarea>
+            </div>
+            <button type="submit" class="btn lead-form__submit" id="lead-submit">
+              <span class="lead-form__label">Send</span>
+              <span class="arrow" aria-hidden="true">&rarr;</span>
+            </button>
+            <div class="lead-form__success" id="lead-success" role="status">
+              Thanks &mdash; we&rsquo;ll be back in your inbox within one business day.
+            </div>
+          </form>
+        </div>
+
       </aside>
 
     </div>
@@ -1651,7 +1750,8 @@ section{ position:relative }
         <ul>
           <li><a href="mailto:hello@silversignal.ai">hello@silversignal.ai</a></li>
           <li><a href="https://cal.com/silver-signal-m0hq3w/30min" target="_blank" rel="noopener">Book a call</a></li>
-          <li><a href="https://www.linkedin.com/company/silversignal" target="_blank" rel="noopener">LinkedIn</a></li>        </ul>
+          <li><a href="https://www.linkedin.com/company/silversignal" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
       </div>
       <div class="foot__col">
         <h4>Legal</h4>
@@ -1790,6 +1890,65 @@ document.getElementById("year").textContent = new Date().getFullYear();
     }).catch(function(){
       submitBtn.disabled = false;
       submitBtn.textContent = "Try again";
+    });
+  });
+})();
+
+/* =========================================================
+   Lead capture form (final CTA, Path B)
+   ========================================================= */
+(function(){
+  var form = document.getElementById("lead-form");
+  if(!form) return;
+  var nameEl    = document.getElementById("lead-name");
+  var emailEl   = document.getElementById("lead-email");
+  var msgEl     = document.getElementById("lead-msg");
+  var submitBtn = document.getElementById("lead-submit");
+  var label     = submitBtn.querySelector(".lead-form__label");
+  var success   = document.getElementById("lead-success");
+  var emailRx   = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  function markValid(el){ el.classList.remove("is-invalid"); }
+  function markInvalid(el){ el.classList.add("is-invalid"); }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var name  = (nameEl.value  || "").trim();
+    var email = (emailEl.value || "").trim();
+    var msg   = (msgEl.value   || "").trim();
+
+    var firstBad = null;
+    if(!name)                       { markInvalid(nameEl);  firstBad = firstBad || nameEl; }  else markValid(nameEl);
+    if(!email || !emailRx.test(email)){ markInvalid(emailEl); firstBad = firstBad || emailEl; } else markValid(emailEl);
+    if(!msg)                        { markInvalid(msgEl);   firstBad = firstBad || msgEl; }  else markValid(msgEl);
+    if(firstBad){ firstBad.focus(); return; }
+
+    var payload = new FormData();
+    payload.append("source",  "cta_form");
+    payload.append("name",    name);
+    payload.append("email",   email);
+    payload.append("message", msg);
+    payload.append("page",    location.href);
+
+    submitBtn.disabled = true;
+    label.textContent = "Sending…";
+
+    fetch(FORMSPREE_ENDPOINT, {
+      method:  "POST",
+      headers: { "Accept": "application/json" },
+      body:    payload
+    }).then(function(r){
+      submitBtn.disabled = false;
+      if(r.ok){
+        label.textContent = "Sent";
+        success.classList.add("is-on");
+        form.reset();
+      } else {
+        label.textContent = "Try again";
+      }
+    }).catch(function(){
+      submitBtn.disabled = false;
+      label.textContent = "Try again";
     });
   });
 })();
