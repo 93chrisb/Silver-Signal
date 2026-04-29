@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 <title>Silver Signal — Sign more cases. Spend less on marketing.</title>
 <meta name="description" content="Silver Signal helps US personal injury law firms respond to every inbound lead in under 5 minutes — using Salesforce and AI. No new headcount. No more wasted ad spend." />
-<meta name="theme-color" content="#0A0A0A" />
+<meta name="theme-color" content="#FAFAF7" />
 <meta property="og:title" content="Silver Signal — Sign more cases. Spend less on marketing." />
 <meta property="og:description" content="RevOps for US personal injury law firms. Salesforce + AI. Lead response under 5 minutes." />
 <meta property="og:type" content="website" />
@@ -60,17 +60,19 @@
    Tokens
    ========================================================= */
 :root{
-  --bg:#0A0A0A;
-  --bg-2:#111111;
-  --bg-3:#161616;
-  --ink:#FAFAF5;
-  --ink-2:#E7E6DE;
-  --muted:#888885;
-  --muted-2:#6A6A66;
-  --line:#1F1F1D;
-  --line-2:#2A2A28;
-  --accent:#D4C896;
-  --accent-2:#B8A76C;
+  --bg:#FAFAF7;
+  --bg-2:#F4F2EA;
+  --bg-3:#EDEAE0;
+  --ink:#171716;
+  --ink-2:#2C2C2A;
+  --muted:#6E6E68;
+  --muted-2:#92928D;
+  --line:#E2E0D8;
+  --line-2:#C9C7BD;
+  --accent:#1D2A38;
+  --accent-2:#2D3F52;
+  --loss:#8C2D2D;
+  --gain:#2D5C3F;
   --serif:"Instrument Serif", "Times New Roman", Georgia, serif;
   --sans:"Geist", -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
   --mono:"Geist Mono", ui-monospace, "JetBrains Mono", "SF Mono", Menlo, monospace;
@@ -100,7 +102,7 @@ img,svg{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 input,select{font:inherit;color:inherit}
-::selection{background:var(--accent);color:#0A0A0A}
+::selection{background:var(--accent);color:var(--bg)}
 
 /* =========================================================
    Layout primitives
@@ -141,11 +143,11 @@ input,select{font:inherit;color:inherit}
   font-family:var(--serif);
   font-weight:400;
   letter-spacing:-0.015em;
-  line-height:1.02;
-  font-size:clamp(44px, 7vw, 96px);
+  line-height:1.04;
+  font-size:clamp(40px, 5.4vw, 76px);
   color:var(--ink);
 }
-.h-display em{ font-style:italic; color:var(--accent) }
+.h-display em{ font-style:italic; color:inherit }
 .h-section{
   font-family:var(--serif);
   font-weight:400;
@@ -155,7 +157,7 @@ input,select{font:inherit;color:inherit}
   color:var(--ink);
   margin:0;
 }
-.h-section em{ font-style:italic; color:var(--accent) }
+.h-section em{ font-style:italic; color:inherit }
 .lede{
   font-size:clamp(16px, 1.25vw, 19px);
   line-height:1.55;
@@ -178,7 +180,7 @@ input,select{font:inherit;color:inherit}
   padding:18px 26px;
   border:1px solid var(--accent);
   background:var(--accent);
-  color:#0A0A0A;
+  color:var(--bg);
   font-family:var(--sans);
   font-weight:500;
   font-size:14px;
@@ -186,7 +188,7 @@ input,select{font:inherit;color:inherit}
   transition:transform .15s ease, background .15s ease, border-color .15s ease, color .15s ease;
   cursor:pointer;
 }
-.btn:hover{ background:#E5DAA7; border-color:#E5DAA7 }
+.btn:hover{ background:var(--accent-2); border-color:var(--accent-2) }
 .btn:active{ transform:translateY(1px) }
 .btn .arrow{
   font-family:var(--mono);
@@ -211,7 +213,7 @@ section{ position:relative }
   position:sticky;
   top:0;
   z-index:50;
-  background:rgba(10,10,10,.78);
+  background:rgba(250,250,247,.85);
   backdrop-filter:saturate(140%) blur(10px);
   -webkit-backdrop-filter:saturate(140%) blur(10px);
   border-bottom:1px solid var(--line);
@@ -237,7 +239,7 @@ section{ position:relative }
   transform:rotate(45deg);
   display:inline-block;
 }
-.brand em{ font-style:italic; color:var(--accent) }
+.brand em{ font-style:italic; color:inherit }
 .topnav{
   display:flex;
   align-items:center;
@@ -270,7 +272,7 @@ section{ position:relative }
 }
 .hero__grid{
   display:grid;
-  grid-template-columns:1.15fr 1fr;
+  grid-template-columns:1.45fr 1fr;
   gap:clamp(32px,5vw,72px);
   align-items:start;
 }
@@ -326,39 +328,42 @@ section{ position:relative }
 /* ROI Calculator card */
 .calc{
   position:relative;
-  background:linear-gradient(180deg, #121211 0%, #0E0E0D 100%);
+  background:#FFFFFF;
   border:1px solid var(--line-2);
   padding:clamp(24px,2.4vw,32px);
 }
 .calc::before{
   content:"";
-  position:absolute; top:-1px; left:-1px; right:-1px; height:1px;
-  background:linear-gradient(90deg, transparent, var(--accent), transparent);
-  opacity:.35;
+  position:absolute; top:-1px; left:-1px; right:-1px; height:2px;
+  background:var(--accent);
 }
 .calc__head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  position:relative;
   margin-bottom:24px;
   padding-bottom:18px;
+  padding-right:54px;
   border-bottom:1px solid var(--line);
 }
 .calc__title{
   font-family:var(--serif);
-  font-size:24px;
-  line-height:1.1;
+  font-size:22px;
+  line-height:1.15;
   color:var(--ink);
+  margin:0;
+  max-width:90%;
 }
-.calc__title em{ font-style:italic; color:var(--accent) }
+.calc__title em{ font-style:italic; color:inherit }
 .calc__tag{
+  position:absolute;
+  top:0;
+  right:0;
   font-family:var(--mono);
   font-size:10px;
   letter-spacing:.16em;
   text-transform:uppercase;
   color:var(--muted);
   border:1px solid var(--line-2);
-  padding:6px 8px;
+  padding:5px 8px;
 }
 .calc__field{ margin-bottom:18px }
 .calc__field label{
@@ -372,7 +377,7 @@ section{ position:relative }
 }
 .calc__select, .calc__input{
   width:100%;
-  background:#0B0B0A;
+  background:var(--bg);
   border:1px solid var(--line-2);
   color:var(--ink);
   padding:14px 14px;
@@ -423,8 +428,8 @@ section{ position:relative }
   line-height:1;
   letter-spacing:-0.01em;
 }
-.calc__row.is-loss .v{ color:#E8B7B0 }
-.calc__row.is-gain .v{ color:var(--accent) }
+.calc__row.is-loss .v{ color:var(--loss) }
+.calc__row.is-gain .v{ color:var(--gain) }
 
 .calc__email{
   margin-top:18px;
@@ -454,20 +459,20 @@ section{ position:relative }
 }
 .calc__email-row button{
   background:var(--accent);
-  color:#0A0A0A;
+  color:var(--bg);
   padding:0 18px;
   font-weight:500;
   font-size:13px;
   letter-spacing:.02em;
   font-family:var(--sans);
 }
-.calc__email-row button:hover{ background:#E5DAA7 }
+.calc__email-row button:hover{ background:var(--accent-2) }
 .calc__success{
   display:none;
   margin-top:14px;
   padding:14px;
   border:1px solid var(--accent);
-  background:rgba(212,200,150,.06);
+  background:rgba(29,42,56,.04);
 }
 .calc__success.is-on{ display:block }
 .calc__success p{ margin:0 0 10px; color:var(--ink); font-size:14px }
@@ -497,7 +502,7 @@ section{ position:relative }
    ========================================================= */
 .problem{
   border-bottom:1px solid var(--line);
-  background:#0B0B0A;
+  background:var(--bg-2);
 }
 .problem__head{
   display:grid;
@@ -519,7 +524,7 @@ section{ position:relative }
   border-right:1px solid var(--line-2);
   border-bottom:1px solid var(--line-2);
   padding:clamp(28px,3vw,40px);
-  background:linear-gradient(180deg, #101010 0%, #0B0B0A 100%);
+  background:#FFFFFF;
   position:relative;
 }
 .problem__stat .tag{
@@ -595,7 +600,7 @@ section{ position:relative }
 }
 .phase{
   border:1px solid var(--line-2);
-  background:linear-gradient(180deg, #101010 0%, #0C0C0B 100%);
+  background:#FFFFFF;
   padding:clamp(24px,2.4vw,32px);
   display:flex;
   flex-direction:column;
@@ -632,7 +637,7 @@ section{ position:relative }
   margin:0 0 16px;
   color:var(--ink);
 }
-.phase__title em{ font-style:italic; color:var(--accent) }
+.phase__title em{ font-style:italic; color:inherit }
 .phase__body{
   color:var(--ink-2);
   font-size:15px;
@@ -670,7 +675,7 @@ section{ position:relative }
    Case Study
    ========================================================= */
 .case{
-  background:#0B0B0A;
+  background:var(--bg-2);
   border-bottom:1px solid var(--line);
 }
 .case__grid{
@@ -688,7 +693,7 @@ section{ position:relative }
   color:var(--ink);
   margin:0 0 32px;
 }
-.case__title em{ font-style:italic; color:var(--accent) }
+.case__title em{ font-style:italic; color:inherit }
 .case__body{
   color:var(--ink-2);
   font-size:16px;
@@ -701,7 +706,7 @@ section{ position:relative }
   line-height:.85;
   float:left;
   padding:6px 14px 0 0;
-  color:var(--accent);
+  color:var(--ink);
 }
 .case__quote{
   margin:32px 0 0;
@@ -776,6 +781,120 @@ section{ position:relative }
 }
 
 /* =========================================================
+   How We Work (guarantee + commitments)
+   ========================================================= */
+.work{
+  border-bottom:1px solid var(--line);
+  background:var(--bg);
+}
+.work__head{
+  display:grid;
+  grid-template-columns:1fr 1.4fr;
+  gap:clamp(24px,4vw,72px);
+  align-items:end;
+  margin-bottom:clamp(48px,6vw,80px);
+}
+.work__head .lede{ margin:0 }
+
+.work__promise{
+  border:1px solid var(--accent);
+  background:#FFFFFF;
+  padding:clamp(32px,4vw,56px);
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:clamp(24px,4vw,56px);
+  align-items:center;
+  margin-bottom:clamp(28px,3vw,40px);
+  position:relative;
+}
+.work__promise::before{
+  content:"";
+  position:absolute; top:-1px; left:-1px; right:-1px; height:3px;
+  background:var(--accent);
+}
+.work__promise .lab{
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:14px;
+}
+.work__promise .pledge{
+  font-family:var(--serif);
+  font-size:clamp(28px,2.8vw,40px);
+  line-height:1.1;
+  letter-spacing:-0.01em;
+  color:var(--ink);
+  margin:0;
+  max-width:22ch;
+}
+.work__promise .pledge em{ font-style:italic; color:inherit }
+.work__promise .seal{
+  text-align:right;
+  border-left:1px solid var(--line-2);
+  padding-left:clamp(20px,2.5vw,40px);
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--muted);
+  line-height:1.6;
+}
+.work__promise .seal strong{
+  display:block;
+  font-family:var(--serif);
+  font-size:clamp(22px,1.8vw,28px);
+  font-weight:400;
+  letter-spacing:-0.01em;
+  color:var(--ink);
+  text-transform:none;
+  margin-top:6px;
+}
+
+.work__pillars{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  border-top:1px solid var(--line-2);
+  border-left:1px solid var(--line-2);
+}
+.work__pillar{
+  border-right:1px solid var(--line-2);
+  border-bottom:1px solid var(--line-2);
+  padding:clamp(24px,2.4vw,32px);
+  background:#FFFFFF;
+}
+.work__pillar .num{
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:18px;
+}
+.work__pillar h3{
+  font-family:var(--serif);
+  font-size:24px;
+  line-height:1.15;
+  letter-spacing:-0.005em;
+  margin:0 0 10px;
+  color:var(--ink);
+}
+.work__pillar p{
+  margin:0;
+  font-size:14px;
+  color:var(--ink-2);
+  line-height:1.6;
+}
+
+@media (max-width:780px){
+  .work__head{ grid-template-columns:1fr; gap:24px }
+  .work__promise{ grid-template-columns:1fr; gap:20px }
+  .work__promise .seal{ border-left:0; border-top:1px solid var(--line); padding-left:0; padding-top:20px; text-align:left }
+  .work__pillars{ grid-template-columns:1fr }
+}
+
+/* =========================================================
    What You Get (audit deliverables)
    ========================================================= */
 .deliv{ border-bottom:1px solid var(--line) }
@@ -800,7 +919,7 @@ section{ position:relative }
   align-items:start;
   transition:background .2s ease;
 }
-.deliv__row:hover{ background:rgba(212,200,150,.02) }
+.deliv__row:hover{ background:rgba(29,42,56,.025) }
 .deliv__num{
   font-family:var(--mono);
   font-size:11px;
@@ -816,7 +935,7 @@ section{ position:relative }
   color:var(--ink);
   margin:0;
 }
-.deliv__title em{ font-style:italic; color:var(--accent) }
+.deliv__title em{ font-style:italic; color:inherit }
 .deliv__body{
   color:var(--ink-2);
   font-size:15px;
@@ -834,7 +953,7 @@ section{ position:relative }
    Final CTA
    ========================================================= */
 .cta{
-  background:#0B0B0A;
+  background:var(--bg-2);
   border-bottom:1px solid var(--line);
   position:relative;
 }
@@ -852,7 +971,7 @@ section{ position:relative }
   color:var(--ink);
   margin:0 0 24px;
 }
-.cta__title em{ font-style:italic; color:var(--accent) }
+.cta__title em{ font-style:italic; color:inherit }
 .cta__sub{
   color:var(--ink-2);
   font-size:17px;
@@ -862,7 +981,7 @@ section{ position:relative }
 }
 .cta__panel{
   border:1px solid var(--line-2);
-  background:linear-gradient(180deg, #111111 0%, #0C0C0B 100%);
+  background:#FFFFFF;
   padding:clamp(28px,3vw,40px);
 }
 .cta__panel .row{
@@ -878,7 +997,7 @@ section{ position:relative }
 .cta__panel .row:first-child{ padding-top:0 }
 .cta__panel .row .k{ color:var(--muted) }
 .cta__panel .row .v{ color:var(--ink) }
-.cta__panel .row .v em{ font-style:italic; color:var(--accent); font-family:var(--serif); text-transform:none; letter-spacing:0; font-size:14px }
+.cta__panel .row .v em{ font-style:italic; color:var(--ink); font-family:var(--serif); text-transform:none; letter-spacing:0; font-size:14px }
 .cta__panel .btn{ width:100%; justify-content:space-between; margin-top:24px }
 .cta__panel .reassure{
   margin-top:14px;
@@ -913,7 +1032,7 @@ section{ position:relative }
   color:var(--ink);
   margin-bottom:14px;
 }
-.foot__brand em{ font-style:italic; color:var(--accent) }
+.foot__brand em{ font-style:italic; color:inherit }
 .foot__tag{
   font-family:var(--mono);
   font-size:11px;
@@ -976,11 +1095,11 @@ section{ position:relative }
   max-width:520px;
   margin:0 auto;
   z-index:60;
-  background:#111110;
+  background:#FFFFFF;
   border:1px solid var(--line-2);
   padding:18px 20px;
   display:none;
-  box-shadow:0 20px 60px rgba(0,0,0,.5);
+  box-shadow:0 20px 60px rgba(23,23,22,.12);
 }
 .cookie.is-on{ display:block }
 .cookie p{
@@ -1009,10 +1128,10 @@ section{ position:relative }
 .cookie__row button:hover{ border-color:var(--accent); color:var(--accent) }
 .cookie__row .accept{
   background:var(--accent);
-  color:#0A0A0A;
+  color:var(--bg);
   border-color:var(--accent);
 }
-.cookie__row .accept:hover{ background:#E5DAA7; color:#0A0A0A; border-color:#E5DAA7 }
+.cookie__row .accept:hover{ background:var(--accent-2); color:var(--bg); border-color:var(--accent-2) }
 
 /* =========================================================
    Reduced motion
@@ -1200,7 +1319,6 @@ section{ position:relative }
         <div class="figure">3 <em>days</em></div>
         <div class="unit">Average Conversion Time</div>
         <p>The time it takes a typical PI firm to convert an inbound lead into a signed client &mdash; long after the lead has signed with a competitor.</p>
-        <cite>PI Industry Benchmark, 2025</cite>
       </article>
 
       <article class="problem__stat">
@@ -1211,7 +1329,6 @@ section{ position:relative }
         <div class="figure">$52K</div>
         <div class="unit">Per Signed PI Case</div>
         <p>The average revenue value of a single signed personal injury case in the United States. Every missed lead is a five-figure miss.</p>
-        <cite>US PI Market Data, 2025</cite>
       </article>
 
       <article class="problem__stat">
@@ -1222,7 +1339,6 @@ section{ position:relative }
         <div class="figure">&lt; 5 <em>min</em></div>
         <div class="unit">Lead Response Window</div>
         <p>The response time of the top firms in the country. The gap between them and you isn&rsquo;t talent or budget &mdash; it&rsquo;s infrastructure.</p>
-        <cite>Top-Decile PI Operators</cite>
       </article>
     </div>
   </div>
@@ -1331,10 +1447,6 @@ section{ position:relative }
           and a single source of truth for every inbound lead &mdash; from ad click through
           to signed retainer. No new headcount. No more leads dying in a shared inbox.
         </p>
-        <blockquote class="case__quote">
-          <q>We knew we had a lead response problem. We didn&rsquo;t realise how much it was costing us until Silver Signal showed us the numbers.</q>
-          <cite>Marketing Director &middot; Top-10 PI Law Firm</cite>
-        </blockquote>
       </div>
 
       <div class="case__metrics">
@@ -1366,6 +1478,60 @@ section{ position:relative }
 </section>
 
 <!-- =========================================================
+     How We Work (the offer + guarantee)
+     ========================================================= -->
+<section class="work section-pad" id="work">
+  <div class="wrap">
+    <div class="work__head">
+      <div>
+        <div class="eyebrow" style="margin-bottom:24px">
+          <span class="num">04</span>
+          <span class="bar" aria-hidden="true"></span>
+          <span>How We Work</span>
+        </div>
+        <h2 class="h-section">A specific promise &mdash; <em>or you don&rsquo;t pay.</em></h2>
+      </div>
+      <p class="lede">
+        We don&rsquo;t sell hours, deliverables or dashboards. We sell one outcome &mdash;
+        and we put the engagement fee on the line to back it.
+      </p>
+    </div>
+
+    <div class="work__promise" role="region" aria-label="Our guarantee">
+      <div>
+        <div class="lab">The Guarantee</div>
+        <p class="pledge">
+          We&rsquo;ll cut your average lead response time below 5 minutes within 60 days of
+          go-live. <em>If we don&rsquo;t, we keep working free until we do.</em>
+        </p>
+      </div>
+      <div class="seal">
+        Written into<br/>every engagement
+        <strong>No new headcount</strong>
+      </div>
+    </div>
+
+    <div class="work__pillars">
+      <article class="work__pillar">
+        <div class="num">A &middot; The Outcome</div>
+        <h3>Sub-5-minute response on every inbound lead</h3>
+        <p>Web forms, missed calls, after-hours, weekends. Every channel triaged, qualified and routed before the lead loses interest.</p>
+      </article>
+      <article class="work__pillar">
+        <div class="num">B &middot; The Method</div>
+        <h3>Salesforce + AgentForce, wired into your stack</h3>
+        <p>Native intake, AI-driven qualification, calendar-integrated booking, single source of truth from ad click through to signed retainer.</p>
+      </article>
+      <article class="work__pillar">
+        <div class="num">C &middot; The Timeline</div>
+        <h3>Six to eight weeks, kickoff to live</h3>
+        <p>Audit week one. Build weeks two through seven. Tuned and live by week eight. Then we keep improving the conversion curve as a retained partner.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
      What You Get (Audit deliverables)
      ========================================================= -->
 <section class="deliv section-pad" id="audit">
@@ -1373,7 +1539,7 @@ section{ position:relative }
     <div class="deliv__head">
       <div>
         <div class="eyebrow" style="margin-bottom:24px">
-          <span class="num">04</span>
+          <span class="num">05</span>
           <span class="bar" aria-hidden="true"></span>
           <span>The Free Tech Audit</span>
         </div>
@@ -1476,6 +1642,7 @@ section{ position:relative }
           <li><a href="#problem">The Gap</a></li>
           <li><a href="#how">Approach</a></li>
           <li><a href="#case">Case Study</a></li>
+          <li><a href="#work">How We Work</a></li>
           <li><a href="#audit">Free Audit</a></li>
         </ul>
       </div>
