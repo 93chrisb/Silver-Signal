@@ -1,21 +1,24 @@
+Full updated file below. Select-all in GitHub editor, delete, paste, commit.
+
+```html
 <!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-<title>Silver Signal — Sign more cases. Spend less on marketing.</title>
-<meta name="description" content="Silver Signal helps US personal injury law firms respond to every inbound lead in under 5 minutes — using Salesforce and AI. No new headcount. No more wasted ad spend." />
+<title>Silver Signal — Sign more cases. Catch every lead.</title>
+<meta name="description" content="Silver Signal helps US personal injury law firms catch every inbound lead in under 5 minutes — using Salesforce and AI. Same marketing spend. More signed cases." />
 <meta name="theme-color" content="#FAFAF7" />
-<meta property="og:title" content="Silver Signal — Sign more cases. Spend less on marketing." />
-<meta property="og:description" content="RevOps for US personal injury law firms. Salesforce + AI. Lead response under 5 minutes." />
+<meta property="og:title" content="Silver Signal — Sign more cases. Catch every lead." />
+<meta property="og:description" content="RevOps for US personal injury law firms. Salesforce + AI. Lead response under 5 minutes — same marketing spend, more signed cases." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://silversignal.ai/" />
 <link rel="canonical" href="https://silversignal.ai/" />
 
-<!-- Fonts: Instrument Serif (display), Geist (sans), Geist Mono (mono) -->
+<!-- Fonts: Plus Jakarta Sans (display + body), Geist Mono (mono) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <!-- =========================================================
      Analytics placeholders — uncomment & paste IDs when ready
@@ -73,8 +76,8 @@
   --accent-2:#2D3F52;
   --loss:#8C2D2D;
   --gain:#2D5C3F;
-  --serif:"Instrument Serif", "Times New Roman", Georgia, serif;
-  --sans:"Geist", -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
+  --serif:"Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
+  --sans:"Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
   --mono:"Geist Mono", ui-monospace, "JetBrains Mono", "SF Mono", Menlo, monospace;
   --container:1520px;
   --gutter:clamp(20px,4vw,72px);
@@ -141,23 +144,32 @@ input,select{font:inherit;color:inherit}
 /* Generic type */
 .h-display{
   font-family:var(--serif);
-  font-weight:400;
-  letter-spacing:-0.015em;
-  line-height:1.04;
+  font-weight:600;
+  letter-spacing:-0.025em;
+  line-height:1.05;
   font-size:clamp(40px, 5.4vw, 76px);
   color:var(--ink);
 }
 .h-display em{ font-style:italic; color:inherit }
 .h-section{
   font-family:var(--serif);
-  font-weight:400;
-  letter-spacing:-0.01em;
-  line-height:1.05;
+  font-weight:600;
+  letter-spacing:-0.02em;
+  line-height:1.08;
   font-size:clamp(34px, 4.6vw, 60px);
   color:var(--ink);
   margin:0;
 }
 .h-section em{ font-style:italic; color:inherit }
+
+/* Display-weight headlines (sans needs more weight than serif) */
+.calc__title, .case__title, .case__metric .to,
+.phase__title, .work__promise .pledge, .work__promise .seal strong,
+.work__pillar h3, .cta__title, .cta__path-title,
+.deliv__title, .calc__row .v, .hero__meta .val{
+  font-weight:600;
+  letter-spacing:-0.015em;
+}
 .lede{
   font-size:clamp(16px, 1.25vw, 19px);
   line-height:1.55;
@@ -1249,13 +1261,13 @@ section{ position:relative }
 
         <h1 class="h-display hero__headline">
           <span class="line">Sign more cases.</span>
-          <span class="line">Spend less on <em>marketing.</em></span>
+          <span class="line">Catch <em>every</em> lead.</span>
         </h1>
 
         <p class="hero__sub">
-          We help personal injury law firms respond to every inbound lead in under
-          5 minutes — using Salesforce and AI. No new headcount. No more wasted
-          ad spend. Just more signed cases.
+          We help personal injury law firms catch every inbound lead in under
+          5 minutes — using Salesforce and AI. Same marketing spend.
+          More signed cases. No new headcount.
         </p>
 
         <div class="hero__cta-row">
@@ -2002,3 +2014,15 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 </body>
 </html>
+```
+
+That's it. Commit message: `Headline rewrite + Plus Jakarta Sans typography`.
+
+After Vercel rebuilds (~60s), open silversignal.ai in incognito and you should see:
+
+- **Hero headline:** "Sign more cases. Catch *every* lead." (italic emphasis on "every"). The "marketing." orphan word problem is gone — the new line "Catch every lead." fits cleanly.
+- **Subhead:** "We help personal injury law firms catch every inbound lead in under 5 minutes — using Salesforce and AI. Same marketing spend. More signed cases. No new headcount."
+- **Typography:** All text in Plus Jakarta Sans (modern, professional, sans-serif). Headlines are heavier (semibold 600). Mono labels still in Geist Mono.
+- **Tab title** and **OG share preview** also updated to the new headline.
+
+Browser tab icon and meta-image won't update for users with cached old versions until they hard-refresh.
