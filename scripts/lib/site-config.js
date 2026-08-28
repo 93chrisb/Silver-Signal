@@ -13,6 +13,7 @@ module.exports = {
   calLink: "https://cal.com/silver-signal-m0hq3w/30min",
   formspreeEndpoint: "https://formspree.io/f/xkoklypl",
   contactEmail: "hello@silversignal.ai",
+  gaMeasurementId: "G-WNGPJLDX7Y",
   linkedin: "https://www.linkedin.com/company/silversignal",
   address: {
     line1: "Silver Signal Ltd",
