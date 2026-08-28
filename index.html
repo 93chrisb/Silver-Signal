@@ -6,11 +6,21 @@
 <title>Silver Signal · Sign more cases. Catch every lead.</title>
 <meta name="description" content="Silver Signal helps personal injury law firms catch every inbound lead in under 5 minutes, using Salesforce and AI. Same marketing spend. More signed cases." />
 <meta name="theme-color" content="#F4F4F9" />
+<meta property="og:site_name" content="Silver Signal" />
 <meta property="og:title" content="Silver Signal · Sign more cases. Catch every lead." />
 <meta property="og:description" content="RevOps for personal injury law firms. Salesforce and AI. Lead response under 5 minutes. Same marketing spend, more signed cases." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://silversignal.ai/" />
+<meta property="og:image" content="https://silversignal.ai/images/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Silver Signal · Sign more cases. Catch every lead." />
+<meta name="twitter:description" content="RevOps for personal injury law firms. Salesforce and AI. Lead response under 5 minutes. Same marketing spend, more signed cases." />
+<meta name="twitter:image" content="https://silversignal.ai/images/og-image.png" />
 <link rel="canonical" href="https://silversignal.ai/" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/images/logo.png" sizes="512x512" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,8 +81,6 @@ section{position:relative}
 .topnav .link{padding:8px 16px;border-radius:999px;transition:background .15s ease,color .15s ease}
 .topnav .link:hover{color:var(--ink);background:var(--bg-2)}
 .topnav-actions{display:flex;align-items:center;gap:14px;justify-content:flex-end;font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink-2)}
-.topnav-actions .signin{color:var(--ink-2)}
-.topnav-actions .signin:hover{color:var(--ink)}
 .topnav-actions .cta{background:var(--accent);color:#FFFFFF;border-radius:999px;padding:10px 20px;font-weight:600;transition:background .15s ease}
 .topnav-actions .cta:hover{background:var(--accent-2)}
 @media (max-width:780px){.topbar__inner{grid-template-columns:1fr auto}.topnav{display:none}}
@@ -194,6 +202,17 @@ section{position:relative}
 .deliv__body{color:var(--ink-2);font-size:15px;line-height:1.6;margin:0;max-width:62ch}
 @media (max-width:780px){.deliv__head{grid-template-columns:1fr;gap:24px}.deliv__row{grid-template-columns:1fr;gap:10px}.deliv__num{padding-top:0}}
 
+.faq__title{margin-bottom:clamp(32px,4vw,48px)}
+.faq__list{max-width:820px;background:#FFFFFF;border:1px solid var(--line);border-radius:var(--radius-card);box-shadow:var(--shadow-card);overflow:hidden}
+.faq__item{border-bottom:1px solid var(--line)}
+.faq__item:last-child{border-bottom:0}
+.faq__item summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px clamp(20px,3vw,28px);cursor:pointer;font-family:var(--serif);font-size:17px;font-weight:600;color:var(--ink);transition:background .15s ease}
+.faq__item summary::-webkit-details-marker{display:none}
+.faq__item summary:hover{background:var(--bg-2)}
+.faq__item summary::after{content:"+";font-family:var(--mono);font-size:18px;color:var(--accent);flex:0 0 auto;transition:transform .2s ease}
+.faq__item[open] summary::after{transform:rotate(45deg)}
+.faq__item p{margin:0;padding:0 clamp(20px,3vw,28px) 24px;color:var(--ink-2);font-size:15px;line-height:1.6;max-width:68ch}
+
 .cta{background:var(--bg-2)}
 .cta__inner{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(32px,5vw,72px);align-items:center}
 .cta__title{font-family:var(--serif);font-size:clamp(40px,5vw,72px);line-height:1.05;letter-spacing:-0.015em;color:var(--ink);margin:0 0 24px}
@@ -205,17 +224,6 @@ section{position:relative}
 .cta__path-tag{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
 .cta__path-title{font-family:var(--serif);font-size:clamp(22px,1.9vw,26px);line-height:1.15;color:var(--ink);margin:0 0 8px}
 .cta__path-body{font-size:14px;line-height:1.55;color:var(--ink-2);margin:0 0 18px}
-.cta__divider{position:relative;text-align:center;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-2)}
-.cta__divider::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--line)}
-.cta__divider span{position:relative;background:#FFFFFF;padding:0 14px}
-.lead-form{display:grid;gap:12px}
-.lead-form__field label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-.lead-form__field input,.lead-form__field textarea{width:100%;background:var(--bg);border:1px solid var(--line-2);color:var(--ink);padding:11px 12px;font-family:var(--sans);font-size:14px;outline:none;transition:border-color .15s ease;border-radius:10px;-webkit-appearance:none;appearance:none;resize:vertical}
-.lead-form__field input:focus,.lead-form__field textarea:focus{border-color:var(--accent)}
-.lead-form__field input.is-invalid,.lead-form__field textarea.is-invalid{border-color:var(--loss)}
-.lead-form__submit{width:100%;justify-content:space-between;margin-top:4px}
-.lead-form__success{display:none;margin-top:12px;padding:12px 14px;border:1px solid var(--gain);background:rgba(43,180,106,.08);color:var(--ink);font-size:13px;line-height:1.5;border-radius:10px}
-.lead-form__success.is-on{display:block}
 @media (max-width:960px){.cta__inner{grid-template-columns:1fr;gap:40px}}
 
 .foot{padding:48px 0 32px;background:var(--bg)}
@@ -234,18 +242,76 @@ section{position:relative}
 @media (max-width:780px){.foot__top{grid-template-columns:1fr 1fr;gap:32px}}
 @media (max-width:480px){.foot__top{grid-template-columns:1fr}}
 
-.cookie{position:fixed;bottom:20px;left:20px;right:20px;max-width:520px;margin:0 auto;z-index:60;background:#FFFFFF;border:1px solid var(--line);padding:18px 20px;display:none;border-radius:var(--radius-card);box-shadow:0 20px 60px rgba(10,10,15,.18)}
-.cookie.is-on{display:block}
-.cookie p{margin:0 0 14px;font-size:13px;color:var(--ink-2);line-height:1.5}
-.cookie p a{color:var(--accent);border-bottom:1px solid var(--accent)}
-.cookie__row{display:flex;gap:10px;flex-wrap:wrap}
-.cookie__row button{flex:1;padding:11px 14px;font-family:var(--sans);font-size:12px;border:1px solid var(--line-2);color:var(--ink);background:transparent;border-radius:10px;transition:border-color .15s ease,color .15s ease}
-.cookie__row button:hover{border-color:var(--accent);color:var(--accent)}
-.cookie__row .accept{background:var(--accent);color:#FFFFFF;border-color:var(--accent)}
-.cookie__row .accept:hover{background:var(--accent-2);color:#FFFFFF;border-color:var(--accent-2)}
 
 @media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}html{scroll-behavior:auto}}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Silver Signal",
+  "url": "https://silversignal.ai/",
+  "logo": "https://silversignal.ai/images/logo.png",
+  "image": "https://silversignal.ai/images/og-image.png",
+  "description": "Silver Signal helps personal injury law firms catch every inbound lead in under 5 minutes, using Salesforce and AI. Same marketing spend. More signed cases.",
+  "email": "hello@silversignal.ai",
+  "sameAs": ["https://www.linkedin.com/company/silversignal"],
+  "areaServed": ["US", "AU"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Suite RA01, 195-197 Wood Street",
+    "addressLocality": "London",
+    "postalCode": "E17 3NU",
+    "addressCountry": "GB"
+  },
+  "makesOffer": [
+    { "@type": "Offer", "name": "Intake Diagnostic (Audit)", "description": "Free 30 minute tech audit benchmarking lead response time against top-decile personal injury firms." },
+    { "@type": "Offer", "name": "Intake Rebuild (Pilot)", "description": "Fixed-fee Salesforce and AI intake build with lead triage, qualification, and routing under five minutes." },
+    { "@type": "Offer", "name": "Ongoing Platform Support (Retainer)", "description": "Monthly Salesforce maintenance, AI agent tuning, and quarterly RevOps reviews." }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Silver Signal",
+  "url": "https://silversignal.ai/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does Silver Signal do?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Silver Signal rebuilds the Salesforce and AI intake stack for personal injury law firms so every inbound lead gets a response inside five minutes, instead of the days it typically takes. Same ad spend, more signed cases, no new hires." }
+    },
+    {
+      "@type": "Question",
+      "name": "Who is Silver Signal for?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Mid-sized personal injury firms, typically 5 to 40 attorneys across one or more offices, that already invest in paid lead generation and want to convert more of what they're already paying for." }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens on the free tech audit call?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A free 30 minute working session: your firm's live lead response time is benchmarked against top-decile PI firms, revenue leak is quantified in dollars, and you leave with a written summary report. No pitch, no obligation." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from a generic CRM setup?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It's a purpose-built intake rebuild on top of Salesforce, not an out-of-the-box CRM install. It includes AI-driven lead qualification and routing tuned specifically to personal injury intake, so leads are triaged and responded to in under five minutes." }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the engagement model?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Three phases: a free Intake Diagnostic (the Audit), a fixed-fee Intake Rebuild (the Pilot) to implement the fix, and Ongoing Platform Support (the Retainer) for monthly maintenance and tuning." }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -259,11 +325,9 @@ section{position:relative}
       <a class="link" href="#top">Home</a>
       <a class="link" href="#how">Approach</a>
       <a class="link" href="#case">Case Study</a>
-      <a class="link" href="#audit">Audit</a>
     </nav>
     <div class="topnav-actions">
-      <a class="signin" href="mailto:hello@silversignal.ai">Contact</a>
-      <a class="cta" href="https://cal.com/silver-signal-m0hq3w/30min" target="_blank" rel="noopener">Book Audit</a>
+      <a class="cta" href="/contact/">Book Audit</a>
     </div>
   </div>
 </header>
@@ -289,7 +353,7 @@ section{position:relative}
           Same ad spend. More signed cases. No new hires.
         </p>
         <div class="hero__cta-row">
-          <a class="btn" href="https://cal.com/silver-signal-m0hq3w/30min" target="_blank" rel="noopener">
+          <a class="btn" href="/contact/">
             <span>Book Your Free Tech Audit</span>
             <span class="arrow" aria-hidden="true">&rarr;</span>
           </a>
@@ -365,7 +429,7 @@ section{position:relative}
           </div>
           <div class="calc__success" id="calc-success" role="status">
             <p>Report on its way. Want to walk through the numbers together?</p>
-            <a class="book" href="https://cal.com/silver-signal-m0hq3w/30min" target="_blank" rel="noopener">
+            <a class="book" href="/contact/">
               Book the 30 min audit <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
@@ -634,6 +698,39 @@ section{position:relative}
   </div>
 </section>
 
+<section class="faq section-pad" id="faq">
+  <div class="wrap">
+    <div class="eyebrow" style="margin-bottom:24px">
+      <span class="num">06</span>
+      <span class="bar" aria-hidden="true"></span>
+      <span>Questions</span>
+    </div>
+    <h2 class="h-section faq__title">Common <em>questions.</em></h2>
+    <div class="faq__list">
+      <details class="faq__item">
+        <summary>What does Silver Signal do?</summary>
+        <p>Rebuilds the Salesforce and AI intake stack for personal injury law firms so every inbound lead gets a response inside five minutes, instead of the days it typically takes. Same ad spend, more signed cases, no new hires.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Who is Silver Signal for?</summary>
+        <p>Mid-sized personal injury firms, typically 5 to 40 attorneys across one or more offices, that already invest in paid lead generation and want to convert more of what they're already paying for.</p>
+      </details>
+      <details class="faq__item">
+        <summary>What happens on the free tech audit call?</summary>
+        <p>A free 30 minute working session: your firm's live lead response time is benchmarked against top-decile PI firms, revenue leak is quantified in dollars, and you leave with a written summary report. No pitch, no obligation.</p>
+      </details>
+      <details class="faq__item">
+        <summary>How is this different from a generic CRM setup?</summary>
+        <p>It's a purpose-built intake rebuild on top of Salesforce, not an out-of-the-box CRM install. It includes AI-driven lead qualification and routing tuned specifically to personal injury intake, so leads are triaged and responded to in under five minutes.</p>
+      </details>
+      <details class="faq__item">
+        <summary>What's the engagement model?</summary>
+        <p>Three phases: a free Intake Diagnostic (the Audit), a fixed-fee Intake Rebuild (the Pilot) to implement the fix, and Ongoing Platform Support (the Retainer) for monthly maintenance and tuning.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
 <section class="cta section-pad">
   <div class="wrap">
     <div class="cta__inner">
@@ -644,42 +741,15 @@ section{position:relative}
           a number. The dollar value of the leak. What it takes to close it.
         </p>
       </div>
-      <aside class="cta__panel" aria-label="Two ways to start">
+      <aside class="cta__panel" aria-label="Book your audit">
         <div class="cta__path">
-          <div class="cta__path-tag">Path A &middot; Book a call</div>
+          <div class="cta__path-tag">Free 30 Min Audit</div>
           <h3 class="cta__path-title">A 30 min working session</h3>
           <p class="cta__path-body">Pick a slot. Jump on a call. Walk away with the written audit. No pitch, no obligation.</p>
-          <a class="btn" href="https://cal.com/silver-signal-m0hq3w/30min" target="_blank" rel="noopener" id="cta-book">
+          <a class="btn" href="/contact/">
             <span>Book Your Free Tech Audit</span>
             <span class="arrow" aria-hidden="true">&rarr;</span>
           </a>
-        </div>
-        <div class="cta__divider"><span>Or</span></div>
-        <div class="cta__path">
-          <div class="cta__path-tag">Path B &middot; Not ready yet</div>
-          <h3 class="cta__path-title">Send us your situation</h3>
-          <p class="cta__path-body">One line on what&rsquo;s broken. We come back with first thoughts inside a business day. No call required.</p>
-          <form class="lead-form" id="lead-form" novalidate>
-            <div class="lead-form__field">
-              <label for="lead-name">Name</label>
-              <input type="text" id="lead-name" name="name" placeholder="Your name" autocomplete="name" required />
-            </div>
-            <div class="lead-form__field">
-              <label for="lead-email">Work email</label>
-              <input type="email" id="lead-email" name="email" placeholder="you@firm.com" autocomplete="email" required />
-            </div>
-            <div class="lead-form__field">
-              <label for="lead-msg">In one line, what&rsquo;s broken?</label>
-              <textarea id="lead-msg" name="message" rows="2" placeholder="e.g. We spend $20k/mo on Google Ads and sign 4 cases out of 200 leads." required></textarea>
-            </div>
-            <button type="submit" class="btn lead-form__submit" id="lead-submit">
-              <span class="lead-form__label">Send</span>
-              <span class="arrow" aria-hidden="true">&rarr;</span>
-            </button>
-            <div class="lead-form__success" id="lead-success" role="status">
-              Thanks. We&rsquo;ll be back in your inbox inside a business day.
-            </div>
-          </form>
         </div>
       </aside>
     </div>
@@ -707,23 +777,23 @@ section{position:relative}
           <li><a href="#how">Approach</a></li>
           <li><a href="#case">Case Study</a></li>
           <li><a href="#work">How We Work</a></li>
-          <li><a href="#audit">Free Audit</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="/blog/">Blog</a></li>
         </ul>
       </div>
       <div class="foot__col">
         <h4>Contact</h4>
         <ul>
           <li><a href="mailto:hello@silversignal.ai">hello@silversignal.ai</a></li>
-          <li><a href="https://cal.com/silver-signal-m0hq3w/30min" target="_blank" rel="noopener">Book a call</a></li>
+          <li><a href="/contact/">Book a call</a></li>
           <li><a href="https://www.linkedin.com/company/silversignal" target="_blank" rel="noopener">LinkedIn</a></li>
         </ul>
       </div>
       <div class="foot__col">
         <h4>Legal</h4>
         <ul>
-          <li><a href="#" id="open-privacy">Privacy</a></li>
-          <li><a href="#" id="open-terms">Terms</a></li>
-          <li><a href="#" id="open-cookies">Cookies</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/terms/">Terms</a></li>
         </ul>
       </div>
     </div>
@@ -734,21 +804,8 @@ section{position:relative}
   </div>
 </footer>
 
-<div class="cookie" id="cookie" role="dialog" aria-live="polite" aria-label="Cookies">
-  <p>
-    We use a small number of cookies to understand how this page performs and improve it
-    over time. No tracking until you accept. <a href="#" id="cookie-learn">Learn more</a>.
-  </p>
-  <div class="cookie__row">
-    <button type="button" id="cookie-decline">Decline</button>
-    <button type="button" class="accept" id="cookie-accept">Accept</button>
-  </div>
-</div>
-
 <script>
 var FORMSPREE_ENDPOINT = "https://formspree.io/f/xkoklypl";
-var CAL_LINK = "https://cal.com/silver-signal-m0hq3w/30min";
-var COOKIE_KEY = "ss_cookie_pref_v1";
 
 document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -826,68 +883,6 @@ document.getElementById("year").textContent = new Date().getFullYear();
         submitBtn.textContent = "Try again";
       });
   });
-})();
-
-(function(){
-  var form = document.getElementById("lead-form");
-  if(!form) return;
-  var nameEl    = document.getElementById("lead-name");
-  var emailEl   = document.getElementById("lead-email");
-  var msgEl     = document.getElementById("lead-msg");
-  var submitBtn = document.getElementById("lead-submit");
-  var label     = submitBtn.querySelector(".lead-form__label");
-  var success   = document.getElementById("lead-success");
-  var emailRx   = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  function markValid(el){ el.classList.remove("is-invalid"); }
-  function markInvalid(el){ el.classList.add("is-invalid"); }
-  form.addEventListener("submit", function(e){
-    e.preventDefault();
-    var name  = (nameEl.value  || "").trim();
-    var email = (emailEl.value || "").trim();
-    var msg   = (msgEl.value   || "").trim();
-    var firstBad = null;
-    if(!name){ markInvalid(nameEl); firstBad = firstBad || nameEl; } else markValid(nameEl);
-    if(!email || !emailRx.test(email)){ markInvalid(emailEl); firstBad = firstBad || emailEl; } else markValid(emailEl);
-    if(!msg){ markInvalid(msgEl); firstBad = firstBad || msgEl; } else markValid(msgEl);
-    if(firstBad){ firstBad.focus(); return; }
-    var payload = new FormData();
-    payload.append("source",  "cta_form");
-    payload.append("name",    name);
-    payload.append("email",   email);
-    payload.append("message", msg);
-    payload.append("page",    location.href);
-    submitBtn.disabled = true;
-    label.textContent = "Sending…";
-    fetch(FORMSPREE_ENDPOINT, { method: "POST", headers: { "Accept": "application/json" }, body: payload })
-      .then(function(r){
-        submitBtn.disabled = false;
-        if(r.ok){ label.textContent = "Sent"; success.classList.add("is-on"); form.reset(); }
-        else { label.textContent = "Try again"; }
-      })
-      .catch(function(){
-        submitBtn.disabled = false;
-        label.textContent = "Try again";
-      });
-  });
-})();
-
-(function(){
-  var banner  = document.getElementById("cookie");
-  var accept  = document.getElementById("cookie-accept");
-  var decline = document.getElementById("cookie-decline");
-  if(!banner) return;
-  var pref;
-  try { pref = localStorage.getItem(COOKIE_KEY); } catch(e){ pref = null; }
-  if(!pref){ setTimeout(function(){ banner.classList.add("is-on"); }, 600); }
-  function set(p){
-    try { localStorage.setItem(COOKIE_KEY, p); } catch(e){}
-    banner.classList.remove("is-on");
-    if(p === "accept" && typeof window.gtag === "function"){
-      window.gtag("consent","update",{ "analytics_storage":"granted" });
-    }
-  }
-  accept.addEventListener("click", function(){ set("accept"); });
-  decline.addEventListener("click", function(){ set("decline"); });
 })();
 
 (function(){

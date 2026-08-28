@@ -1,0 +1,18 @@
+# Silver Signal
+
+> Silver Signal is a legal revenue operations company that helps personal injury law firms convert more inbound enquiries into signed clients by responding to every lead in under five minutes using Salesforce and AI. It serves mid-sized personal injury firms (5 to 40 attorneys, multiple offices) that already invest in paid lead generation, working with CMOs, CSOs, and COOs across the USA and Australia.
+
+Silver Signal uses a three-phase approach: a free Intake Diagnostic (the Audit), a fixed-fee Intake Rebuild (the Pilot), and Ongoing Platform Support (the Retainer). The goal is to close the infrastructure gap between top performers with sub-5-minute response times and average firms that take days to convert, turning the same ad spend into more signed cases without new hires.
+
+## Services
+- [Homepage](https://silversignal.ai): Overview of Silver Signal's Salesforce and AI intake rebuild, the three-phase engagement model, a case study, and a revenue leak calculator.
+
+## Contact
+- [Contact](https://silversignal.ai/contact/): Book a free 30-minute tech audit directly on the calendar. No pitch, no obligation.
+
+## Blog
+- [Blog](https://silversignal.ai/blog/): Notes on lead response, intake, and revenue operations for personal injury law firms.
+
+## Legal
+- [Privacy Policy](https://silversignal.ai/privacy/)
+- [Terms of Use](https://silversignal.ai/terms/)
