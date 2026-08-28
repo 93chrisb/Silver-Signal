@@ -5,7 +5,7 @@
  * There's no framework here — the homepage is a single static index.html.
  * This script is the "very basic CMS": it reads markdown posts out of
  * content/blog/*.md and turns them into static /blog/<slug>/ pages plus a
- * /blog/ index, regenerates /contact/, /privacy/, and /terms/, and rewrites
+ * /blog/ index, regenerates /contact/, /privacy/, /terms/, and /cookies/, and rewrites
  * sitemap.xml so it always matches whatever content actually exists. Run `npm run build` after
  * adding/editing a post; the GitHub Action in .github/workflows/build.yml
  * does the same thing automatically on every push to main.
@@ -437,13 +437,16 @@ function renderPrivacyPage(updated) {
       <li><strong>Booking details</strong> &mdash; when you book an audit call, our scheduling provider (Cal.com) collects your name, email, and any notes you add.</li>
       <li><strong>Contact details</strong> &mdash; if you email us directly or reach out via LinkedIn, we hold whatever you send us.</li>
     </ul>
-    <p>This site doesn't run analytics or advertising cookies today. If that changes, we'll update this page and add a consent mechanism before anything is tracked.</p>
+    <ul>
+      <li><strong>Analytics</strong> &mdash; if you accept the cookie banner, Google Analytics 4 records aggregate usage: pages viewed, rough location from a truncated IP address, browser and device type, and how you arrived. Decline and nothing is collected.</li>
+    </ul>
+    <p>We run no advertising or cross-site tracking cookies. Full detail on every cookie, and how to change your choice, is on our <a href="/cookies/">cookie policy</a>.</p>
 
     <h2>How we use it</h2>
     <p>To respond to enquiries, schedule and run audit calls, and deliver any service you engage us for. We don't sell personal data, and we don't use it for anything beyond running Silver Signal.</p>
 
     <h2>Who we share it with</h2>
-    <p>A small number of processors that help us run the business: Cal.com (scheduling) and our email provider. Each only receives what it needs to do its job, under its own privacy terms.</p>
+    <p>A small number of processors that help us run the business: Cal.com (scheduling), Google (analytics, if you accept), and our email provider. Each only receives what it needs to do its job, under its own privacy terms.</p>
 
     <h2>How long we keep it</h2>
     <p>For as long as it's relevant to our relationship with you, or as required by law &mdash; typically no more than a few years after our last contact, unless you ask us to delete it sooner.</p>
@@ -493,6 +496,46 @@ function renderTermsPage(updated) {
   });
 }
 
+function renderCookiesPage(updated) {
+  const ga = cfg.gaMeasurementId;
+  return renderLegalPage({
+    slug: "cookies",
+    eyebrowNum: "09",
+    title: "Cookie Policy",
+    description: "What cookies Silver Signal sets, why, and how to change your consent.",
+    activeNav: "cookies",
+    updated,
+    bodyHtml: `
+    <p>Cookies are small pieces of data a website stores in your browser. This page lists everything Silver Signal stores on ${cfg.siteUrl}, why we store it, and how to change your mind.</p>
+
+    <h2>Your choice</h2>
+    <p>On your first visit a banner appears at the bottom of the page. Accept and we load Google Analytics so we can see how the site performs in aggregate. Decline and no analytics run at all, and nothing about your visit is recorded.</p>
+    <p>To change your answer, clear this site's data in your browser (in Chrome: Settings &rarr; Privacy and security &rarr; Third-party cookies &rarr; See all site data and permissions &rarr; silversignal.ai &rarr; Delete). The banner reappears on your next visit.</p>
+
+    <h2>What we store ourselves</h2>
+    <ul>
+      <li><strong><code>ss_cookie_pref_v1</code></strong> &mdash; a single value in your browser's local storage (technically not a cookie, but the same idea) recording whether you accepted or declined. It stays on your device until you clear site data, and it is never sent to us.</li>
+    </ul>
+
+    <h2>Third-party cookies, only if you accept</h2>
+    <p>If you click Accept, Google Analytics 4 loads and sets these cookies from Google:</p>
+    <ul>
+      <li><strong><code>_ga</code></strong> &mdash; gives your browser a random ID so we can count unique visitors. Expires after 2 years.</li>
+      <li><strong><code>_ga_${ga.replace(/^G-/, "")}</code></strong> &mdash; holds session state for this property. Expires after 2 years.</li>
+    </ul>
+    <p>We run Analytics with IP anonymisation on and Google Consent Mode enabled, so no analytics storage is used until you accept. Google explains its own handling in its <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>.</p>
+
+    <h2>What we don't do</h2>
+    <p>No advertising cookies. No cross-site tracking. No retargeting pixels. We don't sell data. If we ever add a marketing tag, we'll update this page and the banner before it goes live.</p>
+
+    <h2>Blocking analytics yourself</h2>
+    <p>Most browsers can block third-party cookies in their settings. Google also publishes a <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">GA opt-out browser add-on</a>.</p>
+
+    <h2>Questions</h2>
+    <p>Email <a href="mailto:${cfg.contactEmail}">${cfg.contactEmail}</a> for anything relating to this policy.</p>`,
+  });
+}
+
 // ---------------------------------------------------------------------------
 // Sitemap
 // ---------------------------------------------------------------------------
@@ -504,6 +547,7 @@ function renderSitemap(posts, today) {
     { loc: `${cfg.siteUrl}/blog/`, changefreq: "weekly", priority: "0.7" },
     { loc: `${cfg.siteUrl}/privacy/`, changefreq: "yearly", priority: "0.3" },
     { loc: `${cfg.siteUrl}/terms/`, changefreq: "yearly", priority: "0.3" },
+    { loc: `${cfg.siteUrl}/cookies/`, changefreq: "yearly", priority: "0.3" },
   ];
   const postUrls = posts.map((p) => ({
     loc: `${cfg.siteUrl}/blog/${p.slug}/`,
@@ -569,6 +613,7 @@ function main() {
   // Legal
   writeFile(path.join(ROOT, "privacy", "index.html"), renderPrivacyPage(today));
   writeFile(path.join(ROOT, "terms", "index.html"), renderTermsPage(today));
+  writeFile(path.join(ROOT, "cookies", "index.html"), renderCookiesPage(today));
 
   // Sitemap (always regenerated so it can never drift from what's on disk)
   writeFile(path.join(ROOT, "sitemap.xml"), renderSitemap(posts, today));
