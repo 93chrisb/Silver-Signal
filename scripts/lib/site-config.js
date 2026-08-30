@@ -24,5 +24,7 @@ module.exports = {
     { label: "Home", href: "/#top" },
     { label: "Approach", href: "/#how" },
     { label: "Case Study", href: "/#case" },
+    { label: "FAQ", href: "/#faq" },
+    { label: "Blog", href: "/blog/" },
   ],
 };
