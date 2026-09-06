@@ -1,0 +1,23 @@
+---
+import { site } from '../data/site';
+interface Props { heading?: string; body?: string; }
+const {
+  heading = 'Tell us what is broken.',
+  body = 'Thirty minutes on a call. Bring the org, the backlog, or the problem you have stopped being able to describe politely. You will leave with a straight answer about whether it is worth fixing and roughly what that takes.',
+} = Astro.props;
+---
+<section class="section section--ink">
+  <div class="wrap wrap--narrow cta">
+    <p class="eyebrow">Next step</p>
+    <h2>{heading}</h2>
+    <p class="lede" style="color: var(--ink-onDark);">{body}</p>
+    <p class="cta__actions">
+      <a href={site.booking} class="btn">Book a 30 minute call</a>
+      <a href={site.linkedin} class="btn btn--ghost">Connect on LinkedIn</a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .cta__actions { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 2rem; }
+</style>

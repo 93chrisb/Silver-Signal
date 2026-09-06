@@ -1,0 +1,47 @@
+/* ==========================================================================
+   BRAND TOKENS - the only file you edit to re-skin the whole site.
+   Palette sampled from the Silver Signal Partners mark: four nodes, crossed
+   links, navy hub. Steel blues over a pale ground; navy carries every action.
+   ========================================================================== */
+:root {
+  /* --- Brand ------------------------------------------------------------ */
+  --navy:          #2E5C8A;   /* hub of the mark - primary action colour   */
+  --navy-deep:     #23486B;   /* hover / pressed                           */
+  --navy-ink:      #1B3A57;   /* deepest navy - inverted surfaces          */
+  --steel:         #8CA3BE;   /* mark's outer nodes                        */
+  --steel-line:    #9CB2C9;   /* mark's connecting links                   */
+
+  /* --- Surfaces --------------------------------------------------------- */
+  --ground:        #F5F7FA;   /* page background                           */
+  --ground-tint:   #E8EDF3;   /* alternating band, pulled from the artwork */
+  --surface:       #FFFFFF;   /* cards                                     */
+  --surface-ink:   #10202F;   /* inverted sections                         */
+
+  /* --- Text ------------------------------------------------------------- */
+  --ink:           #0F1A24;   /* headings                                  */
+  --ink-body:      #33424F;   /* body copy                                 */
+  --ink-muted:     #64748B;   /* captions, eyebrows                        */
+  --ink-onDark:    #E6EDF5;
+
+  /* --- Lines ------------------------------------------------------------ */
+  --rule:          #DCE3EC;
+  --rule-strong:   #C3CFDE;
+
+  /* --- Signal ----------------------------------------------------------- */
+  --positive:      #1F7A5C;
+  --negative:      #A63D4E;
+
+  /* --- Type ------------------------------------------------------------- */
+  --font-display: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --font-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* --- Space & shape ---------------------------------------------------- */
+  --container: 1200px;
+  --container-narrow: 760px;
+  --gutter: clamp(20px, 5vw, 56px);
+  --section-y: clamp(64px, 9vw, 128px);
+  --radius: 4px;
+  --radius-lg: 8px;
+  --shadow: 0 1px 2px rgba(15, 26, 36, .04), 0 8px 24px rgba(15, 26, 36, .06);
+}

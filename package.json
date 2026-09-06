@@ -1,14 +1,16 @@
 {
   "name": "silver-signal-site",
+  "type": "module",
   "private": true,
-  "version": "1.0.0",
-  "description": "Silver Signal marketing site: static pages + a very basic markdown CMS for the blog.",
+  "version": "2.0.0",
+  "description": "Silver Signal Partners marketing site. Astro static build.",
   "scripts": {
-    "build": "node scripts/build.js",
-    "new-post": "node scripts/new-post.js"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "dependencies": {
-    "gray-matter": "^4.0.3",
-    "marked": "^12.0.2"
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^5.18.2"
   }
 }

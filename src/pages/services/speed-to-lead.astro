@@ -1,0 +1,88 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import LeakCalculator from '../../components/LeakCalculator.astro';
+import { services } from '../../data/site';
+const service = services.find((s) => s.slug === 'speed-to-lead')!;
+
+const faqs = [
+  { q: 'How fast is fast enough?', a: 'Under five minutes from form submission to a human conversation. The research behind that threshold is old and well replicated: contact rates fall off a cliff somewhere in the first ten minutes and keep falling. The exact number matters less than the fact that yours is currently measured in hours.' },
+  { q: 'Do we need to hire more people to answer faster?', a: 'Usually not. Most firms we see have enough capacity and are losing time to routing, not staffing. Leads sit in a shared inbox waiting for somebody to notice them. Fixing the handoff normally recovers more speed than adding a person would.' },
+  { q: 'Does this work if our leads come from several places?', a: 'Yes, and that is normally part of the problem. Web forms, paid search, chat, phone and referral partners each land somewhere different with their own rules. Consolidating them into one intake path is most of the work.' },
+  { q: 'What if we do not run on Salesforce?', a: 'Then this is not the right engagement for you. We build on Salesforce and the routing, qualification and reporting all assume it. Tell us what you run and we will say whether it is worth migrating or not.' },
+  { q: 'How do you measure it afterwards?', a: 'Time to first response and time to first conversation, reported per source and per rep, in Salesforce rather than a spreadsheet. If it is not visible on a dashboard your team already opens, it goes back to how it was within a quarter.' },
+];
+---
+<ServiceLayout service={service} faqs={faqs} ctaHeading="Find out what your response time actually is.">
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">The problem</p>
+      <h2>You are paying for attention and then losing it.</h2>
+      <div class="grid grid--2" style="margin-top:2.4rem;">
+        <div>
+          <p>Somebody clicks an ad you paid for, fills in a form, and expects a call. What happens next is a queue. The form posts to an inbox. The inbox is watched by whoever is not in a meeting. If it arrives after five o'clock it is tomorrow's problem, and by tomorrow they have called two of your competitors.</p>
+          <p>None of that shows up as a loss. It shows up as a lower conversion rate, which gets blamed on lead quality, which leads to spending more on ads to make the numbers work.</p>
+        </div>
+        <div>
+          <p>The gap between firms that respond in minutes and firms that respond in hours is almost never talent or budget. It is that one of them has intake wired into a system and the other is relying on people to remember.</p>
+          <p>The fix is unglamorous: consolidate the sources, qualify on arrival, route to a named person with a calendar, and make the timing visible to whoever owns the number.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <LeakCalculator />
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">What you get</p>
+      <h2>One intake path, instrumented end to end.</h2>
+      <div class="grid grid--2" style="margin-top:2.4rem;">
+        <ul class="ticks">
+          <li><strong>Every source into one path.</strong> Web forms, paid search, chat, inbound calls and referral partners landing as one record type with one set of rules.</li>
+          <li><strong>Qualification on arrival.</strong> Enquiries scored and sorted the moment they land, so the ones worth a fast call get one.</li>
+          <li><strong>Routing to a named person.</strong> Not a queue and not a shared inbox. Assignment with calendar availability behind it, plus escalation when nobody picks up.</li>
+        </ul>
+        <ul class="ticks">
+          <li><strong>Booking without the back and forth.</strong> Qualified enquiries land on a real calendar in the first conversation rather than after four emails.</li>
+          <li><strong>Timing you can see.</strong> Response time by source, by rep and by hour, on a dashboard your team already has open.</li>
+          <li><strong>The full path recorded.</strong> Ad click to closed deal in one place, so you can finally tell which sources pay for themselves.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">How it runs</p>
+      <h2>Six to eight weeks, three stages.</h2>
+      <ol class="stages">
+        <li><span>Week 1–2</span><div><h3>Measure and map</h3><p>We instrument what happens today and give you the real number. Every source traced from arrival to first human contact. Most people are surprised, and not in a good way.</p></div></li>
+        <li><span>Week 3–6</span><div><h3>Build</h3><p>Intake, qualification, routing and booking built in a sandbox against an agreed definition of done, then deployed in stages so nothing goes dark.</p></div></li>
+        <li><span>Week 7–8</span><div><h3>Tune and hand over</h3><p>Watch it under real volume, fix what the first fortnight exposes, then hand over documentation and a dashboard that keeps the number honest.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--ink">
+    <div class="wrap wrap--narrow">
+      <p class="eyebrow">Fit</p>
+      <h2>Who this is not for.</h2>
+      <p class="lede" style="color:var(--ink-onDark);">Worth saying plainly, because a bad fit here wastes a quarter.</p>
+      <ul class="ticks" style="margin-top:1.8rem;">
+        <li>Low inbound volume. Under roughly fifty enquiries a month, a calendar reminder does most of this for free.</li>
+        <li>Long committee-led buying cycles where nobody expects a call back the same day.</li>
+        <li>Teams not on Salesforce, unless you were already planning to move.</li>
+        <li>Organisations where the real constraint is that the product is not selling. Faster response makes a working funnel better; it does not make a broken one work.</li>
+      </ul>
+    </div>
+  </section>
+</ServiceLayout>
+
+<style>
+  .stages { list-style: none; margin: 2.4rem 0 0; padding: 0; }
+  .stages li { display: grid; gap: .4rem 2.5rem; padding: 1.9rem 0; border-top: 1px solid var(--rule-strong); }
+  @media (min-width: 820px) { .stages li { grid-template-columns: 130px 1fr; } }
+  .stages span { font-family: var(--font-mono); font-size: .78rem; color: var(--navy); padding-top: .35rem; letter-spacing: .04em; }
+  .stages h3 { margin: 0 0 .5rem; }
+  .stages p { margin: 0; }
+</style>

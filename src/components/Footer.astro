@@ -1,0 +1,55 @@
+---
+import { services, site } from '../data/site';
+const year = new Date().getFullYear();
+---
+<footer class="ftr">
+  <div class="wrap ftr__in">
+    <div>
+      <a href="/" class="ftr__brand"><img src="/logo.svg" alt="" width="30" height="22" />
+        <span>Silver Signal <em>Partners</em></span></a>
+      <p class="ftr__blurb">Salesforce-led revenue systems. We fix the CRM your pipeline runs on, then hand it back working.</p>
+    </div>
+    <div>
+      <h2 class="ftr__h">Services</h2>
+      <ul>{services.map((s) => <li><a href={`/services/${s.slug}`}>{s.title}</a></li>)}</ul>
+    </div>
+    <div>
+      <h2 class="ftr__h">Start</h2>
+      <ul>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href={site.booking}>Book a 30 minute call</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href={site.linkedin}>LinkedIn</a></li>
+      </ul>
+      <h2 class="ftr__h" style="margin-top:1.8rem;">Legal</h2>
+      <ul>
+        <li><a href="/privacy">Privacy</a></li>
+        <li><a href="/terms">Terms</a></li>
+        <li><a href="/cookies">Cookies</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap ftr__base">
+    <p class="muted">© {year} {site.legalName}. {site.address.line2}, {site.address.line3}</p>
+    <p class="muted">Salesforce is a trademark of Salesforce, Inc. Silver Signal Partners is an independent consultancy and is not affiliated with or endorsed by Salesforce, Inc.</p>
+  </div>
+</footer>
+
+<style>
+  .ftr { background: var(--surface-ink); color: var(--ink-onDark); padding-block: clamp(48px, 6vw, 76px) 32px; }
+  .ftr__in { display: grid; gap: 2.5rem; }
+  @media (min-width: 820px) { .ftr__in { grid-template-columns: 2fr 1fr 1fr; gap: 3rem; } }
+  .ftr__brand { display: flex; align-items: center; gap: .6rem; color: #fff; text-decoration: none;
+                font-family: var(--font-display); font-size: 1.08rem; margin-bottom: .9rem; }
+  .ftr__brand em { font-style: normal; color: var(--steel); }
+  .ftr__blurb { color: var(--steel); font-size: .93rem; max-width: 42ch; margin: 0; }
+  .ftr__h { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase;
+            color: var(--steel); margin: 0 0 1rem; font-weight: 500; }
+  .ftr ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; }
+  .ftr ul a { color: var(--ink-onDark); text-decoration: none; font-size: .93rem; }
+  .ftr ul a:hover { color: #fff; text-decoration: underline; }
+  .ftr__base { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.1);
+               display: grid; gap: .5rem; }
+  .ftr__base .muted { color: #7F93A8; margin: 0; font-size: .8rem; }
+  @media (min-width: 900px) { .ftr__base { grid-template-columns: auto 1fr; gap: 2rem; align-items: baseline; } }
+</style>
