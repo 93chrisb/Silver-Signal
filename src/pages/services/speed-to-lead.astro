@@ -1,5 +1,6 @@
 ---
 import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import LeakCalculator from '../../components/LeakCalculator.astro';
 import { services } from '../../data/site';
 const service = services.find((s) => s.slug === 'speed-to-lead')!;
 
@@ -29,7 +30,9 @@ const faqs = [
     </div>
   </section>
 
-  <section class="section section--tint">
+  <LeakCalculator />
+
+  <section class="section">
     <div class="wrap">
       <p class="eyebrow">What you get</p>
       <h2>One intake path, instrumented end to end.</h2>

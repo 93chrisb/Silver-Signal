@@ -10,14 +10,14 @@
   var KEY = "ss_cookie_pref_v1";
   var COOKIES_URL = "/cookies/";
   var CSS =
-    ".ss-cookie{position:fixed;bottom:20px;left:20px;right:20px;max-width:520px;margin:0 auto;z-index:60;background:#FFFFFF;border:1px solid #E0E0EC;border-radius:16px;padding:18px 20px;box-shadow:0 20px 60px rgba(10,10,15,.18);font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Inter','Helvetica Neue',Arial,sans-serif;color:#2C2C36}" +
+    ".ss-cookie{position:fixed;bottom:20px;left:20px;right:20px;max-width:520px;margin:0 auto;z-index:60;background:#FFFFFF;border:1px solid #DCE3EC;border-radius:8px;padding:18px 20px;box-shadow:0 20px 60px rgba(10,10,15,.18);font-family:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#33424F}" +
     ".ss-cookie p{margin:0 0 14px;font-size:13px;line-height:1.5}" +
-    ".ss-cookie p a{color:#4D4DFF;border-bottom:1px solid #4D4DFF;text-decoration:none}" +
+    ".ss-cookie p a{color:#2E5C8A;border-bottom:1px solid #2E5C8A;text-decoration:none}" +
     ".ss-cookie__row{display:flex;gap:10px;flex-wrap:wrap}" +
-    ".ss-cookie__row button{flex:1;padding:11px 14px;font:inherit;font-size:12px;font-weight:500;border:1px solid #C8C8D6;color:#0A0A0F;background:transparent;border-radius:10px;cursor:pointer;transition:border-color .15s ease,color .15s ease}" +
-    ".ss-cookie__row button:hover{border-color:#4D4DFF;color:#4D4DFF}" +
-    ".ss-cookie__row .accept{background:#4D4DFF;color:#FFFFFF;border-color:#4D4DFF}" +
-    ".ss-cookie__row .accept:hover{background:#6363FF;color:#FFFFFF;border-color:#6363FF}";
+    ".ss-cookie__row button{flex:1;padding:11px 14px;font:inherit;font-size:12px;font-weight:500;border:1px solid #C3CFDE;color:#0F1A24;background:transparent;border-radius:4px;cursor:pointer;transition:border-color .15s ease,color .15s ease}" +
+    ".ss-cookie__row button:hover{border-color:#2E5C8A;color:#2E5C8A}" +
+    ".ss-cookie__row .accept{background:#2E5C8A;color:#FFFFFF;border-color:#2E5C8A}" +
+    ".ss-cookie__row .accept:hover{background:#23486B;color:#FFFFFF;border-color:#23486B}";
 
   function gtag() {
     window.dataLayer = window.dataLayer || [];
