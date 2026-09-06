@@ -43,8 +43,7 @@ const schema = [
       <nav class="crumbs" aria-label="Breadcrumb">
         <a href="/">Home</a><span aria-hidden="true">/</span><span>{service.title}</span>
       </nav>
-      <p class="eyebrow">{service.shape}</p>
-      <h1>{service.h1}</h1>
+        <h1>{service.h1}</h1>
       <p class="lede shero__lede">{service.summary}</p>
       <p class="shero__actions"><a href={site.booking} class="btn">Book a 30 minute call</a></p>
     </div>
@@ -58,11 +57,11 @@ const schema = [
 
 <style>
   .shero { padding-block: clamp(36px, 5vw, 64px) clamp(48px, 7vw, 88px);
-           background: linear-gradient(170deg, var(--ground-tint) 0%, var(--ground) 70%); }
+           background: linear-gradient(170deg, var(--bg-raised) 0%, var(--bg) 70%); }
   .crumbs { display: flex; gap: .6rem; align-items: center; font-size: .82rem;
             color: var(--ink-muted); margin-bottom: 2.4rem; font-family: var(--font-mono); }
   .crumbs a { color: var(--ink-muted); text-decoration: none; }
-  .crumbs a:hover { color: var(--navy); }
+  .crumbs a:hover { color: var(--mint); }
   .shero h1 { margin-bottom: 1.3rem; max-width: 18ch; }
   .shero__lede { max-width: 58ch; }
   .shero__actions { margin: 2.2rem 0 0; }

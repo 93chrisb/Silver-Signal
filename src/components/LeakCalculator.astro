@@ -1,7 +1,7 @@
 ---
 import { site } from '../data/site';
 ---
-<section class="section section--tint" id="calculator">
+<section class="section section--raised" id="calculator">
   <div class="wrap">
     <p class="eyebrow">Estimate</p>
     <h2>What slow response is costing you.</h2>
@@ -144,44 +144,44 @@ import { site } from '../data/site';
 </script>
 
 <style>
-  .calc { display: grid; gap: 0; background: var(--surface);
-          border: 1px solid var(--rule-strong); border-radius: var(--radius-lg); overflow: hidden; }
+  .calc { display: grid; gap: 0; background: var(--card);
+          border: 1px solid var(--line-strong); border-radius: var(--radius-lg); overflow: hidden; }
   @media (min-width: 900px) { .calc { grid-template-columns: 1fr 1fr; } }
   .calc__inputs { padding: clamp(1.6rem, 2.6vw, 2.4rem); display: grid; gap: 1.5rem; align-content: start; }
   .calc__field label { display: block; font-family: var(--font-mono); font-size: .68rem;
     letter-spacing: .14em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: .55rem; }
   .calc__field select, .calc__field input {
     width: 100%; padding: .8rem .9rem; font-family: var(--font-sans); font-size: .98rem;
-    color: var(--ink); background: var(--ground); border: 1px solid var(--rule-strong);
+    color: var(--ink); background: var(--bg); border: 1px solid var(--line-strong);
     border-radius: var(--radius); appearance: none;
   }
   .calc__field select { background-image: linear-gradient(45deg, transparent 50%, var(--ink-muted) 50%),
                                           linear-gradient(135deg, var(--ink-muted) 50%, transparent 50%);
     background-position: calc(100% - 18px) 55%, calc(100% - 13px) 55%;
     background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; padding-right: 2.4rem; }
-  .calc__field input[aria-invalid] { border-color: var(--negative); }
+  .calc__field input[aria-invalid] { border-color: var(--loss); }
 
-  .calc__out { padding: clamp(1.6rem, 2.6vw, 2.4rem); background: var(--surface-ink); color: var(--ink-onDark); }
+  .calc__out { padding: clamp(1.6rem, 2.6vw, 2.4rem); background: var(--card); color: var(--ink-body); }
   .calc__row { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
                padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,.1); }
-  .calc__row .k { font-size: .88rem; color: var(--steel); }
-  .calc__row .v { font-family: var(--font-display); font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1; }
+  .calc__row .k { font-size: .88rem; color: var(--ink-muted); }
+  .calc__row .v { font-family: var(--font-sans); font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1; }
   .calc__row .v.is-loss { color: #E8919D; }
   .calc__row .v.is-gain { color: #7FD3AE; }
 
   .calc__email { margin-top: 1.6rem; }
   .calc__email label { display: block; font-family: var(--font-mono); font-size: .68rem;
-    letter-spacing: .14em; text-transform: uppercase; color: var(--steel); margin-bottom: .6rem; }
+    letter-spacing: .14em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: .6rem; }
   .calc__email-row { display: flex; gap: .5rem; }
   .calc__email input { flex: 1; min-width: 0; padding: .75rem .85rem; font-size: .95rem;
     color: #fff; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.18);
     border-radius: var(--radius); }
   .calc__email input::placeholder { color: #7F93A8; }
   .calc__email input[aria-invalid] { border-color: #E8919D; }
-  .calc__email button { padding: .75rem 1.2rem; background: var(--navy); color: #fff;
-    border: 1px solid var(--navy); border-radius: var(--radius); font-size: .92rem;
+  .calc__email button { padding: .75rem 1.2rem; background: var(--mint); color: #fff;
+    border: 1px solid var(--mint); border-radius: var(--radius); font-size: .92rem;
     font-weight: 500; cursor: pointer; }
-  .calc__email button:hover:not(:disabled) { background: var(--navy-deep); }
+  .calc__email button:hover:not(:disabled) { background: var(--mint-soft); }
   .calc__email button:disabled { opacity: .6; cursor: default; }
   .calc__success { margin: .9rem 0 0; font-size: .9rem; color: #7FD3AE; }
   .calc__success a { color: #fff; }

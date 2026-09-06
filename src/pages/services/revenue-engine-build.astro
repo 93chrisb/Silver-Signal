@@ -30,17 +30,17 @@ const faqs = [
     </div>
   </section>
 
-  <section class="section section--tint">
+  <section class="section section--raised">
     <div class="wrap">
       <p class="eyebrow">What you get</p>
       <h2>The whole system, not just the CRM.</h2>
       <div class="grid grid--2" style="margin-top:2.4rem;">
-        <ul class="ticks">
+        <ul class="rows">
           <li><strong>A data model that fits.</strong> Objects, stages and fields designed around your process, with the fields nobody has filled in since 2023 removed rather than inherited.</li>
           <li><strong>Automation that holds.</strong> Flows and Apex built to a consistent pattern, version controlled, with test coverage that means something when the next person changes it.</li>
           <li><strong>Integrations.</strong> Marketing platform, billing, telephony and warehouse wired in properly, with error handling that tells somebody when a sync fails.</li>
         </ul>
-        <ul class="ticks">
+        <ul class="rows">
           <li><strong>Migration you can audit.</strong> Mapped, reviewed, dry-run against a full copy, reconciled after the fact so you can prove nothing was lost.</li>
           <li><strong>Reporting one version of.</strong> Pipeline, forecast and source attribution defined once, so the argument about whose number is right stops.</li>
           <li><strong>Deployment discipline.</strong> Sandboxes, version control and a release path, so future changes stop going straight into production on a Friday.</li>
@@ -62,11 +62,11 @@ const faqs = [
     </div>
   </section>
 
-  <section class="section section--ink">
+  <section class="section section--raised">
     <div class="wrap wrap--narrow">
       <p class="eyebrow">Fit</p>
       <h2>Who this is not for.</h2>
-      <ul class="ticks" style="margin-top:1.8rem;">
+      <ul class="rows" style="margin-top:1.8rem;">
         <li>Teams under about ten Salesforce users. The overhead outweighs the benefit and something simpler will serve you better.</li>
         <li>Companies wanting a like-for-like rebuild of what they already have. If the answer is already decided, you want an implementer with a lower rate than ours.</li>
         <li>Programmes where no executive will make a decision. Design needs someone with the authority to settle disagreements between teams, and without that the project stalls at phase one no matter who builds it.</li>
@@ -77,9 +77,9 @@ const faqs = [
 
 <style>
   .stages { list-style: none; margin: 2.4rem 0 0; padding: 0; }
-  .stages li { display: grid; gap: .4rem 2.5rem; padding: 1.9rem 0; border-top: 1px solid var(--rule-strong); }
+  .stages li { display: grid; gap: .4rem 2.5rem; padding: 1.9rem 0; border-top: 1px solid var(--line-strong); }
   @media (min-width: 820px) { .stages li { grid-template-columns: 130px 1fr; } }
-  .stages span { font-family: var(--font-mono); font-size: .78rem; color: var(--navy); padding-top: .35rem; letter-spacing: .04em; }
+  .stages span { font-family: var(--font-mono); font-size: .78rem; color: var(--mint); padding-top: .35rem; letter-spacing: .04em; }
   .stages h3 { margin: 0 0 .5rem; }
   .stages p { margin: 0; }
 </style>

@@ -3,7 +3,7 @@
 interface Props { items: { q: string; a: string }[]; heading?: string; }
 const { items, heading = 'Questions we get asked' } = Astro.props;
 ---
-<section class="section section--tint">
+<section class="section section--raised">
   <div class="wrap wrap--narrow">
     <p class="eyebrow">FAQ</p>
     <h2>{heading}</h2>
@@ -19,8 +19,8 @@ const { items, heading = 'Questions we get asked' } = Astro.props;
 </section>
 
 <style>
-  .faq { border-top: 1px solid var(--rule-strong); margin-top: 2.2rem; }
-  .faq__item { border-bottom: 1px solid var(--rule-strong); }
+  .faq { border-top: 1px solid var(--line-strong); margin-top: 2.2rem; }
+  .faq__item { border-bottom: 1px solid var(--line-strong); }
   .faq__item summary {
     display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
     padding: 1.25rem 0; cursor: pointer; list-style: none;
@@ -30,7 +30,7 @@ const { items, heading = 'Questions we get asked' } = Astro.props;
   .faq__mark { position: relative; flex: 0 0 14px; height: 14px; }
   .faq__mark::before, .faq__mark::after {
     content: ""; position: absolute; inset: 0; margin: auto;
-    background: var(--navy); transition: opacity .16s ease;
+    background: var(--mint); transition: opacity .16s ease;
   }
   .faq__mark::before { width: 14px; height: 2px; }
   .faq__mark::after  { width: 2px; height: 14px; }

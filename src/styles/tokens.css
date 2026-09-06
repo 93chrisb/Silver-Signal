@@ -1,47 +1,49 @@
 /* ==========================================================================
-   BRAND TOKENS - the only file you edit to re-skin the whole site.
-   Palette sampled from the Silver Signal Partners mark: four nodes, crossed
-   links, navy hub. Steel blues over a pale ground; navy carries every action.
+   BRAND TOKENS — dark, geometric, gradient-accented.
+   Modelled on the BluprintX reference: near-black ground, rounded dark cards,
+   mint and violet accents, bold geometric sans.
    ========================================================================== */
 :root {
-  /* --- Brand ------------------------------------------------------------ */
-  --navy:          #2E5C8A;   /* hub of the mark - primary action colour   */
-  --navy-deep:     #23486B;   /* hover / pressed                           */
-  --navy-ink:      #1B3A57;   /* deepest navy - inverted surfaces          */
-  --steel:         #8CA3BE;   /* mark's outer nodes                        */
-  --steel-line:    #9CB2C9;   /* mark's connecting links                   */
+  /* --- Ground ----------------------------------------------------------- */
+  --bg:            #08090B;   /* page                                       */
+  --bg-raised:     #101216;   /* section bands                              */
+  --card:          #16181D;   /* cards                                      */
+  --card-hover:    #1D2027;
+  --card-inset:    #202329;   /* rows inside cards                          */
+  --light:         #EFEFF6;   /* the occasional light band                  */
 
-  /* --- Surfaces --------------------------------------------------------- */
-  --ground:        #F5F7FA;   /* page background                           */
-  --ground-tint:   #E8EDF3;   /* alternating band, pulled from the artwork */
-  --surface:       #FFFFFF;   /* cards                                     */
-  --surface-ink:   #10202F;   /* inverted sections                         */
+  /* --- Accents ---------------------------------------------------------- */
+  /* Pulled from the Silver Signal mark: steel blue nodes, navy hub.
+     Lightened for legibility on the near-black ground. */
+  --mint:          #7FB0DC;   /* primary accent (steel blue)                */
+  --mint-soft:     #A8CBEA;
+  --violet:        #9DA8E0;   /* periwinkle, the gradient's far end         */
+  --violet-soft:   #C2CCF0;
+  --gradient:      linear-gradient(96deg, #8FC5E8 0%, #8FA6DE 55%, #B6BEEE 100%);
 
   /* --- Text ------------------------------------------------------------- */
-  --ink:           #0F1A24;   /* headings                                  */
-  --ink-body:      #33424F;   /* body copy                                 */
-  --ink-muted:     #64748B;   /* captions, eyebrows                        */
-  --ink-onDark:    #E6EDF5;
+  --ink:           #FFFFFF;
+  --ink-body:      #A9AFB9;
+  --ink-muted:     #6E7683;
+  --ink-onLight:   #12141A;
 
   /* --- Lines ------------------------------------------------------------ */
-  --rule:          #DCE3EC;
-  --rule-strong:   #C3CFDE;
+  --line:          #24272E;
+  --line-strong:   #333741;
 
   /* --- Signal ----------------------------------------------------------- */
-  --positive:      #1F7A5C;
-  --negative:      #A63D4E;
+  --loss:          #E8919D;
+  --gain:          var(--mint);
 
   /* --- Type ------------------------------------------------------------- */
-  --font-display: "Newsreader", "Iowan Old Style", Georgia, serif;
-  --font-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-sans: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
   /* --- Space & shape ---------------------------------------------------- */
-  --container: 1200px;
-  --container-narrow: 760px;
+  --container: 1280px;
   --gutter: clamp(20px, 5vw, 56px);
-  --section-y: clamp(64px, 9vw, 128px);
-  --radius: 4px;
-  --radius-lg: 8px;
-  --shadow: 0 1px 2px rgba(15, 26, 36, .04), 0 8px 24px rgba(15, 26, 36, .06);
+  --section-y: clamp(64px, 8vw, 120px);
+  --radius: 10px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
 }
