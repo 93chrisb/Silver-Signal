@@ -1,0 +1,85 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import { services } from '../../data/site';
+const service = services.find((s) => s.slug === 'rescue')!;
+
+const faqs = [
+  { q: 'How quickly can you start?', a: 'Usually within a week or two. Rescue work is scheduled to start quickly because the whole premise is that waiting is the expensive part.' },
+  { q: 'Do you need our current vendor to cooperate?', a: 'It helps and we will work with them where the relationship is intact. Where it is not, we work from the org, the metadata and the repository. Most of what we need is in the system rather than in somebody\'s head.' },
+  { q: 'What if the diagnosis says the build should be scrapped?', a: 'Then we tell you, in writing, with the reasoning and what starting again would take. That answer is uncomfortable and occasionally it is correct, and you are better off hearing it in week two than in month eight.' },
+  { q: 'Is this just an audit?', a: 'No. An audit hands you a report. Rescue diagnoses and then fixes the things blocking you, inside the same fixed scope. The report is a by-product.' },
+  { q: 'What does it cost?', a: 'Priced per engagement after the diagnosis, because quoting a fix before seeing the org is guesswork. The diagnosis itself is fixed price and small enough that it is not a difficult decision.' },
+  { q: 'Can you stay on afterwards?', a: 'Only if you ask. The service is designed to end. If you decide you want ongoing technical leadership after that, our fractional CTO engagement is a separate conversation with separate pricing.' },
+];
+---
+<ServiceLayout service={service} faqs={faqs} ctaHeading="Tell us what went wrong.">
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">The problem</p>
+      <h2>Something was delivered. It does not work.</h2>
+      <div class="grid grid--2" style="margin-top:2.4rem;">
+        <div>
+          <p>The project was signed eight months ago. It went live, sort of. Half the team is back on the old process, the integration fails most nights, and the last three change requests came back with an estimate that made no sense.</p>
+          <p>Now the vendor relationship is strained, your team has lost confidence, and you have a board asking why the number on the invoice does not match anything they can see working.</p>
+        </div>
+        <div>
+          <p>The first question is not who is at fault. It is whether what exists can be made to work, and what that costs against starting again.</p>
+          <p>You cannot answer that from inside the argument. It needs somebody who reads the org, the metadata and the repository, and reports what they find without a commercial interest in the answer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="wrap">
+      <p class="eyebrow">What you get</p>
+      <h2>A straight diagnosis, then the fix.</h2>
+      <div class="grid grid--2" style="margin-top:2.4rem;">
+        <ul class="ticks">
+          <li><strong>A written diagnosis.</strong> What was built, what works, what does not, and what it will take to get to usable. Specific enough to act on and blunt enough to be useful.</li>
+          <li><strong>The blocking fixes.</strong> The things stopping your team using the system, done inside the agreed scope rather than added to a backlog.</li>
+          <li><strong>Data checked.</strong> Whether the migration did what it claimed, and reconciliation where it did not.</li>
+        </ul>
+        <ul class="ticks">
+          <li><strong>Documentation of what exists.</strong> Usually the first time anyone has written down how the build actually behaves, which is why the changes kept breaking things.</li>
+          <li><strong>A recommendation on the rest.</strong> Fix, rebuild or live with it, with the cost of each and our reasoning on the page.</li>
+          <li><strong>Ammunition for the vendor conversation.</strong> An independent read of what was delivered against what was contracted, if that conversation is still open.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">How it runs</p>
+      <h2>Two to six weeks, then we are gone.</h2>
+      <ol class="stages">
+        <li><span>Week 1</span><div><h3>Diagnose</h3><p>Org, metadata, repository, integrations and interviews with the people trying to use it. Ends with a written report and a scoped fix list you approve before anything else happens.</p></div></li>
+        <li><span>Weeks 2–5</span><div><h3>Fix</h3><p>The approved list, in priority order, deployed in stages. Progress visible weekly, because you have already had enough of finding out at the end.</p></div></li>
+        <li><span>Final week</span><div><h3>Hand back</h3><p>Documentation, deployment history, a walkthrough with your team, and a written note on what we deliberately did not do and why.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--ink">
+    <div class="wrap wrap--narrow">
+      <p class="eyebrow">Fit</p>
+      <h2>Who this is not for.</h2>
+      <ul class="ticks" style="margin-top:1.8rem;">
+        <li>Anyone looking for an expert witness. We will give you an honest technical read; we are not building a legal case.</li>
+        <li>Situations where the decision to rebuild has already been made. Skip this and talk to us about the build itself.</li>
+        <li>Organisations that want the report to reach a conclusion agreed in advance. If we take the work, the findings are the findings.</li>
+        <li>Ongoing support. Rescue ends deliberately. If you want somebody permanently in the seat, that is the fractional CTO engagement.</li>
+      </ul>
+    </div>
+  </section>
+</ServiceLayout>
+
+<style>
+  .stages { list-style: none; margin: 2.4rem 0 0; padding: 0; }
+  .stages li { display: grid; gap: .4rem 2.5rem; padding: 1.9rem 0; border-top: 1px solid var(--rule-strong); }
+  @media (min-width: 820px) { .stages li { grid-template-columns: 130px 1fr; } }
+  .stages span { font-family: var(--font-mono); font-size: .78rem; color: var(--navy); padding-top: .35rem; letter-spacing: .04em; }
+  .stages h3 { margin: 0 0 .5rem; }
+  .stages p { margin: 0; }
+</style>

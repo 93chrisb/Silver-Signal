@@ -1,0 +1,40 @@
+---
+/** Answer-engine surface: plain Q&A in the DOM, matched by FAQPage schema on the page. */
+interface Props { items: { q: string; a: string }[]; heading?: string; }
+const { items, heading = 'Questions we get asked' } = Astro.props;
+---
+<section class="section section--tint">
+  <div class="wrap wrap--narrow">
+    <p class="eyebrow">FAQ</p>
+    <h2>{heading}</h2>
+    <div class="faq">
+      {items.map((item) => (
+        <details class="faq__item">
+          <summary><h3>{item.q}</h3><span class="faq__mark" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p set:html={item.a} /></div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq { border-top: 1px solid var(--rule-strong); margin-top: 2.2rem; }
+  .faq__item { border-bottom: 1px solid var(--rule-strong); }
+  .faq__item summary {
+    display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+    padding: 1.25rem 0; cursor: pointer; list-style: none;
+  }
+  .faq__item summary::-webkit-details-marker { display: none; }
+  .faq__item h3 { margin: 0; font-size: 1.08rem; font-family: var(--font-sans); font-weight: 500; }
+  .faq__mark { position: relative; flex: 0 0 14px; height: 14px; }
+  .faq__mark::before, .faq__mark::after {
+    content: ""; position: absolute; inset: 0; margin: auto;
+    background: var(--navy); transition: opacity .16s ease;
+  }
+  .faq__mark::before { width: 14px; height: 2px; }
+  .faq__mark::after  { width: 2px; height: 14px; }
+  .faq__item[open] .faq__mark::after { opacity: 0; }
+  .faq__a { padding-bottom: 1.4rem; }
+  .faq__a p { margin: 0; color: var(--ink-body); }
+</style>

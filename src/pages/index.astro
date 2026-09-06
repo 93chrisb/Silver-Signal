@@ -1,0 +1,222 @@
+---
+import Base from '../layouts/Base.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { services, site } from '../data/site';
+
+const faqs = [
+  {
+    q: 'Are you a Salesforce partner?',
+    a: 'No. We are an independent consultancy that builds on Salesforce. That means no reseller margin on your licences and no pressure to expand your contract, because we do not earn anything when you buy more of it.',
+  },
+  {
+    q: 'How small is too small?',
+    a: 'If you have fewer than about ten people in Salesforce, most of what we do is more machinery than you need. Say so on the call and we will point you at something cheaper.',
+  },
+  {
+    q: 'Do you work with our existing admin or agency?',
+    a: 'Usually, yes. An in-house admin who knows the business is the most valuable person in the room. We tend to unblock that person rather than replace them.',
+  },
+  {
+    q: 'What happens when the engagement ends?',
+    a: 'You get the org, the documentation, the deployment history and a walkthrough with whoever is picking it up. Nothing is locked to us and there is no managed-service contract you have to sign to keep it running.',
+  },
+  {
+    q: 'Which clouds do you work in?',
+    a: 'Sales Cloud, Service Cloud, Marketing Cloud and Experience Cloud, plus the integration work around them. We organise by the problem you have rather than by the licence you bought.',
+  },
+];
+
+const schema = [
+  {
+    '@type': 'FAQPage',
+    '@id': `${site.url}/#faq`,
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+];
+---
+<Base
+  title="Silver Signal Partners | Salesforce Consulting for Revenue Teams"
+  description="Independent Salesforce consultancy. We fix the CRM your pipeline runs on, then hand it back working. Speed to lead, implementation, fractional CTO, rescue."
+  schema={schema}
+>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Salesforce-led revenue systems</p>
+      <h1>You bought Salesforce.<br />Nobody owns it.</h1>
+      <p class="lede hero__lede">
+        Pipeline numbers nobody trusts. Reps keeping their real forecast in a spreadsheet.
+        An admin who left eighteen months ago and took the context with them. We fix the
+        system underneath your revenue, then hand it back and get out of the way.
+      </p>
+      <p class="hero__actions">
+        <a href={site.booking} class="btn">Book a 30 minute call</a>
+        <a href="#services" class="btn btn--ghost">See how we work</a>
+      </p>
+      <dl class="hero__meta">
+        <div><dt>Practice</dt><dd>Salesforce and applied AI</dd></div>
+        <div><dt>Engagements</dt><dd>Fixed scope, with an end date</dd></div>
+        <div><dt>Status</dt><dd>Independent. No licence resale</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" id="problem">
+    <div class="wrap">
+      <p class="eyebrow">01 — Where it breaks</p>
+      <h2>The software is fine. The build is the problem.</h2>
+      <p class="lede" style="margin-bottom:3rem;">
+        Almost nobody calls us because Salesforce does not work. They call because of what
+        three years of small decisions did to it.
+      </p>
+      <div class="grid grid--3">
+        <div class="card">
+          <h3>Data your team works around</h3>
+          <p>Three fields that mean the same thing and one that used to. Required fields filled with a full stop to get past the validation rule. By Friday somebody is rebuilding the forecast by hand in Excel, which is the real forecast.</p>
+        </div>
+        <div class="card">
+          <h3>Process that lives in people's heads</h3>
+          <p>Routing that made sense when there were four reps. Handoffs that happen in a direct message. One person who knows why the automation fires on Tuesdays, and they are on annual leave.</p>
+        </div>
+        <div class="card">
+          <h3>A backlog with no owner</h3>
+          <p>Requests queued behind a part-time admin. Integrations that fail quietly and get noticed a fortnight later. Changes deployed straight into production because nobody set up a sandbox flow that anyone would use.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint" id="services">
+    <div class="wrap">
+      <p class="eyebrow">02 — Services</p>
+      <h2>Four ways to bring us in.</h2>
+      <p class="lede" style="margin-bottom:3rem;">
+        Each one is scoped before it starts and each one has an end. Pick by the problem
+        in front of you, not by the licence you happen to hold.
+      </p>
+      <div class="grid grid--2">
+        {services.map((s) => <ServiceCard service={s} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="proof">
+    <div class="wrap">
+      <p class="eyebrow">03 — Proof</p>
+      <h2>Six hours to four minutes.</h2>
+      <div class="proof">
+        <div>
+          <p>
+            A US personal injury firm running seven figures a year through Google Ads. High
+            intent leads arriving every day and landing in a shared inbox. First response took
+            six hours on average, and by then the caller had already retained somebody else.
+            Marketing could see it in the numbers. Operations had no way to fix it.
+          </p>
+          <p>
+            We rebuilt intake inside Salesforce: qualification on arrival, routing straight to
+            a named person's calendar, and one record of the path from ad click to signed
+            retainer. No new headcount.
+          </p>
+          <p class="muted">
+            This is the engagement our speed to lead service was built out of. The mechanics
+            work the same anywhere inbound volume is high and margins per deal are large.
+          </p>
+        </div>
+        <dl class="stats">
+          <div><dt>Time to first response</dt><dd>4 min</dd><span>from six hours</span></div>
+          <div><dt>Appointment conversion</dt><dd>+38%</dd><span>against baseline</span></div>
+          <div><dt>Pipeline, first 12 months</dt><dd>$1.2M</dd><span>attributed</span></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--ink" id="ai">
+    <div class="wrap">
+      <p class="eyebrow">04 — Applied AI</p>
+      <h2>Where we actually use AI.</h2>
+      <p class="lede" style="color:var(--ink-onDark); margin-bottom:2.4rem;">
+        We use Claude daily in delivery. It earns its place in specific, boring parts of the
+        work, and we would rather tell you exactly where than sell you an AI story.
+      </p>
+      <div class="grid grid--2">
+        <ul class="ticks">
+          <li><strong>Migration mapping.</strong> Reading a legacy schema and proposing the field-by-field mapping into the new one. A human signs off every row before anything moves.</li>
+          <li><strong>Apex and Flow scaffolding.</strong> First-draft classes, test classes and coverage against your existing patterns, then reviewed and reworked the same as any other code.</li>
+        </ul>
+        <ul class="ticks">
+          <li><strong>Documentation nobody was ever going to write.</strong> What the automation does, why it exists and what breaks if you change it, produced from the metadata itself.</li>
+          <li><strong>Intake qualification.</strong> Inside products we build for you, where a model reads an inbound enquiry and routes it. Scoped, tested and reversible.</li>
+        </ul>
+      </div>
+      <p class="muted" style="color:var(--steel); margin-top:1.6rem;">
+        No model has unattended write access to your production org. That is a rule, not a preference.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <div class="wrap">
+      <p class="eyebrow">05 — How engagements run</p>
+      <h2>Diagnose, fix, hand back.</h2>
+      <ol class="steps">
+        <li>
+          <span class="steps__n">01</span>
+          <h3>Diagnose</h3>
+          <p>We go through the org, the metadata and the way your team actually works, then tell you what is wrong in writing. Sometimes that report says the problem is not worth the money to fix. You get told that too.</p>
+        </li>
+        <li>
+          <span class="steps__n">02</span>
+          <h3>Fix</h3>
+          <p>Scoped work against an agreed definition of done, built in a sandbox, deployed on a schedule you approve. You see progress weekly rather than at the end.</p>
+        </li>
+        <li>
+          <span class="steps__n">03</span>
+          <h3>Hand back</h3>
+          <p>Documentation, deployment history and a walkthrough with whoever owns it next. The engagement ends. If you want us back later, you ask.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <Faq items={faqs} />
+  <Cta />
+</Base>
+
+<style>
+  .hero { padding-block: clamp(56px, 9vw, 116px) clamp(48px, 7vw, 92px);
+          background: linear-gradient(170deg, var(--ground-tint) 0%, var(--ground) 62%); }
+  .hero h1 { margin-bottom: 1.4rem; }
+  .hero__lede { max-width: 60ch; font-size: clamp(1.12rem, 1.7vw, 1.35rem); }
+  .hero__actions { display: flex; flex-wrap: wrap; gap: .9rem; margin: 2.2rem 0 0; }
+  .hero__meta { display: grid; gap: 1.5rem; margin: 3.4rem 0 0; padding-top: 2rem;
+                border-top: 1px solid var(--rule-strong); }
+  @media (min-width: 760px) { .hero__meta { grid-template-columns: repeat(3, 1fr); } }
+  .hero__meta dt { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .16em;
+                   text-transform: uppercase; color: var(--ink-muted); margin-bottom: .45rem; }
+  .hero__meta dd { margin: 0; font-size: .98rem; color: var(--ink); }
+
+  .proof { display: grid; gap: 3rem; margin-top: 2.6rem; }
+  @media (min-width: 940px) { .proof { grid-template-columns: 1.35fr 1fr; gap: 4rem; } }
+  .stats { margin: 0; display: grid; gap: 0; align-content: start;
+           border-top: 1px solid var(--rule-strong); }
+  .stats > div { padding: 1.5rem 0; border-bottom: 1px solid var(--rule); }
+  .stats dt { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .14em;
+              text-transform: uppercase; color: var(--ink-muted); }
+  .stats dd { margin: .35rem 0 .2rem; font-family: var(--font-display);
+              font-size: clamp(2.2rem, 4vw, 2.9rem); color: var(--navy); line-height: 1; }
+  .stats span { font-size: .84rem; color: var(--ink-muted); }
+
+  .steps { list-style: none; counter-reset: s; margin: 2.6rem 0 0; padding: 0;
+           display: grid; gap: 0; }
+  .steps li { padding: 2rem 0; border-top: 1px solid var(--rule-strong); display: grid; gap: .3rem 2.5rem; }
+  @media (min-width: 820px) { .steps li { grid-template-columns: 90px 1fr; } }
+  .steps__n { font-family: var(--font-mono); font-size: .8rem; color: var(--navy); padding-top: .35rem; }
+  .steps h3 { margin: 0 0 .5rem; }
+  .steps p { margin: 0; }
+</style>

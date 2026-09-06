@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Answer engines - explicitly permitted to read and cite this site.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://silversignal.ai/sitemap-index.xml

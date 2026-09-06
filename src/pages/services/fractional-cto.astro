@@ -1,0 +1,85 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import { services } from '../../data/site';
+const service = services.find((s) => s.slug === 'fractional-cto')!;
+
+const faqs = [
+  { q: 'How is this different from your Rescue engagement?', a: 'Rescue is fixed scope with an end date: one broken thing, fixed, then we leave. Fractional CTO is ongoing and retained. You are buying continuity and judgement over time rather than a specific outcome by a specific date. Companies often start with Rescue and move here afterwards.' },
+  { q: 'How much time do we get?', a: 'Typically one to two days a week, agreed up front. What matters more than the hours is that we are in your planning, in the vendor conversations, and reachable when something breaks at an inconvenient time.' },
+  { q: 'Do you write code?', a: 'Some, when it is the fastest way to unblock something or to set a pattern your team can follow. Most of the value is in the decisions made before anyone writes code, and in the projects that get stopped.' },
+  { q: 'Will you manage our developers or agency?', a: 'Yes. Setting technical direction, reviewing what gets shipped and holding an outside vendor to their statement of work is a large part of the role. Most companies hiring a fractional CTO are really trying to get a grip on an agency relationship.' },
+  { q: 'What if we hire a permanent CTO?', a: 'Then the engagement has done its job. We help you write the role, sit in on interviews if you want, and hand over properly. Building a dependency on us would be a bad outcome for both of us.' },
+  { q: 'How long do engagements usually last?', a: 'Six to eighteen months. Shorter than that and you probably want a fixed-scope engagement instead; much longer and you should be hiring.' },
+];
+---
+<ServiceLayout service={service} faqs={faqs} ctaHeading="Talk through the decision you are stuck on.">
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">The problem</p>
+      <h2>Nobody senior is checking the technical work.</h2>
+      <div class="grid grid--2" style="margin-top:2.4rem;">
+        <div>
+          <p>An agency sends a proposal. It is long, it is confident, and there is nobody on your side who can tell whether the estimate is honest or the architecture is sound. So you approve it, because the alternative is stalling.</p>
+          <p>Six months later the project is late, the scope has moved twice, and the conversation has become about invoices rather than outcomes. That pattern is not bad luck. It is what happens when the buyer has no technical counterpart.</p>
+        </div>
+        <div>
+          <p>You do not need a full-time CTO for this. At your size the role is a few days a month of hard judgement and a few days a week of keeping things honest, and a full-time hire at that level costs more than the problem does.</p>
+          <p>What you need is someone senior who is accountable, in the room for the decisions that cost money, and willing to say a project should be stopped.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="wrap">
+      <p class="eyebrow">What you get</p>
+      <h2>Judgement, on retainer.</h2>
+      <div class="grid grid--2" style="margin-top:2.4rem;">
+        <ul class="ticks">
+          <li><strong>A roadmap tied to the business.</strong> What gets built, in what order, and what gets deliberately left undone this year, with the reasoning written where the board can read it.</li>
+          <li><strong>Architecture decisions with a name on them.</strong> Build against buy, platform choices, integration approach, technical debt worth carrying versus debt worth paying down now.</li>
+          <li><strong>Vendor and agency oversight.</strong> Reading the proposal properly, challenging the estimate, and holding delivery to the statement of work you signed.</li>
+        </ul>
+        <ul class="ticks">
+          <li><strong>Cover for your team.</strong> Code review, design review and an escalation route for engineers or admins currently making senior calls alone.</li>
+          <li><strong>Security and access, looked at on purpose.</strong> Who can reach what, what happens when someone leaves, and where your data actually sits.</li>
+          <li><strong>Hiring.</strong> Writing the role, screening technically and telling you honestly when a candidate is not what the job needs.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">How it runs</p>
+      <h2>A rhythm, not a ticket queue.</h2>
+      <ol class="stages">
+        <li><span>First month</span><div><h3>Get the picture</h3><p>Systems, contracts, team, roadmap and whatever is currently on fire. Ends with a written assessment of what you have, what it costs and what should change first.</p></div></li>
+        <li><span>Weekly</span><div><h3>In the room</h3><p>Planning, vendor calls, reviews and the decisions that would otherwise wait for someone technical to be available. Reachable in between when something breaks.</p></div></li>
+        <li><span>Quarterly</span><div><h3>Step back</h3><p>Roadmap against what actually happened, spend against value, and a straight answer on whether the arrangement still earns its fee.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--ink">
+    <div class="wrap wrap--narrow">
+      <p class="eyebrow">Fit</p>
+      <h2>Who this is not for.</h2>
+      <ul class="ticks" style="margin-top:1.8rem;">
+        <li>Companies that need hands on a keyboard full time. This is a leadership seat, not extra delivery capacity.</li>
+        <li>Teams with a capable technical leader already. Two people holding the same authority helps nobody.</li>
+        <li>Anyone wanting a title on a pitch deck rather than someone involved in decisions.</li>
+        <li>Situations where one specific thing is broken and the rest is fine. That is a Rescue engagement, and it costs less.</li>
+      </ul>
+    </div>
+  </section>
+</ServiceLayout>
+
+<style>
+  .stages { list-style: none; margin: 2.4rem 0 0; padding: 0; }
+  .stages li { display: grid; gap: .4rem 2.5rem; padding: 1.9rem 0; border-top: 1px solid var(--rule-strong); }
+  @media (min-width: 820px) { .stages li { grid-template-columns: 130px 1fr; } }
+  .stages span { font-family: var(--font-mono); font-size: .78rem; color: var(--navy); padding-top: .35rem; letter-spacing: .04em; }
+  .stages h3 { margin: 0 0 .5rem; }
+  .stages p { margin: 0; }
+</style>
