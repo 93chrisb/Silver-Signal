@@ -1,0 +1,28 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0A0A0F"/>
+      <stop offset="100%" stop-color="#12121C"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#4D4DFF" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#4D4DFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <ellipse cx="600" cy="0" rx="520" ry="260" fill="url(#glow)"/>
+  <g stroke="#2C2C36" stroke-width="1">
+    <line x1="0" y1="150" x2="1200" y2="150"/>
+    <line x1="0" y1="480" x2="1200" y2="480"/>
+  </g>
+  <text x="80" y="100" font-family="Geist Mono, ui-monospace, monospace" font-size="14" letter-spacing="3" fill="#6363FF">14 &#8212; RANKED</text>
+  <text x="80" y="300" font-family="-apple-system, Helvetica Neue, Arial, sans-serif" font-weight="700" font-size="46" fill="#F4F4F9" letter-spacing="-1">
+    <tspan x="80" dy="0">Best speed-to-lead solutions</tspan>
+    <tspan x="80" dy="58">for PI firms</tspan>
+  </text>
+  <text x="80" y="560" font-family="Geist Mono, ui-monospace, monospace" font-size="14" letter-spacing="2" fill="#9A9AA4">SILVER SIGNAL &#183; SPEED TO LEAD</text>
+  <g transform="translate(1000,540)">
+    <circle r="34" fill="none" stroke="#4D4DFF" stroke-width="2"/>
+    <text x="0" y="6" font-family="Geist Mono, ui-monospace, monospace" font-size="16" fill="#F4F4F9" text-anchor="middle">&lt;5m</text>
+  </g>
+</svg>

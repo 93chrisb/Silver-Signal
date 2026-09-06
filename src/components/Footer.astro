@@ -16,13 +16,21 @@ const year = new Date().getFullYear();
     <div>
       <h2 class="ftr__h">Start</h2>
       <ul>
+        <li><a href="/contact">Contact</a></li>
         <li><a href={site.booking}>Book a 30 minute call</a></li>
+        <li><a href="/blog">Blog</a></li>
         <li><a href={site.linkedin}>LinkedIn</a></li>
+      </ul>
+      <h2 class="ftr__h" style="margin-top:1.8rem;">Legal</h2>
+      <ul>
+        <li><a href="/privacy">Privacy</a></li>
+        <li><a href="/terms">Terms</a></li>
+        <li><a href="/cookies">Cookies</a></li>
       </ul>
     </div>
   </div>
   <div class="wrap ftr__base">
-    <p class="muted">© {year} {site.name}</p>
+    <p class="muted">© {year} {site.legalName}. {site.address.line2}, {site.address.line3}</p>
     <p class="muted">Salesforce is a trademark of Salesforce, Inc. Silver Signal Partners is an independent consultancy and is not affiliated with or endorsed by Salesforce, Inc.</p>
   </div>
 </footer>

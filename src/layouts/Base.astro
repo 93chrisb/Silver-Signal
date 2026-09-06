@@ -13,6 +13,7 @@ interface Props {
 
 const { title, description, schema = [] } = Astro.props;
 const canonical = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', site.url).href;
+const gaId = site.gaMeasurementId;
 
 // One @graph per page keeps the organisation identity stable and lets answer
 // engines resolve every node against a single publisher.
@@ -24,6 +25,15 @@ const graph = [
     url: site.url,
     logo: `${site.url}/logo.svg`,
     description: site.description,
+    legalName: site.legalName,
+    email: site.email,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: site.address.line2,
+      addressLocality: 'London',
+      postalCode: 'E17 3NU',
+      addressCountry: 'GB',
+    },
     sameAs: [site.linkedin],
   },
   {
@@ -51,7 +61,9 @@ const graph = [
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={site.ogImage} />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content={site.ogImage} />
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -60,6 +72,22 @@ const graph = [
     rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap"
   />
+
+
+  <!-- GA4 with Consent Mode v2. Everything is denied until the visitor accepts
+       in /scripts/site-cookies.js, so no analytics storage is written on first load. -->
+  <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+  <script is:inline define:vars={{ gaId }}>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('consent', 'default', {
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+      analytics_storage: 'denied', wait_for_update: 500,
+    });
+    gtag('config', gaId, { anonymize_ip: true });
+  </script>
+  <script is:inline defer src="/scripts/site-cookies.js"></script>
 
   <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })} />
 </head>

@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# Answer engines - explicitly permitted to read and cite this site.
+# Answer engines are explicitly permitted to read and cite this site.
 User-agent: GPTBot
 Allow: /
 

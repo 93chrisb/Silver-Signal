@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro';
+import { site } from '../../data/site';
+---
+<Base
+  title="You're booked | Silver Signal Partners"
+  description="Your call is confirmed. Here is what happens next."
+>
+  <section class="section">
+    <div class="wrap wrap--narrow">
+      <p class="eyebrow">Confirmed</p>
+      <h1>You're booked.</h1>
+      <p class="lede">
+        A calendar invite is on its way. If it has not arrived in a few minutes, check
+        spam, then email <a href={`mailto:${site.email}`}>{site.email}</a> and we will sort it out.
+      </p>
+
+      <h2 style="margin-top:3rem;">What happens on the call</h2>
+      <ul class="ticks">
+        <li>You describe what is broken. We ask questions rather than present slides.</li>
+        <li>We tell you whether it is worth fixing, and roughly what that takes.</li>
+        <li>If we are not the right people for it, we say so and point you somewhere better.</li>
+      </ul>
+
+      <h2 style="margin-top:2.6rem;">Worth having to hand</h2>
+      <ul class="ticks">
+        <li>Access to the Salesforce org, or a screenshare of it.</li>
+        <li>Whatever the current backlog or project plan looks like.</li>
+        <li>The number somebody is being judged on.</li>
+      </ul>
+
+      <p style="margin-top:2.8rem;"><a class="btn btn--ghost" href="/blog">Read something while you wait</a></p>
+    </div>
+  </section>
+</Base>

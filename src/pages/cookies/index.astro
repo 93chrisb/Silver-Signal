@@ -1,0 +1,46 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Cookie Policy | Silver Signal Partners" description="What cookies this site sets, why, and how to change your choice.">
+  <section class="section">
+    <div class="wrap wrap--narrow">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span aria-hidden="true">/</span><span>Cookie Policy</span>
+      </nav>
+      <div class="prose">
+      <h1>Cookie Policy</h1>
+      <p>Last updated 2026-08-30.</p>
+      <p>Cookies are small pieces of data a website stores in your browser. This page lists everything Silver Signal stores on https://silversignal.ai, why we store it, and how to change your mind.</p>
+      <h2>Your choice</h2>
+      <p>On your first visit a banner appears at the bottom of the page. Accept and we load Google Analytics so we can see how the site performs in aggregate. Decline and no analytics run at all, and nothing about your visit is recorded.</p>
+      <p>To change your answer, clear this site's data in your browser (in Chrome: Settings &rarr; Privacy and security &rarr; Third-party cookies &rarr; See all site data and permissions &rarr; silversignal.ai &rarr; Delete). The banner reappears on your next visit.</p>
+      <h2>What we store ourselves</h2>
+      <ul>
+      <li><strong><code>ss_cookie_pref_v1</code></strong> &mdash; a single value in your browser's local storage (technically not a cookie, but the same idea) recording whether you accepted or declined. It stays on your device until you clear site data, and it is never sent to us.</li>
+      </ul>
+      <h2>Third-party cookies, only if you accept</h2>
+      <p>If you click Accept, Google Analytics 4 loads and sets these cookies from Google:</p>
+      <ul>
+      <li><strong><code>_ga</code></strong> &mdash; gives your browser a random ID so we can count unique visitors. Expires after 2 years.</li>
+      <li><strong><code>_ga_WNGPJLDX7Y</code></strong> &mdash; holds session state for this property. Expires after 2 years.</li>
+      </ul>
+      <p>We run Analytics with IP anonymisation on and Google Consent Mode enabled, so no analytics storage is used until you accept. Google explains its own handling in its <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>.</p>
+      <h2>What we don't do</h2>
+      <p>No advertising cookies. No cross-site tracking. No retargeting pixels. We don't sell data. If we ever add a marketing tag, we'll update this page and the banner before it goes live.</p>
+      <h2>Blocking analytics yourself</h2>
+      <p>Most browsers can block third-party cookies in their settings. Google also publishes a <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">GA opt-out browser add-on</a>.</p>
+      <h2>Questions</h2>
+      <p>Email <a href="mailto:hello@silversignal.ai">hello@silversignal.ai</a> for anything relating to this policy.</p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .crumbs { display: flex; gap: .6rem; align-items: center; font-size: .82rem;
+            color: var(--ink-muted); margin-bottom: 2.4rem; font-family: var(--font-mono); }
+  .crumbs a { color: var(--ink-muted); text-decoration: none; }
+  .prose :global(h2) { font-size: 1.45rem; margin: 2.4rem 0 .8rem; }
+  .prose :global(ul) { padding-left: 1.3rem; margin: 0 0 1.3rem; }
+  .prose :global(li) { margin-bottom: .45rem; }
+</style>

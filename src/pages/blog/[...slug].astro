@@ -1,0 +1,83 @@
+---
+import Base from '../../layouts/Base.astro';
+import Cta from '../../components/Cta.astro';
+import { getCollection, render } from 'astro:content';
+import { site } from '../../data/site';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const url = `${site.url}/blog/${post.id}/`;
+const fmt = new Date(post.data.date).toLocaleDateString('en-GB', {
+  day: 'numeric', month: 'long', year: 'numeric',
+});
+
+const schema = [
+  {
+    '@type': 'BlogPosting',
+    '@id': `${url}#post`,
+    headline: post.data.title,
+    description: post.data.description,
+    datePublished: post.data.date,
+    author: { '@type': 'Organization', name: post.data.author },
+    publisher: { '@id': `${site.url}/#organization` },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    ...(post.data.image ? { image: `${site.url}${post.data.image}` } : {}),
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${site.url}/blog/` },
+      { '@type': 'ListItem', position: 3, name: post.data.title, item: url },
+    ],
+  },
+];
+---
+<Base title={`${post.data.title} | Silver Signal Partners`} description={post.data.description} schema={schema}>
+  <article class="section">
+    <div class="wrap wrap--narrow">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span aria-hidden="true">/</span>
+        <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+        <span>{post.data.title}</span>
+      </nav>
+      <p class="eyebrow">{fmt}</p>
+      <h1>{post.data.title}</h1>
+      <p class="lede">{post.data.description}</p>
+      <hr class="rule" style="margin:2.6rem 0;" />
+      <div class="prose"><Content /></div>
+      <p class="back"><a href="/blog/">&larr; All writing</a></p>
+    </div>
+  </article>
+  <Cta />
+</Base>
+
+<style>
+  .crumbs { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; font-size: .82rem;
+            color: var(--ink-muted); margin-bottom: 2.4rem; font-family: var(--font-mono); }
+  .crumbs a { color: var(--ink-muted); text-decoration: none; }
+  .crumbs a:hover { color: var(--navy); }
+  .prose :global(h2) { font-size: clamp(1.5rem, 2.6vw, 2rem); margin: 2.6rem 0 .9rem; }
+  .prose :global(h3) { font-size: 1.2rem; margin: 2rem 0 .7rem; }
+  .prose :global(p), .prose :global(li) { font-size: 1.03rem; }
+  .prose :global(ul), .prose :global(ol) { padding-left: 1.3rem; margin: 0 0 1.3rem; }
+  .prose :global(li) { margin-bottom: .5rem; }
+  .prose :global(img) { border-radius: var(--radius-lg); margin: 2rem 0; }
+  .prose :global(blockquote) { margin: 2rem 0; padding-left: 1.4rem;
+    border-left: 3px solid var(--steel); color: var(--ink); font-family: var(--font-display);
+    font-size: 1.2rem; }
+  .prose :global(table) { width: 100%; border-collapse: collapse; margin: 1.8rem 0; font-size: .95rem; }
+  .prose :global(th), .prose :global(td) { text-align: left; padding: .7rem .8rem;
+    border-bottom: 1px solid var(--rule); }
+  .prose :global(th) { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--ink-muted); }
+  .prose :global(code) { font-family: var(--font-mono); font-size: .88em;
+    background: var(--ground-tint); padding: .12em .35em; border-radius: 3px; }
+  .back { margin-top: 3rem; padding-top: 1.6rem; border-top: 1px solid var(--rule); }
+  .back a { text-decoration: none; font-size: .92rem; }
+</style>

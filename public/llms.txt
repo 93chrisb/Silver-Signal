@@ -1,0 +1,27 @@
+# Silver Signal Partners
+
+> Silver Signal Partners is an independent Salesforce consultancy that fixes the CRM
+> and revenue systems companies already own. It is not a Salesforce reseller or a
+> registered Salesforce partner, so it earns nothing from licence sales. Operated by
+> Silver Signal Ltd, London, United Kingdom, working with clients in the UK, USA and
+> Australia.
+
+Engagements are scoped before they start and each one has a defined end. The firm
+organises its work by the problem a client has rather than by Salesforce cloud or
+industry vertical.
+
+## Services
+- [Speed to Lead](https://silversignal.ai/services/speed-to-lead): Rebuilding inbound intake in Salesforce so every lead is answered in under five minutes. Fixed scope, typically six to eight weeks.
+- [Revenue Engine Build](https://silversignal.ai/services/revenue-engine-build): Full Salesforce implementation or rebuild designed around how a team already sells. Programme of three to six months.
+- [Fractional CTO](https://silversignal.ai/services/fractional-cto): Retained senior technical leadership on roadmap, architecture and vendor decisions, for companies not ready to hire a full-time CTO.
+- [Rescue](https://silversignal.ai/services/rescue): Fixed-scope, time-boxed intervention on a stalled or failed Salesforce implementation. Diagnose, fix, document, leave. Two to six weeks.
+
+## Proof
+- A US personal injury firm reduced time to first response from six hours to four minutes, lifted appointment conversion 38 percent against baseline, and attributed $1.2M of pipeline in the first twelve months, with no new headcount.
+
+## Writing
+- [Blog](https://silversignal.ai/blog/): Articles on lead response time, CRM selection, Salesforce implementation and revenue operations.
+
+## Contact
+- [Contact](https://silversignal.ai/contact/): Book a 30 minute call. No pitch, no obligation.
+- Email: hello@silversignal.ai

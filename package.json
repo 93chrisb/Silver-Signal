@@ -1,8 +1,9 @@
 {
-  "name": "silver-signal-partners",
+  "name": "silver-signal-site",
   "type": "module",
-  "version": "1.0.0",
   "private": true,
+  "version": "2.0.0",
+  "description": "Silver Signal Partners marketing site. Astro static build.",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

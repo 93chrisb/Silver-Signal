@@ -1,13 +1,22 @@
 export const site = {
   name: 'Silver Signal Partners',
+  legalName: 'Silver Signal Ltd',
   shortName: 'Silver Signal',
   url: 'https://silversignal.ai',
   tagline: 'Salesforce-led revenue systems.',
   description:
-    'Salesforce consulting for revenue teams. We fix the CRM your pipeline runs on, then hand it back working.',
+    'Independent Salesforce consultancy. We fix the CRM your pipeline runs on, then hand it back working.',
   booking: 'https://cal.com/silver-signal-m0hq3w/30min',
   form: 'https://formspree.io/f/xkoklypl',
+  email: 'hello@silversignal.ai',
   linkedin: 'https://www.linkedin.com/company/silversignal',
+  ogImage: 'https://silversignal.ai/images/og-image.png',
+  gaMeasurementId: 'G-WNGPJLDX7Y',
+  address: {
+    line1: 'Silver Signal Ltd',
+    line2: 'Suite RA01, 195-197 Wood Street',
+    line3: 'London E17 3NU, United Kingdom',
+  },
 };
 
 export type Service = {
@@ -78,6 +87,7 @@ export const services: Service[] = [
 ];
 
 export const nav = [
-  { href: '/', label: 'Home' },
   ...services.map((s) => ({ href: `/services/${s.slug}`, label: s.nav })),
+  { href: '/blog', label: 'Blog' },
+  { href: '/contact', label: 'Contact' },
 ];
