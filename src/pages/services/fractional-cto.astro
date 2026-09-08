@@ -1,7 +1,7 @@
 ---
 import ServiceLayout from '../../layouts/ServiceLayout.astro';
-import { services } from '../../data/site';
-const service = services.find((s) => s.slug === 'fractional-cto')!;
+import { engagements } from '../../data/site';
+const service = engagements.find((s) => s.slug === 'fractional-cto')!;
 
 const faqs = [
   { q: 'How is this different from your Rescue engagement?', a: 'Rescue is fixed scope with an end date: one broken thing, fixed, then we leave. Fractional CTO is ongoing and retained. You are buying continuity and judgement over time rather than a specific outcome by a specific date. Companies often start with Rescue and move here afterwards.' },
@@ -19,12 +19,10 @@ const faqs = [
       <h2>Nobody senior is checking the technical work.</h2>
       <div class="grid grid--2" style="margin-top:2.4rem;">
         <div>
-          <p>An agency sends a proposal. It is long, it is confident, and there is nobody on your side who can tell whether the estimate is honest or the architecture is sound. So you approve it, because the alternative is stalling.</p>
-          <p>Six months later the project is late, the scope has moved twice, and the conversation has become about invoices rather than outcomes. That pattern is not bad luck. It is what happens when the buyer has no technical counterpart.</p>
+          <p>An agency sends a long, confident proposal. Nobody on your side can tell whether the estimate is honest or the architecture is sound. You approve it because stalling is worse. Six months later the project is late and the conversation is about invoices, not outcomes.</p>
         </div>
         <div>
-          <p>You do not need a full-time CTO for this. At your size the role is a few days a month of hard judgement and a few days a week of keeping things honest, and a full-time hire at that level costs more than the problem does.</p>
-          <p>What you need is someone senior who is accountable, in the room for the decisions that cost money, and willing to say a project should be stopped.</p>
+          <p>You don't need a full-time CTO. You need someone senior in the room for the decisions that cost money, accountable for the technical direction, and willing to say a project should be stopped.</p>
         </div>
       </div>
     </div>

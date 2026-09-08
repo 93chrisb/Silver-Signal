@@ -1,7 +1,7 @@
 ---
 import ServiceLayout from '../../layouts/ServiceLayout.astro';
-import { services } from '../../data/site';
-const service = services.find((s) => s.slug === 'revenue-engine-build')!;
+import { engagements } from '../../data/site';
+const service = engagements.find((s) => s.slug === 'revenue-engine-build')!;
 
 const faqs = [
   { q: 'Is this a new build or a rebuild?', a: 'Both, and the second is more common. Most companies calling us already own Salesforce and are living with a configuration that no longer matches how they sell. We keep whatever still earns its place.' },
@@ -19,12 +19,10 @@ const faqs = [
       <h2>Configured for a demo, not for your business.</h2>
       <div class="grid grid--2" style="margin-top:2.4rem;">
         <div>
-          <p>Most Salesforce builds get designed around the platform instead of the company. The stages come from a template. The fields come from whatever the last consultant had handy. Six months later the process on screen and the process in the room have quietly stopped being the same thing.</p>
-          <p>Reps adapt. They keep the real pipeline somewhere else and fill in Salesforce on Thursday afternoon so the dashboard looks acceptable. Now you are paying for a system of record that records fiction.</p>
+          <p>Most builds get designed around the platform, not the company. Stages from a template. Fields from whoever the last consultant had handy. The process on screen and the process in the room quietly stop being the same thing.</p>
         </div>
         <div>
-          <p>A rebuild starts from how your team already sells: who touches a deal, what has to be true before it moves, where the handoffs are, and which numbers somebody is actually judged on.</p>
-          <p>Then the configuration follows that. Fewer fields, enforced where it matters, and reporting that means the same thing to sales, finance and the board.</p>
+          <p>A rebuild starts from how your team already sells. Who touches a deal, what has to be true before it moves, which numbers someone is actually judged on. Configuration follows that.</p>
         </div>
       </div>
     </div>
