@@ -1,5 +1,5 @@
 ---
-import { services, site } from '../data/site';
+import { engagements, site } from '../data/site';
 const year = new Date().getFullYear();
 ---
 <footer class="ftr">
@@ -12,8 +12,9 @@ const year = new Date().getFullYear();
       <p class="ftr__blurb">Independent Salesforce consultancy. We fix the CRM your pipeline runs on, then hand it back working.</p>
     </div>
     <div>
-      <h2 class="ftr__h">Services</h2>
-      <ul>{services.map((s) => <li><a href={`/services/${s.slug}`}>{s.title}</a></li>)}</ul>
+      <h2 class="ftr__h">Engagements</h2>
+      <ul>{engagements.map((s) => <li><a href={`/services/${s.slug}`}>{s.title}</a></li>)}</ul>
+      <p class="ftr__all"><a href="/services">All services &rarr;</a></p>
     </div>
     <div>
       <h2 class="ftr__h">Start</h2>
@@ -52,6 +53,9 @@ const year = new Date().getFullYear();
   .ftr ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
   .ftr ul a { color: var(--ink); text-decoration: none; font-size: .92rem; }
   .ftr ul a:hover { color: var(--mint); }
+  .ftr__all { margin: 1rem 0 0; font-size: .82rem; }
+  .ftr__all a { color: var(--ink-muted); text-decoration: none; }
+  .ftr__all a:hover { color: var(--mint); }
   .ftr__base { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line);
                display: grid; gap: .5rem; }
   .ftr__base .muted { color: var(--ink-muted); margin: 0; font-size: .78rem; }
