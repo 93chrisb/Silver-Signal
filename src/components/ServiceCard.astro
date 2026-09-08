@@ -10,21 +10,15 @@ const { service } = Astro.props;
 </a>
 
 <style>
-  /* Asymmetric radius (6px 0 0 0) is the Ventriloc signature card shape:
-     soft top-left, sharp everywhere else. Surface colour does the lifting,
-     no border, no shadow. */
   .svc {
     display: flex; flex-direction: column; height: 100%;
-    background: var(--card); border: 0; border-radius: var(--radius-asym);
-    padding: clamp(1.8rem, 2.6vw, 2.4rem);
-    text-decoration: none; color: inherit;
-    transition: background .16s ease;
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-lg);
+    padding: clamp(1.5rem, 2.4vw, 2rem); text-decoration: none; color: inherit;
+    transition: border-color .16s ease, box-shadow .16s ease, transform .16s ease;
   }
-  .svc:hover { background: var(--card-hover); }
-  .svc h3 { margin: 0 0 .8rem; color: var(--ink); }
+  .svc:hover { border-color: var(--line-strong); box-shadow: var(--shadow); transform: translateY(-2px); }
+  .svc h3 { margin: 0 0 .7rem; }
   .svc__sum { color: var(--ink-body); font-size: .96rem; margin: 0 0 1.4rem; flex: 1; }
-  .svc__more { margin: 0; color: var(--ink); font-size: .9rem; font-weight: 500;
-               text-decoration: underline; text-decoration-color: var(--mint);
-               text-underline-offset: 3px; }
+  .svc__more { margin: 0; color: var(--mint); font-size: .9rem; font-weight: 500; }
   .svc:hover .svc__more span { padding-left: 4px; transition: padding .16s ease; }
 </style>

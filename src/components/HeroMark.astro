@@ -1,112 +1,60 @@
 ---
-/* Ventriloc-style data card cluster. The charts ARE the imagery.
-   A line chart card, a stat card, and a ring card overlap on the warm
-   canvas, showing the numbers Silver Signal fixes. Ember Orange and Brass
-   are the only chromatic accents. */
+/* Enlarged, layered version of the Silver Signal mark: four nodes, crossed
+   links, a lit hub. Fills the hero the way the reference site's 3D render does,
+   without inventing brand imagery that doesn't exist yet. */
 ---
 <div class="mark" aria-hidden="true">
-  <!-- Line chart card -->
-  <div class="mark__card mark__card--chart">
-    <div class="mark__row">
-      <span class="mark__k">Response time</span>
-      <span class="mark__delta">-96%</span>
-    </div>
-    <svg viewBox="0 0 320 140" role="presentation" class="mark__chart">
-      <defs>
-        <linearGradient id="fillEmber" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#ff682c" stop-opacity="0.18" />
-          <stop offset="100%" stop-color="#ff682c" stop-opacity="0" />
-        </linearGradient>
-      </defs>
-      <!-- Grid -->
-      <g stroke="#e8e8e8" stroke-width="1">
-        <line x1="0" y1="35" x2="320" y2="35" />
-        <line x1="0" y1="70" x2="320" y2="70" />
-        <line x1="0" y1="105" x2="320" y2="105" />
-      </g>
-      <!-- Brass (baseline: what we replace) -->
-      <path d="M0 30 C 60 32, 120 40, 180 55 S 280 90, 320 108"
-            fill="none" stroke="#816729" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.7" />
-      <!-- Ember (after the fix) -->
-      <path d="M0 30 C 60 42, 120 58, 180 78 S 280 118, 320 128"
-            fill="url(#fillEmber)" stroke="none" />
-      <path d="M0 30 C 60 42, 120 58, 180 78 S 280 118, 320 128"
-            fill="none" stroke="#ff682c" stroke-width="2" stroke-linecap="round" />
-      <!-- Endpoint dot -->
-      <circle cx="320" cy="128" r="4" fill="#ff682c" />
-    </svg>
-    <div class="mark__legend">
-      <span><i class="dot dot--ember"></i>After</span>
-      <span><i class="dot dot--brass"></i>Before</span>
-    </div>
-  </div>
+  <svg viewBox="0 0 520 460" role="presentation">
+    <defs>
+      <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#7FB0DC" stop-opacity=".38" />
+        <stop offset="55%" stop-color="#8FA6DE" stop-opacity=".10" />
+        <stop offset="100%" stop-color="#08090B" stop-opacity="0" />
+      </radialGradient>
+      <linearGradient id="link" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#8FC5E8" />
+        <stop offset="100%" stop-color="#8FA6DE" />
+      </linearGradient>
+      <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
+        <feGaussianBlur stdDeviation="14" />
+      </filter>
+    </defs>
 
-  <!-- Stat card -->
-  <div class="mark__card mark__card--stat">
-    <span class="mark__k">Pipeline attributed</span>
-    <span class="mark__stat">$1.2M</span>
-    <span class="mark__sub">First 12 months</span>
-  </div>
+    <ellipse cx="260" cy="230" rx="240" ry="210" fill="url(#glow)" />
 
-  <!-- Ring card -->
-  <div class="mark__card mark__card--ring">
-    <svg viewBox="0 0 120 120" role="presentation">
-      <circle cx="60" cy="60" r="46" fill="none" stroke="#e8e8e8" stroke-width="10" />
-      <circle cx="60" cy="60" r="46" fill="none" stroke="#ff682c" stroke-width="10"
-              stroke-linecap="round"
-              stroke-dasharray="289"
-              stroke-dashoffset="80"
-              transform="rotate(-90 60 60)" />
-      <text x="60" y="66" text-anchor="middle"
-            font-family="Inter Tight, system-ui" font-size="24" font-weight="400"
-            fill="#202020" letter-spacing="-0.5">72%</text>
-    </svg>
-    <span class="mark__sub">Conversion lift</span>
-  </div>
+    <!-- outer scaffold -->
+    <g stroke="url(#link)" stroke-width="1.6" opacity=".38" fill="none">
+      <path d="M92 78 L428 78 M92 382 L428 382 M92 78 L428 382 M428 78 L92 382" />
+      <path d="M92 78 L92 382 M428 78 L428 382" opacity=".45" />
+    </g>
+
+    <!-- satellite links into the hub -->
+    <g stroke="url(#link)" stroke-width="1" opacity=".22" fill="none">
+      <path d="M260 230 L160 150 M260 230 L360 150 M260 230 L160 310 M260 230 L360 310" />
+    </g>
+
+    <!-- nodes -->
+    <g fill="#8CA3BE">
+      <circle cx="92" cy="78" r="9" /><circle cx="428" cy="78" r="9" />
+      <circle cx="92" cy="382" r="9" /><circle cx="428" cy="382" r="9" />
+    </g>
+    <g fill="#5E7FA8" opacity=".85">
+      <circle cx="160" cy="150" r="5" /><circle cx="360" cy="150" r="5" />
+      <circle cx="160" cy="310" r="5" /><circle cx="360" cy="310" r="5" />
+    </g>
+
+    <!-- hub -->
+    <circle cx="260" cy="230" r="46" fill="#7FB0DC" opacity=".22" filter="url(#soft)" />
+    <circle cx="260" cy="230" r="30" fill="#1B3A57" stroke="#7FB0DC" stroke-width="2.5" />
+    <circle cx="260" cy="230" r="10" fill="#DCEBFA" />
+  </svg>
 </div>
 
 <style>
-  .mark {
-    position: relative; width: 100%; max-width: 520px; margin-inline: auto;
-    min-height: 380px;
-  }
-  .mark__card {
-    background: #fff; border-radius: 20px; padding: 1.2rem 1.4rem;
-    position: absolute;
-  }
-  .mark__card--chart { top: 0; left: 0; right: 40px; }
-  .mark__card--stat { bottom: 24px; left: 24px; width: 200px; }
-  .mark__card--ring { bottom: 0; right: 0; width: 168px; text-align: center;
-                      display: flex; flex-direction: column; align-items: center; gap: .6rem;
-                      padding: 1.2rem; }
-  .mark__card--ring svg { width: 110px; height: 110px; }
-
-  .mark__row { display: flex; align-items: baseline; justify-content: space-between;
-               margin-bottom: .6rem; }
-  .mark__k { font-family: var(--font-body); font-size: .68rem; letter-spacing: .18em;
-             text-transform: uppercase; color: var(--ink-muted); font-weight: 500; }
-  .mark__delta { font-family: var(--font-sans); font-size: 1rem; color: var(--mint);
-                 letter-spacing: -0.01em; }
-  .mark__chart { width: 100%; height: auto; }
-  .mark__legend { display: flex; gap: 1.2rem; margin-top: .6rem;
-                  font-family: var(--font-body); font-size: .72rem;
-                  color: var(--ink-body); letter-spacing: .02em; }
-  .mark__legend span { display: inline-flex; align-items: center; gap: .4rem; }
-  .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
-  .dot--ember { background: var(--mint); }
-  .dot--brass { background: var(--violet); }
-
-  .mark__stat { display: block; font-family: var(--font-sans); font-weight: 400;
-                font-size: 2.4rem; color: var(--ink); line-height: 1;
-                letter-spacing: -0.03em; margin: .8rem 0 .4rem; }
-  .mark__sub { display: block; font-family: var(--font-body); font-size: .78rem;
-               color: var(--ink-muted); }
-
-  @media (max-width: 640px) {
-    .mark { min-height: 320px; max-width: 100%; }
-    .mark__card--chart { right: 0; }
-    .mark__card--stat { width: 160px; }
-    .mark__card--ring { width: 140px; }
-    .mark__card--ring svg { width: 90px; height: 90px; }
+  .mark { width: 100%; max-width: 560px; margin-inline: auto; }
+  .mark svg { width: 100%; height: auto; }
+  @media (prefers-reduced-motion: no-preference) {
+    .mark svg { animation: drift 14s ease-in-out infinite; }
+    @keyframes drift { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
   }
 </style>

@@ -1,54 +1,49 @@
 /* ==========================================================================
-   BRAND TOKENS — Ventriloc: editorial data observatory on warm paper.
-   Warm-grey surfaces, graphite text, a single Ember Orange for punctuation.
-   Existing var names kept so every consumer picks up the new palette
-   without a rename pass.
+   BRAND TOKENS — dark, geometric, gradient-accented.
+   Modelled on the BluprintX reference: near-black ground, rounded dark cards,
+   mint and violet accents, bold geometric sans.
    ========================================================================== */
 :root {
   /* --- Ground ----------------------------------------------------------- */
-  --bg:            #ffffff;   /* page canvas (was near-black)              */
-  --bg-raised:     #efefef;   /* Ash — section bands, alt surfaces         */
-  --card:          #efefef;   /* Ash — cards float on canvas               */
-  --card-hover:    #e8e8e8;
-  --card-inset:    #f5f5f5;   /* Fog — rows inside cards                   */
-  --light:         #ebe6dd;   /* Ivory — warm accent wash                  */
+  --bg:            #08090B;   /* page                                       */
+  --bg-raised:     #101216;   /* section bands                              */
+  --card:          #16181D;   /* cards                                      */
+  --card-hover:    #1D2027;
+  --card-inset:    #202329;   /* rows inside cards                          */
+  --light:         #EFEFF6;   /* the occasional light band                  */
 
   /* --- Accents ---------------------------------------------------------- */
-  /* Ember Orange is punctuation only: link underlines, chart highlights,
-     small icon accents. Never a filled CTA. Brass is the muted counterpoint
-     for secondary strokes and stat callouts. */
-  --mint:          #ff682c;   /* Ember Orange (was steel blue)             */
-  --mint-soft:     #ff8451;
-  --violet:        #816729;   /* Brass                                     */
-  --violet-soft:   #a68a4a;
-  --gradient:      #ff682c;   /* flatten to a single accent, not a fill    */
+  /* Pulled from the Silver Signal mark: steel blue nodes, navy hub.
+     Lightened for legibility on the near-black ground. */
+  --mint:          #7FB0DC;   /* primary accent (steel blue)                */
+  --mint-soft:     #A8CBEA;
+  --violet:        #9DA8E0;   /* periwinkle, the gradient's far end         */
+  --violet-soft:   #C2CCF0;
+  --gradient:      linear-gradient(96deg, #8FC5E8 0%, #8FA6DE 55%, #B6BEEE 100%);
 
   /* --- Text ------------------------------------------------------------- */
-  --ink:           #202020;   /* Graphite                                  */
-  --ink-body:      #4d4d4d;   /* Steel                                     */
-  --ink-muted:     #828282;   /* Slate                                     */
-  --ink-onLight:   #202020;
+  --ink:           #FFFFFF;
+  --ink-body:      #A9AFB9;
+  --ink-muted:     #6E7683;
+  --ink-onLight:   #12141A;
 
   /* --- Lines ------------------------------------------------------------ */
-  --line:          #e8e8e8;   /* Mist                                      */
-  --line-strong:   #d5d5d5;
+  --line:          #24272E;
+  --line-strong:   #333741;
 
   /* --- Signal ----------------------------------------------------------- */
-  --loss:          #b85449;   /* muted warm red, harmonises with palette   */
+  --loss:          #E8919D;
   --gain:          var(--mint);
 
   /* --- Type ------------------------------------------------------------- */
-  --font-sans: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  --font-mono: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  --font-code: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --font-sans: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
   /* --- Space & shape ---------------------------------------------------- */
-  --container: 1200px;
-  --gutter: clamp(20px, 5vw, 40px);
-  --section-y: clamp(60px, 8vw, 100px);
-  --radius: 8px;
-  --radius-lg: 8px;
-  --radius-pill: 200px;
-  --radius-asym: 6px 0 0 0;
+  --container: 1280px;
+  --gutter: clamp(20px, 5vw, 56px);
+  --section-y: clamp(64px, 8vw, 120px);
+  --radius: 10px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
 }
