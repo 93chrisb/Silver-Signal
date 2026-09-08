@@ -6,7 +6,7 @@ export const site = {
   tagline: 'Salesforce-led revenue systems.',
   description:
     'Independent Salesforce consultancy. We fix the CRM your pipeline runs on, then hand it back working.',
-  booking: 'https://cal.com/silver-signal-m0hq3w/30min',
+  booking: 'https://cal.com/silversignal/audit',
   form: 'https://formspree.io/f/xkoklypl',
   email: 'hello@silversignal.ai',
   linkedin: 'https://www.linkedin.com/company/silversignal',
