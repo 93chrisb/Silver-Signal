@@ -1,0 +1,25 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import { services } from '../../data/site';
+const service = services.find((s) => s.slug === 'health-check')!;
+---
+<ServiceLayout service={service}>
+  <section class="section">
+    <div class="wrap wrap--narrow">
+      <p class="eyebrow">When to bring us in</p>
+      <ul class="rows">
+        <li>You inherited a Salesforce build you did not design.</li>
+        <li>Adoption is slipping and nobody can point at the cause.</li>
+        <li>You need a written baseline before deciding what to invest in next.</li>
+      </ul>
+
+      <p class="eyebrow" style="margin-top:2.6rem;">What you get</p>
+      <ul class="rows">
+        <li>Structured review across configuration, security, data quality and adoption.</li>
+        <li>A written report you can share with the board.</li>
+        <li>Prioritised remediation plan with rough sizing.</li>
+        <li>A follow-up call to walk through it.</li>
+      </ul>
+    </div>
+  </section>
+</ServiceLayout>

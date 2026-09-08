@@ -1,0 +1,25 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import { services } from '../../data/site';
+const service = services.find((s) => s.slug === 'migration')!;
+---
+<ServiceLayout service={service}>
+  <section class="section">
+    <div class="wrap wrap--narrow">
+      <p class="eyebrow">When to bring us in</p>
+      <ul class="rows">
+        <li>You are moving from HubSpot, Dynamics, Zoho, Pipedrive or a legacy system.</li>
+        <li>You have years of history you cannot afford to lose or mangle.</li>
+        <li>A previous migration attempt went sideways and you are rebuilding trust in the data.</li>
+      </ul>
+
+      <p class="eyebrow" style="margin-top:2.6rem;">What you get</p>
+      <ul class="rows">
+        <li>A migration plan treated as its own workstream, not tacked onto the build.</li>
+        <li>Field mapping, cleansing rules and staged loads.</li>
+        <li>Full reconciliation against source, in writing.</li>
+        <li>A cutover you can sign off on.</li>
+      </ul>
+    </div>
+  </section>
+</ServiceLayout>

@@ -1,0 +1,25 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import { services } from '../../data/site';
+const service = services.find((s) => s.slug === 'ui-ux-design')!;
+---
+<ServiceLayout service={service}>
+  <section class="section">
+    <div class="wrap wrap--narrow">
+      <p class="eyebrow">When to bring us in</p>
+      <ul class="rows">
+        <li>Users complain about the interface and adoption is suffering.</li>
+        <li>You inherited a build that "works" but nobody wants to use.</li>
+        <li>You are launching to end-users and want the first impression to land.</li>
+      </ul>
+
+      <p class="eyebrow" style="margin-top:2.6rem;">What you get</p>
+      <ul class="rows">
+        <li>User interviews and workflow analysis on real tasks, not personas.</li>
+        <li>Page layout, Lightning App Builder and record page redesign.</li>
+        <li>Custom LWC components where the standard UI cannot get there.</li>
+        <li>A design that reduces clicks, not multiplies them.</li>
+      </ul>
+    </div>
+  </section>
+</ServiceLayout>

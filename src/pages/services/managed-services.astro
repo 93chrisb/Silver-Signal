@@ -1,0 +1,25 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import { services } from '../../data/site';
+const service = services.find((s) => s.slug === 'managed-services')!;
+---
+<ServiceLayout service={service}>
+  <section class="section">
+    <div class="wrap wrap--narrow">
+      <p class="eyebrow">When to bring us in</p>
+      <ul class="rows">
+        <li>Your org is live and drifting because nobody has time to maintain it.</li>
+        <li>Small change requests keep queuing behind bigger priorities.</li>
+        <li>You need release management without hiring a full team for it.</li>
+      </ul>
+
+      <p class="eyebrow" style="margin-top:2.6rem;">What you get</p>
+      <ul class="rows">
+        <li>A retained monthly agreement with defined hours and response times.</li>
+        <li>Admin, minor development and integration support.</li>
+        <li>Release and deployment management on a schedule you can plan around.</li>
+        <li>Quarterly roadmap review, so the org actually moves forward.</li>
+      </ul>
+    </div>
+  </section>
+</ServiceLayout>

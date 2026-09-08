@@ -1,8 +1,8 @@
 ---
 import ServiceLayout from '../../layouts/ServiceLayout.astro';
 import LeakCalculator from '../../components/LeakCalculator.astro';
-import { services } from '../../data/site';
-const service = services.find((s) => s.slug === 'speed-to-lead')!;
+import { engagements } from '../../data/site';
+const service = engagements.find((s) => s.slug === 'speed-to-lead')!;
 
 const faqs = [
   { q: 'How fast is fast enough?', a: 'Under five minutes from form submission to a human conversation. The research behind that threshold is old and well replicated: contact rates fall off a cliff somewhere in the first ten minutes and keep falling. The exact number matters less than the fact that yours is currently measured in hours.' },
