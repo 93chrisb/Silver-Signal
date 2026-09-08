@@ -23,18 +23,20 @@ const { items, heading = 'Questions we get asked' } = Astro.props;
   .faq__item { border-bottom: 1px solid var(--line-strong); }
   .faq__item summary {
     display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
-    padding: 1.25rem 0; cursor: pointer; list-style: none;
+    padding: 1.4rem 0; cursor: pointer; list-style: none;
   }
   .faq__item summary::-webkit-details-marker { display: none; }
-  .faq__item h3 { margin: 0; font-size: 1.08rem; font-family: var(--font-sans); font-weight: 500; }
+  .faq__item h3 { margin: 0; font-size: 1.05rem; font-family: var(--font-sans);
+                  font-weight: 400; letter-spacing: -0.01em; color: var(--ink); }
   .faq__mark { position: relative; flex: 0 0 14px; height: 14px; }
   .faq__mark::before, .faq__mark::after {
     content: ""; position: absolute; inset: 0; margin: auto;
-    background: var(--mint); transition: opacity .16s ease;
+    background: var(--ink); transition: opacity .16s ease;
   }
   .faq__mark::before { width: 14px; height: 2px; }
   .faq__mark::after  { width: 2px; height: 14px; }
   .faq__item[open] .faq__mark::after { opacity: 0; }
+  .faq__item[open] .faq__mark::before { background: var(--mint); }
   .faq__a { padding-bottom: 1.4rem; }
   .faq__a p { margin: 0; color: var(--ink-body); }
 </style>
