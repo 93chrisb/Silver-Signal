@@ -9,10 +9,19 @@ interface Props {
   description: string;
   /** Extra JSON-LD graph nodes for this page (Service, FAQPage, BreadcrumbList). */
   schema?: Record<string, unknown>[];
+  /** Set on post-conversion / thank-you pages so crawlers skip them. */
+  noindex?: boolean;
 }
 
-const { title, description, schema = [] } = Astro.props;
-const canonical = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', site.url).href;
+const { title, description, schema = [], noindex = false } = Astro.props;
+
+// Vercel serves every URL with a trailing slash (vercel.json trailingSlash:true).
+// The canonical has to match, or the /contact -> /contact/ 308 makes canonicals
+// point at a redirect that bounces back to the page — a contradiction crawlers
+// ignore. Root stays "/".
+const rawPath = Astro.url.pathname || '/';
+const canonicalPath = rawPath === '/' ? '/' : (rawPath.endsWith('/') ? rawPath : `${rawPath}/`);
+const canonical = new URL(canonicalPath, site.url).href;
 const gaId = site.gaMeasurementId;
 
 // One @graph per page keeps the organisation identity stable and lets answer
@@ -54,6 +63,7 @@ const graph = [
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
+  {noindex && <meta name="robots" content="noindex,follow" />}
   <meta name="theme-color" content="#08090B" />
 
   <meta property="og:type" content="website" />
