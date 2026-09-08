@@ -1,0 +1,25 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import { services } from '../../data/site';
+const service = services.find((s) => s.slug === 'implementation-development')!;
+---
+<ServiceLayout service={service}>
+  <section class="section">
+    <div class="wrap wrap--narrow">
+      <p class="eyebrow">When to bring us in</p>
+      <ul class="rows">
+        <li>You are standing up Salesforce for the first time and want it done properly.</li>
+        <li>You are rebuilding a legacy build that has drifted from how the team actually works.</li>
+        <li>You need custom Apex, LWC or integration work delivered to a professional standard.</li>
+      </ul>
+
+      <p class="eyebrow" style="margin-top:2.6rem;">What you get</p>
+      <ul class="rows">
+        <li>Requirements written down and signed off before anyone opens the developer console.</li>
+        <li>Configuration and code in one accountable engagement.</li>
+        <li>Sandbox-first delivery with a release path you approve.</li>
+        <li>Documentation and a handover so the next person can pick it up.</li>
+      </ul>
+    </div>
+  </section>
+</ServiceLayout>

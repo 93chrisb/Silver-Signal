@@ -1,0 +1,25 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import { services } from '../../data/site';
+const service = services.find((s) => s.slug === 'quickstart-packages')!;
+---
+<ServiceLayout service={service}>
+  <section class="section">
+    <div class="wrap wrap--narrow">
+      <p class="eyebrow">When to bring us in</p>
+      <ul class="rows">
+        <li>You need Salesforce useful in weeks, not months.</li>
+        <li>You want a fixed price for a well-defined scope.</li>
+        <li>You are a smaller team without the budget for a full implementation project.</li>
+      </ul>
+
+      <p class="eyebrow" style="margin-top:2.6rem;">What you get</p>
+      <ul class="rows">
+        <li>Fixed scope, fixed price, fixed timeline.</li>
+        <li>Sales, Service or Marketing Cloud stood up with the essentials configured.</li>
+        <li>Training tailored to the workflows we set up.</li>
+        <li>A working system, without the six-month discovery phase.</li>
+      </ul>
+    </div>
+  </section>
+</ServiceLayout>

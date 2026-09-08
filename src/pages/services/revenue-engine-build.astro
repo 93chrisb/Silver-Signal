@@ -1,7 +1,7 @@
 ---
 import ServiceLayout from '../../layouts/ServiceLayout.astro';
-import { services } from '../../data/site';
-const service = services.find((s) => s.slug === 'revenue-engine-build')!;
+import { engagements } from '../../data/site';
+const service = engagements.find((s) => s.slug === 'revenue-engine-build')!;
 
 const faqs = [
   { q: 'Is this a new build or a rebuild?', a: 'Both, and the second is more common. Most companies calling us already own Salesforce and are living with a configuration that no longer matches how they sell. We keep whatever still earns its place.' },
