@@ -21,7 +21,7 @@ const schema = [
 ---
 <Base
   title="Contact | Silver Signal Partners"
-  description="Book an audit. Bring your Salesforce org, a stalled implementation, or the revenue system underneath it."
+  description="Book a 30 minute call about your Salesforce org, a stalled implementation, or the revenue system underneath it."
   schema={schema}
 >
   <section class="section">
@@ -32,7 +32,8 @@ const schema = [
       <p class="eyebrow">Get in touch</p>
       <h1>Thirty minutes, no pitch.</h1>
       <p class="lede" style="max-width:58ch;">
-        Pick a slot below. Bring the org, the backlog, or the problem. A calendar invite arrives immediately.
+        Pick any open slot below. Bring the org, the backlog, or the problem you have
+        stopped being able to describe politely. A calendar invite arrives immediately.
       </p>
 
       <div class="cal-embed" id="cal-inline">
@@ -75,17 +76,17 @@ const schema = [
   })(window, "https://app.cal.com/embed/embed.js", "init");
 
   Cal("init", "30min", { origin: "https://cal.com" });
-  // Light theme matches the redesigned site; Ember Orange is the brand accent.
+  // Dark theme so the widget matches the site rather than loading as a white block.
   Cal.ns["30min"]("inline", {
     elementOrSelector: "#cal-inline",
-    config: { layout: "month_view", theme: "light" },
+    config: { layout: "month_view", theme: "dark" },
     calLink: "silversignal/audit",
   });
   Cal.ns["30min"]("ui", {
-    theme: "light",
+    theme: "dark",
     hideEventTypeDetails: false,
     layout: "month_view",
-    cssVarsPerTheme: { light: { "cal-brand": "#ff682c" } },
+    cssVarsPerTheme: { dark: { "cal-brand": "#7FB0DC" } },
   });
 </script>
 
@@ -96,7 +97,8 @@ const schema = [
   .crumbs a:hover { color: var(--mint); }
 
   .cal-embed { width: 100%; min-height: 760px; margin-top: 2.6rem;
-               border-radius: 20px; overflow: hidden; background: #fff; }
+               border: 1px solid var(--line); border-radius: var(--radius-lg);
+               overflow: hidden; background: var(--card); }
   .cal-embed noscript { display: block; padding: 24px; text-align: center;
                         color: var(--ink-body); font-size: .93rem; }
 
