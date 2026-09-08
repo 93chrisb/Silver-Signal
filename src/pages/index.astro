@@ -4,7 +4,7 @@ import ServiceCard from '../components/ServiceCard.astro';
 import HeroMark from '../components/HeroMark.astro';
 import Faq from '../components/Faq.astro';
 import Cta from '../components/Cta.astro';
-import { services, engagements, site } from '../data/site';
+import { services, site } from '../data/site';
 
 const faqs = [
   {
@@ -94,15 +94,10 @@ const schema = [
   <section class="section section--raised" id="services">
     <div class="wrap">
       <p class="eyebrow">02 — Services</p>
-      <h2>The Salesforce practice.</h2>
-      <p class="lede" style="margin-bottom:3rem;">Nine ways to bring us in, plus outcome-focused engagements when the problem already has a name.</p>
-      <div class="grid grid--3">
-        {services.map((s) => <ServiceCard service={s} />)}
-      </div>
-
-      <p class="eyebrow" style="margin-top:3.6rem;">Specific engagements</p>
+      <h2>Four ways to bring us in.</h2>
+      <p class="lede" style="margin-bottom:3rem;">Each one scoped before it starts. Each one has an end date.</p>
       <div class="grid grid--2">
-        {engagements.map((s) => <ServiceCard service={s} />)}
+        {services.map((s) => <ServiceCard service={s} />)}
       </div>
     </div>
   </section>

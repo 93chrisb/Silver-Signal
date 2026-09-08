@@ -2,9 +2,8 @@
 import Base from '../../layouts/Base.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
 import Cta from '../../components/Cta.astro';
-import { services, engagements, site } from '../../data/site';
+import { services, site } from '../../data/site';
 
-const all = [...services, ...engagements];
 const schema = [
   {
     '@type': 'CollectionPage',
@@ -15,7 +14,7 @@ const schema = [
   },
   {
     '@type': 'ItemList',
-    itemListElement: all.map((s, i) => ({
+    itemListElement: services.map((s, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: s.title,
@@ -33,7 +32,7 @@ const schema = [
 ---
 <Base
   title="Services | Silver Signal Partners"
-  description="Salesforce consulting services: implementation, advisory, managed services, health check, migration, quickstarts, UI/UX, QA and training. Plus outcome-focused engagements."
+  description="Salesforce consulting services: speed to lead, revenue engine build, fractional CTO and rescue engagements for stalled implementations."
   schema={schema}
 >
   <section class="section">
@@ -42,18 +41,10 @@ const schema = [
         <a href="/">Home</a><span aria-hidden="true">/</span><span>Services</span>
       </nav>
       <p class="eyebrow">Services</p>
-      <h1>Salesforce, from every angle you need it.</h1>
-      <p class="lede" style="margin-bottom:3rem;">Pick by the problem, not the licence.</p>
-
-      <div class="grid grid--3">
-        {services.map((s) => <ServiceCard service={s} />)}
-      </div>
-
-      <p class="eyebrow" id="engagements" style="margin-top:4.4rem;">Specific engagements</p>
-      <h2>Outcome-focused, when the problem has a name.</h2>
-      <p class="lede" style="margin-bottom:2.6rem;">Fixed scope. End date. Pick when the shape of the answer is already clear.</p>
+      <h1>Four ways to bring us in.</h1>
+      <p class="lede" style="margin-bottom:3.2rem;">Pick by the problem, not the licence.</p>
       <div class="grid grid--2">
-        {engagements.map((s) => <ServiceCard service={s} />)}
+        {services.map((s) => <ServiceCard service={s} />)}
       </div>
     </div>
   </section>
@@ -62,7 +53,7 @@ const schema = [
 
 <style>
   .crumbs { display: flex; gap: .6rem; align-items: center; font-size: .82rem;
-            color: var(--ink-muted); margin-bottom: 2.4rem; font-family: var(--font-body); }
+            color: var(--ink-muted); margin-bottom: 2.4rem; font-family: var(--font-mono); }
   .crumbs a { color: var(--ink-muted); text-decoration: none; }
   .crumbs a:hover { color: var(--mint); }
 </style>

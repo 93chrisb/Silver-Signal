@@ -1,5 +1,5 @@
 ---
-import { services, engagements, site } from '../data/site';
+import { services, site } from '../data/site';
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const isServices = path.startsWith('/services');
 ---
@@ -22,9 +22,7 @@ const isServices = path.startsWith('/services');
             Services <svg width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
           </a>
           <div class="drop__menu">
-            {services.map((s) => <a href={`/services/${s.slug}`}>{s.nav}</a>)}
-            <p class="drop__label">Specific engagements</p>
-            {engagements.map((s) => <a href={`/services/${s.slug}`}>{s.nav}</a>)}
+            {services.map((s) => <a href={`/services/${s.slug}`}>{s.title}</a>)}
           </div>
         </div>
 
@@ -64,21 +62,16 @@ const isServices = path.startsWith('/services');
   .drop { position: relative; }
   .drop__top { display: inline-flex; align-items: center; gap: .35rem; }
   .drop__menu {
-    position: absolute; top: calc(100% + 1rem); left: -.6rem; min-width: 280px;
+    position: absolute; top: calc(100% + 1rem); left: -.6rem; min-width: 240px;
     background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
     padding: .5rem; display: grid; gap: .1rem;
     opacity: 0; visibility: hidden; transform: translateY(-6px);
     transition: opacity .16s ease, transform .16s ease, visibility .16s;
   }
   .drop:hover .drop__menu, .drop:focus-within .drop__menu { opacity: 1; visibility: visible; transform: none; }
-  .drop__menu a { display: block; padding: .55rem .8rem; border-radius: var(--radius);
-                  color: var(--ink); text-decoration: none; font-size: .9rem; }
+  .drop__menu a { display: block; padding: .6rem .8rem; border-radius: var(--radius);
+                  color: var(--ink); text-decoration: none; font-size: .92rem; }
   .drop__menu a:hover { background: var(--bg-raised); color: var(--mint); }
-  .drop__label {
-    margin: .5rem .8rem .1rem; padding-top: .6rem; border-top: 1px solid var(--line);
-    font-family: var(--font-body); font-size: .64rem; font-weight: 500;
-    letter-spacing: .18em; text-transform: uppercase; color: var(--ink-muted);
-  }
 
   .hdr__cta { padding: 10px 20px; font-size: .9rem; }
   .hdr__burger { display: none; }
@@ -92,8 +85,7 @@ const isServices = path.startsWith('/services');
     .hdr__pill { flex-direction: column; align-items: flex-start; gap: .6rem;
                  border-radius: var(--radius); padding: 1rem 1.2rem; width: 100%; }
     .drop__menu { position: static; opacity: 1; visibility: visible; transform: none;
-                  border: 0; padding: .4rem 0 0 .8rem; background: transparent; min-width: 0; }
-    .drop__label { margin-left: 0; margin-top: .4rem; }
+                  border: 0; padding: .4rem 0 0 .8rem; background: transparent; }
     .hdr__cta { align-self: flex-start; }
   }
 </style>

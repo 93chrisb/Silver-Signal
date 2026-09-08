@@ -1,7 +1,7 @@
 ---
 import ServiceLayout from '../../layouts/ServiceLayout.astro';
-import { engagements } from '../../data/site';
-const service = engagements.find((s) => s.slug === 'rescue')!;
+import { services } from '../../data/site';
+const service = services.find((s) => s.slug === 'rescue')!;
 
 const faqs = [
   { q: 'How quickly can you start?', a: 'Usually within a week or two. Rescue work is scheduled to start quickly because the whole premise is that waiting is the expensive part.' },
