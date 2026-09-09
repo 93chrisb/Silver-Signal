@@ -1,24 +1,31 @@
 ---
 /**
- * Auto-scrolling Salesforce certification badge strip.
+ * Auto-scrolling Salesforce certification hexagon badges.
  *
- * CSS-only marquee: the .track holds the badges twice back-to-back and
- * translates from 0 to -50% forever, so the second half slides in as the
- * first half slides out, no visible seam. Pause on hover, honour
- * prefers-reduced-motion.
+ * These are stylised hex badges in the Salesforce track colour system,
+ * built as inline SVG. Not pixel-perfect copies of the official
+ * Salesforce cert artwork — swap in the real PNGs from Trailhead when
+ * available.
+ *
+ * Marquee mechanics: the badge list is rendered twice back-to-back and
+ * translated 0 → -50% forever, so the second copy slides in as the
+ * first slides out with no visible seam. Pauses on hover; falls back
+ * to a scrollable list when the visitor prefers reduced motion.
  */
-const certs = [
-  'Certified Administrator',
-  'Certified Advanced Administrator',
-  'Certified Sales Cloud Consultant',
-  'Certified Service Cloud Consultant',
-  'Certified Platform Developer I',
-  'Certified Agentforce Specialist',
-  'Certified Data Cloud Consultant',
-  'Certified Marketing Cloud Consultant',
-  'Certified AI Specialist',
-  'Certified Application Architect',
-  'Certified System Architect',
+type Cert = { title: string; line1: string; line2: string; color: string };
+
+const certs: Cert[] = [
+  { title: 'Administrator',                 line1: 'Certified',     line2: 'Administrator',   color: '#00A1E0' },
+  { title: 'Advanced Administrator',        line1: 'Advanced',      line2: 'Administrator',   color: '#00A1E0' },
+  { title: 'Sales Cloud Consultant',        line1: 'Sales Cloud',   line2: 'Consultant',      color: '#F5A623' },
+  { title: 'Service Cloud Consultant',      line1: 'Service Cloud', line2: 'Consultant',      color: '#F5A623' },
+  { title: 'Platform Developer I',          line1: 'Platform',      line2: 'Developer I',     color: '#1B5297' },
+  { title: 'Agentforce Specialist',         line1: 'Agentforce',    line2: 'Specialist',      color: '#0DBFA3' },
+  { title: 'Data Cloud Consultant',         line1: 'Data Cloud',    line2: 'Consultant',      color: '#F5A623' },
+  { title: 'Marketing Cloud Consultant',    line1: 'Marketing',     line2: 'Cloud',           color: '#E85D75' },
+  { title: 'AI Specialist',                 line1: 'AI',            line2: 'Specialist',      color: '#0DBFA3' },
+  { title: 'Application Architect',         line1: 'Application',   line2: 'Architect',       color: '#032D60' },
+  { title: 'System Architect',              line1: 'System',        line2: 'Architect',       color: '#032D60' },
 ];
 ---
 <section class="cert" aria-label="Salesforce certifications held by the practice">
@@ -26,13 +33,30 @@ const certs = [
     <p class="cert__label">Salesforce Certified</p>
     <div class="cert__viewport">
       <ul class="cert__track">
-        {certs.concat(certs).map((name) => (
-          <li class="cert__badge">
-            <svg class="cert__mark" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.6" />
-              <path d="M8 12.5l2.6 2.6L16 9.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+        {certs.concat(certs).map((c, i) => (
+          <li class="cert__badge" title={`Salesforce Certified ${c.title}`}>
+            <svg viewBox="0 0 120 138" role="img" aria-label={`Salesforce Certified ${c.title}`}>
+              <polygon
+                points="60,6 111,34 111,102 60,130 9,102 9,34"
+                fill={c.color}
+                stroke="rgba(255,255,255,0.14)"
+                stroke-width="1.5"
+              />
+              <polygon
+                points="60,6 111,34 111,68 60,40"
+                fill="rgba(255,255,255,0.08)"
+              />
+              <text x="60" y="63" text-anchor="middle"
+                    font-family="Inter Tight, system-ui" font-size="12" font-weight="500"
+                    fill="#ffffff" letter-spacing="0.02em">{c.line1}</text>
+              <text x="60" y="79" text-anchor="middle"
+                    font-family="Inter Tight, system-ui" font-size="12" font-weight="500"
+                    fill="#ffffff" letter-spacing="0.02em">{c.line2}</text>
+              <line x1="34" y1="92" x2="86" y2="92" stroke="rgba(255,255,255,0.35)" stroke-width="1" />
+              <text x="60" y="106" text-anchor="middle"
+                    font-family="Inter Tight, system-ui" font-size="7" font-weight="500"
+                    fill="rgba(255,255,255,0.85)" letter-spacing="0.28em">CERTIFIED</text>
             </svg>
-            <span>{name}</span>
           </li>
         ))}
       </ul>
@@ -59,20 +83,14 @@ const certs = [
   }
   .cert__track {
     list-style: none; margin: 0; padding: 0;
-    display: flex; gap: 14px;
+    display: flex; align-items: center; gap: 26px;
     width: max-content;
-    animation: cert-scroll 46s linear infinite;
+    animation: cert-scroll 55s linear infinite;
   }
   .cert:hover .cert__track { animation-play-state: paused; }
 
-  .cert__badge {
-    display: inline-flex; align-items: center; gap: .55rem;
-    padding: 10px 18px; border-radius: 999px;
-    background: var(--bg-raised); color: var(--ink);
-    font-family: var(--font-sans); font-size: .9rem; font-weight: 400;
-    letter-spacing: -0.01em; white-space: nowrap;
-  }
-  .cert__mark { width: 16px; height: 16px; color: var(--mint); flex: none; }
+  .cert__badge { flex: none; }
+  .cert__badge svg { display: block; width: 92px; height: auto; }
 
   @keyframes cert-scroll {
     from { transform: translateX(0); }
