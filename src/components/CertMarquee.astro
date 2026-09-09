@@ -1,0 +1,86 @@
+---
+/**
+ * Auto-scrolling Salesforce certification badge strip.
+ *
+ * CSS-only marquee: the .track holds the badges twice back-to-back and
+ * translates from 0 to -50% forever, so the second half slides in as the
+ * first half slides out, no visible seam. Pause on hover, honour
+ * prefers-reduced-motion.
+ */
+const certs = [
+  'Certified Administrator',
+  'Certified Advanced Administrator',
+  'Certified Sales Cloud Consultant',
+  'Certified Service Cloud Consultant',
+  'Certified Platform Developer I',
+  'Certified Agentforce Specialist',
+  'Certified Data Cloud Consultant',
+  'Certified Marketing Cloud Consultant',
+  'Certified AI Specialist',
+  'Certified Application Architect',
+  'Certified System Architect',
+];
+---
+<section class="cert" aria-label="Salesforce certifications held by the practice">
+  <div class="wrap cert__wrap">
+    <p class="cert__label">Salesforce Certified</p>
+    <div class="cert__viewport">
+      <ul class="cert__track">
+        {certs.concat(certs).map((name) => (
+          <li class="cert__badge">
+            <svg class="cert__mark" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.6" />
+              <path d="M8 12.5l2.6 2.6L16 9.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span>{name}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cert {
+    padding-block: clamp(28px, 4vw, 44px);
+    background: var(--bg);
+    border-block: 1px solid var(--line);
+  }
+  .cert__wrap { display: grid; gap: 1.1rem; }
+  .cert__label {
+    margin: 0; text-align: center;
+    font-family: var(--font-body); font-size: .68rem; font-weight: 500;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--ink-muted);
+  }
+  .cert__viewport {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+  }
+  .cert__track {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; gap: 14px;
+    width: max-content;
+    animation: cert-scroll 46s linear infinite;
+  }
+  .cert:hover .cert__track { animation-play-state: paused; }
+
+  .cert__badge {
+    display: inline-flex; align-items: center; gap: .55rem;
+    padding: 10px 18px; border-radius: 999px;
+    background: var(--bg-raised); color: var(--ink);
+    font-family: var(--font-sans); font-size: .9rem; font-weight: 400;
+    letter-spacing: -0.01em; white-space: nowrap;
+  }
+  .cert__mark { width: 16px; height: 16px; color: var(--mint); flex: none; }
+
+  @keyframes cert-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cert__track { animation: none; }
+    .cert__viewport { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+  }
+</style>
