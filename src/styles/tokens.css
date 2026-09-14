@@ -14,14 +14,14 @@
   --light:         #ebe6dd;   /* Ivory — warm accent wash                  */
 
   /* --- Accents ---------------------------------------------------------- */
-  /* Ember Orange is punctuation only: link underlines, chart highlights,
-     small icon accents. Never a filled CTA. Brass is the muted counterpoint
-     for secondary strokes and stat callouts. */
-  --mint:          #ff682c;   /* Ember Orange (was steel blue)             */
-  --mint-soft:     #ff8451;
-  --violet:        #816729;   /* Brass                                     */
-  --violet-soft:   #a68a4a;
-  --gradient:      #ff682c;   /* flatten to a single accent, not a fill    */
+  /* Signal Blue is the single accent — link underlines, small icon
+     highlights, the "Signal" in the wordmark. Never a filled CTA.
+     Deep Ocean is the darker counterpoint for secondary strokes. */
+  --mint:          #2879C0;   /* Signal Blue (was ember orange)            */
+  --mint-soft:     #3D8ACF;
+  --violet:        #1E5A8F;   /* Deep Ocean                                */
+  --violet-soft:   #7BA8D6;
+  --gradient:      #2879C0;   /* single accent, no gradient                */
 
   /* --- Text ------------------------------------------------------------- */
   --ink:           #202020;   /* Graphite                                  */

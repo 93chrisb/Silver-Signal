@@ -1,0 +1,68 @@
+---
+import Base from '../../layouts/Base.astro';
+import Cta from '../../components/Cta.astro';
+import { site } from '../../data/site';
+
+const schema = [
+  {
+    '@type': 'AboutPage',
+    '@id': `${site.url}/about/#page`,
+    url: `${site.url}/about/`,
+    name: 'About Silver Signal Partners',
+    about: { '@id': `${site.url}/#organization` },
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+      { '@type': 'ListItem', position: 2, name: 'About', item: `${site.url}/about/` },
+    ],
+  },
+];
+---
+<Base
+  title="About | Silver Signal Partners"
+  description="An independent Salesforce practice, founded on three years running the Salesforce build at Datto through their 2020 NYSE IPO."
+  schema={schema}
+>
+  <section class="section">
+    <div class="wrap wrap--narrow">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span aria-hidden="true">/</span><span>About</span>
+      </nav>
+
+      <p class="eyebrow">About</p>
+      <h1>Salesforce, run by an operator.</h1>
+
+      <p class="lede">
+        I spent three years running the Salesforce build at Datto. When I joined, the org sat at around 1,500 users. By the time Datto listed on the NYSE in 2020, we were closer to 3,000. Every forecast, every deal review, every board number came out of that org.
+      </p>
+
+      <p>
+        Silver Signal came after. A small independent practice that helps smaller teams get Salesforce right the first time, or fix what somebody else got wrong.
+      </p>
+
+      <h2 style="margin-top:2.6rem;">What independent means</h2>
+      <p>
+        We take no partner fees. Our advice does not depend on you buying more licences or expanding your contract. When the honest answer is you do not need this cloud, or stop paying for that add-on, we say it.
+      </p>
+
+      <h2 style="margin-top:2.6rem;">How we work</h2>
+      <p>
+        Every engagement is scoped before it starts. Every engagement has an end date. You keep the org, the documentation, and the deployment history. No managed-services lock-in.
+      </p>
+
+      <p style="margin-top:2.6rem;">
+        <a href={site.booking} class="btn">Book an audit</a>
+      </p>
+    </div>
+  </section>
+  <Cta />
+</Base>
+
+<style>
+  .crumbs { display: flex; gap: .6rem; align-items: center; font-size: .8rem;
+            color: var(--ink-muted); margin-bottom: 2.4rem; font-family: var(--font-body); }
+  .crumbs a { color: var(--ink-muted); text-decoration: none; }
+  .crumbs a:hover { color: var(--mint); }
+</style>
