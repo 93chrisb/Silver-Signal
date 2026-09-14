@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import ServiceCard from '../components/ServiceCard.astro';
+import CertMarquee from '../components/CertMarquee.astro';
 import Faq from '../components/Faq.astro';
 import Cta from '../components/Cta.astro';
 import { services, engagements, site } from '../data/site';
@@ -57,6 +58,8 @@ const schema = [
       </p>
     </div>
   </section>
+
+  <CertMarquee />
 
   <section class="section" id="problem">
     <div class="wrap">
